@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="ji"
+                 name="Java Intro"
+                 start-page="java-introduction.md">
+
+    <toc-element topic="java-introduction.md">
+        <toc-element topic="001-01-Premiers-pas.md"/>
+        <toc-element topic="001-02-Les-variables.md"/>
+        <toc-element topic="001-03-Les-structures-de-controle.md"/>
+        <toc-element topic="001-04-Les-tableaux.md"/>
+        <toc-element topic="001-05-Les-fonctions.md"/>
+        <toc-element topic="001-05-La-classe-Scanner.md"/>
+        <toc-element topic="001-06-objet-String.md"/>
+        <toc-element topic="001-07-La-classe-StringBuilder.md"/>
+        <toc-element topic="001-08-Les-exceptions.md"/>
+    </toc-element>
+    <toc-element topic="02-00-La-POO.md"/>
+    <toc-element topic="003-00-Les-collections.md">
+        <toc-element topic="003-01-Les-streams.md"/>
+    </toc-element>
+    <toc-element topic="004-00-Build-et-organisation-du-code.md">
+        <toc-element topic="004-01-utilisation-de-jar-externes.md">
+            <toc-element topic="004-02-Maven.md"/>
+        </toc-element>
+    </toc-element>
+    <toc-element topic="006-00-Les-fichiers.md"/>
+    <toc-element topic="007-00-Les-bases-de-données.md"/>
+</instance-profile>
