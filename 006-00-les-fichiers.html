@@ -1,0 +1,263 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-23T17:01:14.191486"><title>Les fichiers | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"les-m-thodes-classiques","level":0,"title":"Les méthodes classiques","anchor":"#les-m-thodes-classiques"},{"id":"les-nouvelles-m-thodes","level":0,"title":"Les \"nouvelles\" méthodes","anchor":"#les-nouvelles-m-thodes"},{"id":"les-fichiers-binaires","level":0,"title":"Les fichiers binaires","anchor":"#les-fichiers-binaires"},{"id":"copie-d-un-fichier-binaire-ou-texte","level":0,"title":"Copie d\u0027un fichier binaire ou texte","anchor":"#copie-d-un-fichier-binaire-ou-texte"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les fichiers | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-00-les-fichiers.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les fichiers | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/006-00-les-fichiers.html#webpage",
+    "url": "writerside-documentation/006-00-les-fichiers.html",
+    "name": "Les fichiers | Java Intro",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Java Intro Help"
+}</script><!-- End Schema.org --></head><body data-id="006-00-Les-fichiers" data-main-title="Les fichiers" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="006-00-Les-fichiers" id="006-00-Les-fichiers.md">Les fichiers</h1><p id="z3r0s42_3">Pour lire et &eacute;crire dans des fichiers Java propose plusieurs solutions.</p><section class="chapter"><h2 id="les-m-thodes-classiques" data-toc="les-m-thodes-classiques">Les m&eacute;thodes classiques</h2><section class="chapter"><h3 id="criture" data-toc="criture">&Eacute;criture</h3><p id="z3r0s42_10">La classe <code class="code" id="z3r0s42_15">FileWriter</code> permet d'&eacute;crire du texte dans un fichier.</p><div class="code-block" data-lang="java">
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileWriteExample {
+    public static void main(String[] args) {
+        String filePath = &quot;output.txt&quot;;
+        
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.write(
+                &quot;Bonjour, ceci est une ligne de texte.\n&quot;
+            );
+            writer.write(
+                &quot;Écriture de plusieurs lignes dans un fichier.&quot;
+            );
+            
+            System.out.println(&quot;Écriture terminée !&quot;);
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div><ul class="list _bullet" id="z3r0s42_12"><li class="list__item" id="z3r0s42_16"><p id="z3r0s42_18">Par d&eacute;faut, le contenu pr&eacute;c&eacute;dent du fichier est &eacute;cras&eacute;.</p></li><li class="list__item" id="z3r0s42_17"><p id="z3r0s42_19">Ouvrir la ressource dans le <code class="code" id="z3r0s42_20">try</code> garantit la fermeture automatique du fichier (pas besoin de <code class="code" id="z3r0s42_21">finally</code>).</p></li></ul><section class="chapter"><h4 id="criture-optimis-e-avec-un-tampon" data-toc="criture-optimis-e-avec-un-tampon">&Eacute;criture optimis&eacute;e avec un tampon</h4><p id="z3r0s42_22">La mise en tampon de l'&eacute;criture limite les acc&egrave;s disque et donc am&eacute;liore la performance.</p><div class="code-block" data-lang="java">
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class BufferedWriteExample {
+    public static void main(String[] args) {
+        String filePath = &quot;output.txt&quot;;
+        try (
+            BufferedWriter writer = new BufferedWriter(
+                new FileWriter(filePath)
+            )
+        ) 
+        {
+            writer.write(&quot;Première ligne optimisée.\n&quot;);
+            writer.write(
+                &quot;Deuxième ligne écrite avec BufferedWriter.&quot;
+            );
+            
+            // Ajoute une nouvelle ligne
+            writer.newLine();  
+            
+            System.out.println(
+                &quot;Écriture terminée avec BufferedWriter !&quot;
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section><section class="chapter"><h4 id="ajout-un-fichier-append" data-toc="ajout-un-fichier-append">Ajout &agrave; un fichier (append)</h4><p id="z3r0s42_24">Il suffit de passer <code class="code" id="z3r0s42_26">true</code> en deuxi&egrave;me argument du constructeur de <code class="code" id="z3r0s42_27">FileWriter</code>.</p><div class="code-block" data-lang="java">
+// true active le mode append
+new FileWriter(&quot;output.txt&quot;, true); 
+</div></section></section><section class="chapter"><h3 id="lecture-de-fichiers" data-toc="lecture-de-fichiers">Lecture de fichiers</h3><section class="chapter"><h4 id="lecture-caract-re-par-caract-re" data-toc="lecture-caract-re-par-caract-re">Lecture caract&egrave;re par caract&egrave;re</h4><div class="code-block" data-lang="java">
+import java.io.FileReader;
+import java.io.IOException;
+
+public class FileReadExample {
+    public static void main(String[] args) {
+        String filePath = &quot;output.txt&quot;;
+        try (FileReader reader = new FileReader(filePath)) {
+            int character;
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section><section class="chapter"><h4 id="lecture-avec-un-tampon" data-toc="lecture-avec-un-tampon">Lecture avec un tampon</h4><p id="z3r0s42_31">La classe <code class="code" id="z3r0s42_33">BufferedReader</code> permet de lire ligne par ligne, ce qui est plus efficace.</p><div class="code-block" data-lang="java">
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class BufferedReadExample {
+    public static void main(String[] args) {
+        String filePath = &quot;output.txt&quot;;
+        try (
+            BufferedReader reader = new BufferedReader(
+                new FileReader(filePath)
+            )
+        ) 
+        {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section></section></section><section class="chapter"><h2 id="les-nouvelles-m-thodes" data-toc="les-nouvelles-m-thodes">Les &quot;nouvelles&quot; m&eacute;thodes</h2><p id="z3r0s42_34">Depuis Java 7, il est possible de lire et d'&eacute;crire dans un fichier avec une syntaxe simplifi&eacute;e en utilisant le package <code class="code" id="z3r0s42_37">nio</code> (new IO).</p><section class="chapter"><h3 id="criture_1" data-toc="criture_1">&Eacute;criture</h3><div class="code-block" data-lang="java">
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+
+public class FilesWriteExample {
+    public static void main(String[] args) {
+        String filePath = &quot;output.txt&quot;;
+        List&lt;String&gt; lines = List.of(&quot;Ligne 1&quot;, &quot;Ligne 2&quot;, &quot;Ligne 3&quot;);
+        try {
+            Files.write(
+                Paths.get(filePath), 
+                lines, 
+                StandardCharsets.UTF_8
+            );
+            System.out.println(&quot;Écriture terminée avec Files.write() !&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section><section class="chapter"><h3 id="lecture" data-toc="lecture">Lecture</h3><p id="z3r0s42_39">Pour la lecture, <code class="code" id="z3r0s42_41">nio</code> permet le chargement de l'ensemble du fichier dans une liste de cha&icirc;nes.</p><div class="code-block" data-lang="java">
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
+public class FilesReadExample {
+    public static void main(String[] args) {
+        String filePath = &quot;output.txt&quot;;
+        try {
+            List&lt;String&gt; lines = Files.readAllLines(
+                Paths.get(filePath)
+            );
+            for (String line : lines) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="les-fichiers-binaires" data-toc="les-fichiers-binaires">Les fichiers binaires</h2><p id="z3r0s42_42">Pour lire ou &eacute;crire du contenu binaire, il faut utiliser les classe <code class="code" id="z3r0s42_45">FileInputStream</code> et <code class="code" id="z3r0s42_46">FileOutputStream</code>.</p><section class="chapter"><h3 id="criture-de-contenu-binaire" data-toc="criture-de-contenu-binaire">&Eacute;criture de contenu binaire</h3><div class="code-block" data-lang="java">
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class BinaryFileWrite {
+    public static void main(String[] args) {
+        String filePath = &quot;binary.dat&quot;;
+        byte[] data = {65, 66, 67, 68, 69}; // ASCII : A, B, C, D, E
+
+        try (FileOutputStream fos = new FileOutputStream(filePath)) {
+            fos.write(data);
+            System.out.println(&quot;Fichier binaire écrit avec succès !&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div><p id="z3r0s42_48">Il est &eacute;galement possible d'ajouter un tampon pour am&eacute;liorer la performance en utilisant la classe `BufferedOutputStream. L'&eacute;criture s'effectuera par bloc plut&ocirc;t qu'octet par octet.</p><div class="code-block" data-lang="java">
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class BufferedBinaryWrite {
+    public static void main(String[] args) {
+        String filePath = &quot;binary.dat&quot;;
+        byte[] data = {73, 74, 75}; // ASCII : I, J, K
+
+        try (
+            BufferedOutputStream bos = new BufferedOutputStream(
+                new FileOutputStream(filePath, true)
+            )
+        ) 
+        {
+            bos.write(data);
+            System.out.println(&quot;Écriture optimisée avec BufferedOutputStream !&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section><section class="chapter"><h3 id="lecture-de-contenu-binaire" data-toc="lecture-de-contenu-binaire">Lecture de contenu binaire</h3><div class="code-block" data-lang="java">
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class BinaryReadExample {
+    public static void main(String[] args) {
+        String filePath = &quot;binary.dat&quot;;
+        try (FileInputStream fis = new FileInputStream(filePath)) {
+            int byteData;
+            while ((byteData = fis.read()) != -1) {
+                System.out.print((char) byteData);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+</div><p id="z3r0s42_51">Comme pour l'&eacute;criture, il est possible d'utiliser un tampon.</p><div class="code-block" data-lang="java">
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class BufferedBinaryRead {
+    public static void main(String[] args) {
+        String filePath = &quot;binary.dat&quot;; // Fichier binaire à lire
+
+        try (
+            BufferedInputStream bis = new BufferedInputStream(
+                new FileInputStream(filePath)
+            )
+        ) 
+        {
+            int byteData;
+            while ((byteData = bis.read()) != -1) {
+                // Affiche chaque octet
+                System.out.print(byteData + &quot; &quot;); 
+            }
+            System.out.println(&quot;\nLecture terminée !&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="copie-d-un-fichier-binaire-ou-texte" data-toc="copie-d-un-fichier-binaire-ou-texte">Copie d'un fichier binaire ou texte</h2><div class="code-block" data-lang="java">
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+
+public class FilesCopyExample {
+    public static void main(String[] args) {
+        Path sourcePath = Path.of(&quot;source.txt&quot;);
+        Path destinationPath = Path.of(&quot;destination.txt&quot;);
+
+        try {
+            Files.copy(
+                sourcePath, 
+                destinationPath, 
+                StandardCopyOption.REPLACE_EXISTING
+            );
+            System.out.println(&quot;Fichier copié avec Files.copy() !&quot;);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section><div class="last-modified">Last modified: 23 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="004-02-maven.html" class="navigation-links__prev">Maven</a><a href="007-00-les-bases-de-données.html" class="navigation-links__next">Les bases de donn&eacute;es</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-23T17:01:14.191954"><title>Les streams | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"filtrer","level":0,"title":"Filtrer","anchor":"#filtrer"},{"id":"transformer-les-l-ments","level":0,"title":"Transformer les éléments","anchor":"#transformer-les-l-ments"},{"id":"transformer-avec-flatmap","level":0,"title":"Transformer avec flatMap","anchor":"#transformer-avec-flatmap"},{"id":"filtrer-avec-distinct","level":0,"title":"Filtrer avec distinct","anchor":"#filtrer-avec-distinct"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les streams | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/003-01-les-streams.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les streams | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/003-01-les-streams.html#webpage",
+    "url": "writerside-documentation/003-01-les-streams.html",
+    "name": "Les streams | Java Intro",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Java Intro Help"
+}</script><!-- End Schema.org --></head><body data-id="003-01-Les-streams" data-main-title="Les streams" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="003-00-Les-collections.md|Les collections"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="003-01-Les-streams" id="003-01-Les-streams.md">Les streams</h1><p id="-390ug4_3">Pour chainer des m&eacute;thodes et transformer une collection, il faut utiliser les streams, exactement comme avec Javascript.</p><p id="-390ug4_4">Un Stream est une s&eacute;quence d'&eacute;l&eacute;ments qui peut &ecirc;tre manipul&eacute;e avec des op&eacute;rations fonctionnelles.</p><p id="-390ug4_5">Les Streams sont consommables une seule fois. Une fois un Stream trait&eacute;, il ne peut pas &ecirc;tre r&eacute;utilis&eacute;.</p><p id="-390ug4_6"><span class="control" id="-390ug4_12">Les m&eacute;thodes principales de manipulation de stream</span></p><div class="table-wrapper"><table class="wide" id="-390ug4_7"><thead><tr class="ijRowHead" id="-390ug4_13"><th id="-390ug4_33"><p>Fonction</p></th><th id="-390ug4_34"><p>Description</p></th></tr></thead><tbody><tr id="-390ug4_14"><td id="-390ug4_35"><p><code class="code" id="-390ug4_37">stream()</code></p></td><td id="-390ug4_36"><p>Convertit une collection en flux (Stream).</p></td></tr><tr id="-390ug4_15"><td id="-390ug4_38"><p><code class="code" id="-390ug4_40">filter()</code></p></td><td id="-390ug4_39"><p>Filtre les &eacute;l&eacute;ments selon un pr&eacute;dicat.</p></td></tr><tr id="-390ug4_16"><td id="-390ug4_41"><p><code class="code" id="-390ug4_43">map()</code></p></td><td id="-390ug4_42"><p>Transforme chaque &eacute;l&eacute;ment selon une fonction.</p></td></tr><tr id="-390ug4_17"><td id="-390ug4_44"><p><code class="code" id="-390ug4_46">flatMap()</code></p></td><td id="-390ug4_45"><p>Aplatie et transforme les &eacute;l&eacute;ments en un seul flux.</p></td></tr><tr id="-390ug4_18"><td id="-390ug4_47"><p><code class="code" id="-390ug4_49">distinct()</code></p></td><td id="-390ug4_48"><p>Supprime les doublons.</p></td></tr><tr id="-390ug4_19"><td id="-390ug4_50"><p><code class="code" id="-390ug4_52">sorted()</code></p></td><td id="-390ug4_51"><p>Trie les &eacute;l&eacute;ments du flux.</p></td></tr><tr id="-390ug4_20"><td id="-390ug4_53"><p><code class="code" id="-390ug4_55">peek()</code></p></td><td id="-390ug4_54"><p>Ex&eacute;cute une action interm&eacute;diaire sur chaque &eacute;l&eacute;ment.</p></td></tr><tr id="-390ug4_21"><td id="-390ug4_56"><p><code class="code" id="-390ug4_58">limit()</code></p></td><td id="-390ug4_57"><p>Limite le nombre d'&eacute;l&eacute;ments du flux.</p></td></tr><tr id="-390ug4_22"><td id="-390ug4_59"><p><code class="code" id="-390ug4_61">skip()</code></p></td><td id="-390ug4_60"><p>Ignore les premiers &eacute;l&eacute;ments.</p></td></tr><tr id="-390ug4_23"><td id="-390ug4_62"><p><code class="code" id="-390ug4_64">forEach()</code></p></td><td id="-390ug4_63"><p>Ex&eacute;cute une action sur chaque &eacute;l&eacute;ment.</p></td></tr><tr id="-390ug4_24"><td id="-390ug4_65"><p><code class="code" id="-390ug4_67">collect()</code></p></td><td id="-390ug4_66"><p>Convertit un flux en une collection ou un autre type de r&eacute;sultat.</p></td></tr><tr id="-390ug4_25"><td id="-390ug4_68"><p><code class="code" id="-390ug4_70">reduce()</code></p></td><td id="-390ug4_69"><p>Combine les &eacute;l&eacute;ments en un seul r&eacute;sultat.</p></td></tr><tr id="-390ug4_26"><td id="-390ug4_71"><p><code class="code" id="-390ug4_73">count()</code></p></td><td id="-390ug4_72"><p>Retourne le nombre d&rsquo;&eacute;l&eacute;ments du flux.</p></td></tr><tr id="-390ug4_27"><td id="-390ug4_74"><p><code class="code" id="-390ug4_76">anyMatch()</code></p></td><td id="-390ug4_75"><p>V&eacute;rifie si au moins un &eacute;l&eacute;ment satisfait un pr&eacute;dicat.</p></td></tr><tr id="-390ug4_28"><td id="-390ug4_77"><p><code class="code" id="-390ug4_79">allMatch()</code></p></td><td id="-390ug4_78"><p>V&eacute;rifie si tous les &eacute;l&eacute;ments satisfont un pr&eacute;dicat.</p></td></tr><tr id="-390ug4_29"><td id="-390ug4_80"><p><code class="code" id="-390ug4_82">noneMatch()</code></p></td><td id="-390ug4_81"><p>V&eacute;rifie si aucun &eacute;l&eacute;ment ne satisfait un pr&eacute;dicat.</p></td></tr><tr id="-390ug4_30"><td id="-390ug4_83"><p><code class="code" id="-390ug4_85">findFirst()</code></p></td><td id="-390ug4_84"><p>Retourne le premier &eacute;l&eacute;ment du flux.</p></td></tr><tr id="-390ug4_31"><td id="-390ug4_86"><p><code class="code" id="-390ug4_88">findAny()</code></p></td><td id="-390ug4_87"><p>Retourne un &eacute;l&eacute;ment arbitraire du flux.</p></td></tr><tr id="-390ug4_32"><td id="-390ug4_89"><p><code class="code" id="-390ug4_91">toArray()</code></p></td><td id="-390ug4_90"><p>Convertit le flux en un tableau.</p></td></tr></tbody></table></div><section class="chapter"><h2 id="filtrer" data-toc="filtrer">Filtrer</h2><div class="code-block" data-lang="java">
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List&lt;String&gt; names = List.of(&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;);
+
+        // Utilisation de forEach avec un Stream
+        names.stream()
+             .filter(name -&gt; name.startsWith(&quot;A&quot;))
+             .forEach(name -&gt; System.out.println(
+                &quot;Hello, &quot; + name)
+              );
+    }
+}
+</div></section><section class="chapter"><h2 id="transformer-les-l-ments" data-toc="transformer-les-l-ments">Transformer les &eacute;l&eacute;ments</h2><div class="code-block" data-lang="java">
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamMapExample {
+    public static void main(String[] args) {
+        List&lt;String&gt; names = List.of(
+          &quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;
+        );
+
+        // Transformer chaque nom en majuscules
+        List&lt;String&gt; upperNames = names.stream()
+            .map(String::toUpperCase)
+            .collect(Collectors.toList());
+
+        // [ALICE, BOB, CHARLIE]
+        System.out.println(upperNames); 
+    }
+}
+</div></section><section class="chapter"><h2 id="transformer-avec-flatmap" data-toc="transformer-avec-flatmap">Transformer avec <code class="code" id="-390ug4_96">flatMap</code></h2><div class="code-block" data-lang="java">
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamFlatMapExample {
+    public static void main(String[] args) {
+        
+        // Une liste de liste
+        List&lt;List&lt;Integer&gt;&gt; listOfLists = List.of(
+            List.of(1, 2), 
+            List.of(3, 4), 
+            List.of(5, 6)
+        );
+        
+        // Applatissement de la liste
+        List&lt;Integer&gt; flattened = listOfLists.stream()
+          .flatMap(List::stream)
+          .collect(Collectors.toList());
+
+        // [1,2,3,4,5,6]
+        System.out.println(flattened); 
+    }
+}
+</div></section><section class="chapter"><h2 id="filtrer-avec-distinct" data-toc="filtrer-avec-distinct">Filtrer avec <code class="code" id="-390ug4_99">distinct</code></h2><div class="code-block" data-lang="java">
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StreamDistinctExample {
+    public static void main(String[] args) {
+        
+        List&lt;Integer&gt; numbers = List.of(1, 2, 2, 3, 4, 4, 5);
+        List&lt;Integer&gt; uniqueNumbers = numbers.stream()
+            .distinct()
+            .collect(Collectors.toList());
+
+        // [1,2,3,4,5]
+        System.out.println(uniqueNumbers); 
+    }
+}
+</div></section><div class="last-modified">Last modified: 23 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="003-00-les-collections.html" class="navigation-links__prev">Les collections</a><a href="004-00-build-et-organisation-du-code.html" class="navigation-links__next">Build et organisation du code</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>

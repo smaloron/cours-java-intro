@@ -1,0 +1,107 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-23T17:01:14.223843"><title>Build et organisation du code | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"les-packages","level":0,"title":"Les packages","anchor":"#les-packages"},{"id":"empaqueter-une-application","level":0,"title":"Empaqueter une application","anchor":"#empaqueter-une-application"},{"id":"build-avec-intellij","level":0,"title":"Build avec IntelliJ","anchor":"#build-avec-intellij"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Build et organisation du code | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/004-00-build-et-organisation-du-code.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Build et organisation du code | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/004-00-build-et-organisation-du-code.html#webpage",
+    "url": "writerside-documentation/004-00-build-et-organisation-du-code.html",
+    "name": "Build et organisation du code | Java Intro",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Java Intro Help"
+}</script><!-- End Schema.org --></head><body data-id="004-00-Build-et-organisation-du-code" data-main-title="Build et organisation du code" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="004-00-Build-et-organisation-du-code" id="004-00-Build-et-organisation-du-code.md">Build et organisation du code</h1><section class="chapter"><h2 id="les-packages" data-toc="les-packages">Les packages</h2><p id="nj47ah_6">En Java, un package est un moyen d&rsquo;organiser et de structurer les classes et interfaces en les regroupant sous un m&ecirc;me espace de noms. Cela facilite la gestion des fichiers, &eacute;vite les conflits de noms et am&eacute;liore la r&eacute;utilisabilit&eacute; du code.</p><section class="chapter"><h3 id="d-claration-d-un-package" data-toc="d-claration-d-un-package">D&eacute;claration d'un package</h3><p id="nj47ah_9">Un package est d&eacute;fini en utilisant le mot-cl&eacute; package au d&eacute;but d&rsquo;un fichier source Java.</p><div class="code-block" data-lang="java">
+// Définit le package
+package com.exemple.util; 
+
+public class MyClass {
+    public void showMessage() {
+        System.out.println(&quot;Hello from MyClass!&quot;);
+    }
+}
+</div><p id="nj47ah_11">Ici, MyClass appartient au package com.exemple.util.</p><aside class="prompt" data-type="tip" data-title="" id="nj47ah_12"><p id="nj47ah_13">Attention Java impose que les fichiers source soient stock&eacute;s dans une arborescence correspondant &agrave; leur package</p><div class="code-block" data-lang="none">
+com
+  exemple
+      util
+          Myclass.java
+</div></aside></section><section class="chapter"><h3 id="build-d-une-application-utilisant-des-packages" data-toc="build-d-une-application-utilisant-des-packages">Build d'une application utilisant des packages</h3><p id="nj47ah_15"><span class="control" id="nj47ah_24">Soit l'application suivante</span></p><div class="code-block" data-lang="java">
+package fr.formation.util;
+
+public class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+</div><div class="code-block" data-lang="java">
+package fr.formation.app;
+
+import fr.formation.util.Calculator;
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(10, 20));
+    }
+}
+</div><p id="nj47ah_18">Pour compiler, il faudra indiquer le chemin de toutes les sources.</p><div class="code-block" data-lang="none">
+javac -d bin src/fr/formation/util/*.java src/fr/formation/app/*.java
+</div><aside class="prompt" data-type="tip" data-title="" id="nj47ah_20"><p id="nj47ah_25">Attention : avec windows le s&eacute;parateur de dossier est <code class="code" id="nj47ah_26">\</code>, pas <code class="code" id="nj47ah_27">/</code></p></aside><figure id="nj47ah_21"><img alt="CleanShot 2025-03-05 at 11.01.13@2x.png" src="images/CleanShot%202025-03-05%20at%2011.01.13%402x.png" title="CleanShot 2025-03-05 at 11.01.13@2x.png" width="514" height="350"></figure><section class="chapter"><h4 id="compiler-tous-les-packages" data-toc="compiler-tous-les-packages">Compiler tous les packages</h4><p id="nj47ah_28"><span class="control" id="nj47ah_36">Avec Linux ou Mac OS c'est assez simple</span></p><div class="code-block" data-lang="none">
+javac -d bin $(find . -name &quot;*.java&quot;) 
+</div><p id="nj47ah_30"><span class="control" id="nj47ah_37">Avec Windows</span></p><p id="nj47ah_31">Il faut d'abord cr&eacute;er un fichier texte contenant les noms et chemins de tous les fichiers java.</p><ul class="list _bullet" id="nj47ah_32"><li class="list__item" id="nj47ah_38"><p id="nj47ah_41"><code class="code" id="nj47ah_42">dir</code>: Liste les fichiers.</p></li><li class="list__item" id="nj47ah_39"><p id="nj47ah_43"><code class="code" id="nj47ah_44">/b</code>: Affiche uniquement les noms de fichier sans d&eacute;tails suppl&eacute;mentaires.</p></li><li class="list__item" id="nj47ah_40"><p id="nj47ah_45"><code class="code" id="nj47ah_46">/s</code>: Recherche r&eacute;cursivement dans tous les sous-dossiers</p></li></ul><div class="code-block" data-lang="none">
+dir /s /b *.java &gt; sources.txt
+</div><p id="nj47ah_34">On passe ensuite ce fichier en argument au programme <code class="code" id="nj47ah_47">javac</code>.</p><div class="code-block" data-lang="none">
+javac -d bin @sources.txt
+</div></section><section class="chapter"><h4 id="ex-cution-du-programme" data-toc="ex-cution-du-programme">Ex&eacute;cution du programme</h4><div class="code-block" data-lang="none">
+cd bin
+
+java fr.formation.app.Main
+</div></section></section></section><section class="chapter"><h2 id="empaqueter-une-application" data-toc="empaqueter-une-application">Empaqueter une application</h2><p id="nj47ah_49">Une application peut contenir de nombreuses classes et &eacute;galement des ressources, telles que des images ou des textes. Java propose une solution pour empaqueter et compresser l'ensemble des fichiers d'une application au sein d'un fichier <code class="code" id="nj47ah_63">.jar</code> pour Java archives.</p><p id="nj47ah_50">Un fichier <code class="code" id="nj47ah_64">.jar</code> peut &ecirc;tre ex&eacute;cutable, dans ce cas, il s'agit d'une application.</p><p id="nj47ah_51">S'il n'est pas ex&eacute;cutable, il peut &ecirc;tre int&eacute;gr&eacute; comme biblioth&egrave;que au sein d'une application.</p><p id="nj47ah_52">Avant de cr&eacute;er un fichier <code class="code" id="nj47ah_65">.jar</code>, il faut avoir compil&eacute; l'application avec <code class="code" id="nj47ah_66">javac</code>.</p><div class="code-block" data-lang="none">
+javac -d bin $(find . -name &quot;*.java&quot;)
+</div><p id="nj47ah_54">ou pour Windows</p><div class="code-block" data-lang="none">
+dir /s /b *.java &gt; sources.txt
+javac -d bin @sources.txt
+</div><section class="chapter"><h3 id="cr-ation-d-un-jar-ex-cutable" data-toc="cr-ation-d-un-jar-ex-cutable">Cr&eacute;ation d'un jar ex&eacute;cutable</h3><p id="nj47ah_67">Il faut cr&eacute;er un fichier <code class="code" id="nj47ah_72">manifest</code> qui indiquera la classe ex&eacute;cutable au sein du projet. Par convention ce fichier est nomm&eacute; <code class="code" id="nj47ah_73">MANIFEST.MF</code> et stock&eacute; dans un sous r&eacute;pertoire <code class="code" id="nj47ah_74">META-INF</code> du dossier <code class="code" id="nj47ah_75">src</code> du projet.</p><div class="code-block" data-lang="none">
+Manifest-Version: 1.0
+Main-Class: fr.formation.app.Main
+</div><p id="nj47ah_69">Ensuite il faut cr&eacute;er le fichier jar comme ceci</p><div class="code-block" data-lang="none">
+cd bin
+jar cfm build/app.jar src/META-INF/MANIFEST.MF -C bin .
+</div><ul class="list _bullet" id="nj47ah_71"><li class="list__item" id="nj47ah_76"><p id="nj47ah_79"><code class="code" id="nj47ah_80">c</code>: cr&eacute;ation d'un jar</p></li><li class="list__item" id="nj47ah_77"><p id="nj47ah_81"><code class="code" id="nj47ah_82">f</code>: pour d&eacute;finir le nom du fichier jar</p></li><li class="list__item" id="nj47ah_78"><p id="nj47ah_83"><code class="code" id="nj47ah_84">m</code>: pour sp&eacute;cifier le manifeste</p></li></ul></section><section class="chapter"><h3 id="cr-ation-d-une-biblioth-que" data-toc="cr-ation-d-une-biblioth-que">Cr&eacute;ation d'une biblioth&egrave;que</h3><p id="nj47ah_85">M&ecirc;me op&eacute;ration que pour un jar ex&eacute;cutable, mais sans le manifeste.</p><div class="code-block" data-lang="none">
+jar cf build/app.jar -C bin .
+</div><p id="nj47ah_87">Ou avec Windows</p><div class="code-block" data-lang="none">
+jar cf build/app.jar -C bin .
+</div></section><section class="chapter"><h3 id="lire-le-contenu-d-un-jar" data-toc="lire-le-contenu-d-un-jar">Lire le contenu d'un jar</h3><div class="code-block" data-lang="none">
+cd build
+jar tf &lt;fichier.jar&gt;
+</div></section><section class="chapter"><h3 id="ex-cuter-un-fichier-jar" data-toc="ex-cuter-un-fichier-jar">Ex&eacute;cuter un fichier jar</h3><div class="code-block" data-lang="none">
+cd build
+java -jar &lt;fichier.jar&gt;
+</div></section><section class="chapter"><h3 id="script-de-build-pour-linux-et-mac-os" data-toc="script-de-build-pour-linux-et-mac-os">Script de build pour Linux et Mac OS</h3><div class="code-block" data-lang="bash">
+// build.sh pour Linux et Mac OS
+
+# Compilation des sources
+javac -d bin $(find . -name &quot;*.java&quot;)
+
+# Empaquetage dans un fichier jar
+jar cfm build/app.jar src/META-INF/MANIFEST.MF -C bin .
+</div><p id="nj47ah_92">Il faut rendre le fichier ex&eacute;cutable</p><div class="code-block" data-lang="none">
+chmod +x build.sh
+</div></section><section class="chapter"><h3 id="script-de-build-pour-windows" data-toc="script-de-build-pour-windows">Script de build pour Windows</h3><div class="code-block" data-lang="none">
+# build.bat
+
+# Compilation des sources
+dir /s /b *.java &gt; sources.txt
+javac -d bin @sources.txt
+
+# Empaquetage dans un fichier jar
+jar cfm build/app.jar src/META-INF/MANIFEST.MF -C bin .
+</div></section><section class="chapter"><h3 id="ajouter-des-ressources-au-jar" data-toc="ajouter-des-ressources-au-jar">Ajouter des ressources au jar</h3><p id="nj47ah_95">On ajoute un dossier <code class="code" id="nj47ah_100">assets</code>et un fichier <code class="code" id="nj47ah_101">data.txt</code> dans ce dernier &agrave; la racine du projet.</p><p id="nj47ah_96">On g&eacute;n&egrave;re ensuite un ja en ajoutant le dossier <code class="code" id="nj47ah_102">assets</code>.</p><div class="code-block" data-lang="none">
+jar cfm build/app.jar src/META-INF/MANIFEST.MF -C bin . -C assets .
+</div><p id="nj47ah_98">Test du contenu du fichier jar</p><div class="code-block" data-lang="none">
+cd build
+
+jar tf app.jar
+</div></section></section><section class="chapter"><h2 id="build-avec-intellij" data-toc="build-avec-intellij">Build avec IntelliJ</h2><section class="procedure-steps" id="nj47ah_103"><ol class="list _decimal"><li class="list__item" id="nj47ah_104"><p>Menu `File &gt; Project Structure`</p></li><li class="list__item" id="nj47ah_105"><ul class="list _bullet" id="nj47ah_111"><li class="list__item" id="nj47ah_113"><p id="nj47ah_115">Onglet <code class="code" id="nj47ah_116">Artifacts</code>.</p></li><li class="list__item" id="nj47ah_114"><p id="nj47ah_117">Bouton <code class="code" id="nj47ah_118">+</code> &gt; <code class="code" id="nj47ah_119">JAR</code> &gt; <code class="code" id="nj47ah_120">From modules with dependencies</code>.</p></li></ul><figure id="nj47ah_112"><img alt="CleanShot 2025-03-05 at 18.54.40@2x.png" src="images/CleanShot%202025-03-05%20at%2018.54.40%402x.png" title="CleanShot 2025-03-05 at 18.54.40@2x.png" width="2122" height="1146"></figure></li><li class="list__item" id="nj47ah_106"><p id="nj47ah_121">D&eacute;finir la Main class.</p><figure id="nj47ah_122"><img alt="CleanShot 2025-03-05 at 18.58.35@2x.png" src="images/CleanShot%202025-03-05%20at%2018.58.35%402x.png" title="CleanShot 2025-03-05 at 18.58.35@2x.png" width="1232" height="932"></figure></li><li class="list__item" id="nj47ah_107"><p id="nj47ah_123">Renommer l'art&eacute;fact et le fichier jar.</p><figure id="nj47ah_124"><img alt="CleanShot 2025-03-05 at 18.59.48@2x.png" src="images/CleanShot%202025-03-05%20at%2018.59.48%402x.png" title="CleanShot 2025-03-05 at 18.59.48@2x.png" width="2178" height="1212"></figure></li><li class="list__item" id="nj47ah_108"><p id="nj47ah_125">Il est possible d'ajouter des dossiers ou des fichiers au build</p><figure id="nj47ah_126"><img alt="CleanShot 2025-03-05 at 16.37.54@2x.png" src="images/CleanShot%202025-03-05%20at%2016.37.54%402x.png" title="CleanShot 2025-03-05 at 16.37.54@2x.png" width="2114" height="1142"></figure></li><li class="list__item" id="nj47ah_109"><p id="nj47ah_127">Cocher la case &quot;Include in project build&quot;.</p><figure id="nj47ah_128"><img alt="CleanShot 2025-03-05 at 20.02.32@2x.png" src="images/CleanShot%202025-03-05%20at%2020.02.32%402x.png" title="CleanShot 2025-03-05 at 20.02.32@2x.png" width="1402" height="254"></figure></li><li class="list__item" id="nj47ah_110"><p id="nj47ah_129">Lancer le build et la construction du jar</p><p id="nj47ah_130">Menu <code class="code" id="nj47ah_133">Build &gt; build project</code></p><p id="nj47ah_131">Par d&eacute;faut le build et l'art&eacute;fact se trouvent dans un dossier <code class="code" id="nj47ah_134">out</code> &agrave; la racine du projet.</p><figure id="nj47ah_132"><img alt="CleanShot 2025-03-05 at 20.06.28@2x.png" src="images/CleanShot%202025-03-05%20at%2020.06.28%402x.png" title="CleanShot 2025-03-05 at 20.06.28@2x.png" width="864" height="392"></figure></li></ol></section></section><div class="last-modified">Last modified: 23 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="003-01-les-streams.html" class="navigation-links__prev">Les streams</a><a href="004-01-utilisation-de-jar-externes.html" class="navigation-links__next">Int&eacute;gration de jar externes</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>

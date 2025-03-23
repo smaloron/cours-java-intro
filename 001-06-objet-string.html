@@ -1,0 +1,142 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-23T17:01:14.226783"><title>Le traitement des cha&icirc;nes de caract&egrave;res | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"m-thodes-de-base","level":0,"title":"Méthodes de base","anchor":"#m-thodes-de-base"},{"id":"manipulation-de-cha-nes","level":0,"title":"Manipulation de chaînes","anchor":"#manipulation-de-cha-nes"},{"id":"comparaison-et-recherche","level":0,"title":"Comparaison et recherche","anchor":"#comparaison-et-recherche"},{"id":"extraction-et-d-coupage","level":0,"title":"Extraction et découpage","anchor":"#extraction-et-d-coupage"},{"id":"remplacement","level":0,"title":"Remplacement","anchor":"#remplacement"},{"id":"conversion","level":0,"title":"Conversion","anchor":"#conversion"},{"id":"m-thodes-statiques","level":0,"title":"Méthodes statiques","anchor":"#m-thodes-statiques"},{"id":"exercices","level":0,"title":"Exercices","anchor":"#exercices"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Le traitement des cha&icirc;nes de caract&egrave;res | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/001-06-objet-string.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Le traitement des cha&icirc;nes de caract&egrave;res | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/001-06-objet-string.html#webpage",
+    "url": "writerside-documentation/001-06-objet-string.html",
+    "name": "Le traitement des cha&icirc;nes de caract&egrave;res | Java Intro",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Java Intro Help"
+}</script><!-- End Schema.org --></head><body data-id="001-06-objet-String" data-main-title="Le traitement des chaînes de caractères" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="java-introduction.md|Java Introduction"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="001-06-objet-String" id="001-06-objet-String.md">Le traitement des chaînes de caractères</h1><p id="-j2tdfn_3">L&rsquo;objet <span class="control" id="-j2tdfn_13">String</span> en Java est une classe immuable (immutable) utilis&eacute;e pour manipuler des cha&icirc;nes de caract&egrave;res.</p><section class="chapter"><h2 id="m-thodes-de-base" data-toc="m-thodes-de-base"><span class="control" id="-j2tdfn_17">M&eacute;thodes de base</span></h2><section class="chapter"><h3 id="length" data-toc="length"><code class="code" id="-j2tdfn_22">length()</code></h3><p id="-j2tdfn_19">Renvoie la longueur de la cha&icirc;ne.</p><p id="-j2tdfn_20"><span class="control" id="-j2tdfn_23">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = &quot;Hello&quot;;
+int len = s.length(); // len = 5
+</div></section><section class="chapter"><h3 id="charat-int-index" data-toc="charat-int-index"><code class="code" id="-j2tdfn_29">charAt(int index)</code></h3><p id="-j2tdfn_25">Retourne le caract&egrave;re &agrave; la position sp&eacute;cifi&eacute;e.</p><p id="-j2tdfn_26"><span class="control" id="-j2tdfn_30">Exemple :</span></p><div class="code-block" data-lang="java">
+char c = &quot;Java&quot;.charAt(1); // 'a'
+</div></section></section><section class="chapter"><h2 id="manipulation-de-cha-nes" data-toc="manipulation-de-cha-nes"><span class="control" id="-j2tdfn_35">Manipulation de cha&icirc;nes</span></h2><section class="chapter"><h3 id="concat-string-s" data-toc="concat-string-s"><code class="code" id="-j2tdfn_40">concat(String s)</code></h3><p id="-j2tdfn_37">Concat&egrave;ne une autre cha&icirc;ne &agrave; la fin.</p><p id="-j2tdfn_38"><span class="control" id="-j2tdfn_41">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = &quot;Hello&quot;.concat(&quot; World&quot;); // &quot;Hello World&quot;
+</div></section><section class="chapter"><h3 id="touppercase-tolowercase" data-toc="touppercase-tolowercase"><code class="code" id="-j2tdfn_46">toUpperCase()</code>/<code class="code" id="-j2tdfn_47">toLowerCase()</code></h3><p id="-j2tdfn_43">Convertit la cha&icirc;ne en majuscules ou en minuscules.</p><p id="-j2tdfn_44"><span class="control" id="-j2tdfn_48">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = &quot;Java&quot;.toUpperCase(); // &quot;JAVA&quot;
+</div></section><section class="chapter"><h3 id="trim" data-toc="trim"><code class="code" id="-j2tdfn_54">trim()</code></h3><p id="-j2tdfn_50">Supprime les espaces au d&eacute;but et &agrave; la fin.</p><p id="-j2tdfn_51"><span class="control" id="-j2tdfn_55">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = &quot;  Java  &quot;.trim(); // &quot;Java&quot;
+</div></section></section><section class="chapter"><h2 id="comparaison-et-recherche" data-toc="comparaison-et-recherche"><span class="control" id="-j2tdfn_61">Comparaison et recherche</span></h2><section class="chapter"><h3 id="equals-string-s-equalsignorecase-string-s" data-toc="equals-string-s-equalsignorecase-string-s"><code class="code" id="-j2tdfn_66">equals(String s)</code>/<code class="code" id="-j2tdfn_67">equalsIgnoreCase(String s)</code></h3><p id="-j2tdfn_63">Compare deux cha&icirc;nes avec ou sans tenir compte de la casse.</p><p id="-j2tdfn_64"><span class="control" id="-j2tdfn_68">Exemple :</span></p><div class="code-block" data-lang="java">
+boolean b = &quot;Java&quot;.equals(&quot;java&quot;); // false
+boolean b2 = &quot;Java&quot;.equalsIgnoreCase(&quot;java&quot;); // true
+</div></section><section class="chapter"><h3 id="compareto-string-s" data-toc="compareto-string-s"><code class="code" id="-j2tdfn_73">compareTo(String s)</code></h3><p id="-j2tdfn_70">Compare lexicographiquement (<code class="code" id="-j2tdfn_74">0</code> si &eacute;gales, <code class="code" id="-j2tdfn_75">&lt; 0</code> si inf&eacute;rieure, <code class="code" id="-j2tdfn_76">&gt; 0</code> sinon).</p><p id="-j2tdfn_71"><span class="control" id="-j2tdfn_77">Exemple :</span></p><div class="code-block" data-lang="java">
+int cmp = &quot;Apple&quot;.compareTo(&quot;Banana&quot;); // -1
+</div></section><section class="chapter"><h3 id="contains-string-s" data-toc="contains-string-s"><code class="code" id="-j2tdfn_82">contains(String s)</code></h3><p id="-j2tdfn_79">V&eacute;rifie si une cha&icirc;ne est contenue dans une autre.</p><p id="-j2tdfn_80"><span class="control" id="-j2tdfn_83">Exemple :</span></p><div class="code-block" data-lang="java">
+boolean b = &quot;Java Programming&quot;.contains(&quot;Java&quot;); // true
+</div></section><section class="chapter"><h3 id="startswith-string-prefix-endswith-string-suffix" data-toc="startswith-string-prefix-endswith-string-suffix"><code class="code" id="-j2tdfn_89">startsWith(String prefix)</code>/<code class="code" id="-j2tdfn_90">endsWith(String suffix)</code></h3><p id="-j2tdfn_85">V&eacute;rifie si la cha&icirc;ne commence ou finit par un certain motif.</p><p id="-j2tdfn_86"><span class="control" id="-j2tdfn_91">Exemple :</span></p><div class="code-block" data-lang="java">
+boolean b = &quot;Hello&quot;.startsWith(&quot;He&quot;); // true
+boolean b2 = &quot;Hello&quot;.endsWith(&quot;lo&quot;); // true
+</div></section></section><section class="chapter"><h2 id="extraction-et-d-coupage" data-toc="extraction-et-d-coupage"><span class="control" id="-j2tdfn_95">Extraction et d&eacute;coupage</span></h2><section class="chapter"><h3 id="substring-int-beginindex-substring-int-begin-int-end" data-toc="substring-int-beginindex-substring-int-begin-int-end"><code class="code" id="-j2tdfn_100">substring(int beginIndex)</code>/<code class="code" id="-j2tdfn_101">substring(int begin, int end)</code></h3><p id="-j2tdfn_97">Extrait une sous-cha&icirc;ne.</p><p id="-j2tdfn_98"><span class="control" id="-j2tdfn_102">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = &quot;Java&quot;.substring(1, 3); // &quot;av&quot;
+</div></section><section class="chapter"><h3 id="split-string-regex" data-toc="split-string-regex"><code class="code" id="-j2tdfn_108">split(String regex)</code></h3><p id="-j2tdfn_104">D&eacute;coupe une cha&icirc;ne selon un d&eacute;limiteur.</p><p id="-j2tdfn_105"><span class="control" id="-j2tdfn_109">Exemple :</span></p><div class="code-block" data-lang="java">
+String[] words = &quot;one,two,three&quot;.split(&quot;,&quot;);
+</div></section></section><section class="chapter"><h2 id="remplacement" data-toc="remplacement"><span class="control" id="-j2tdfn_113">Remplacement</span></h2><section class="chapter"><h3 id="replace-char-oldchar-char-newchar" data-toc="replace-char-oldchar-char-newchar"><code class="code" id="-j2tdfn_118">replace(char oldChar, char newChar)</code></h3><p id="-j2tdfn_115">Remplace un caract&egrave;re par un autre.</p><p id="-j2tdfn_116"><span class="control" id="-j2tdfn_119">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = &quot;Java&quot;.replace('a', 'o'); // &quot;Jovo&quot;
+</div></section><section class="chapter"><h3 id="replaceall-string-regex-string-replacement" data-toc="replaceall-string-regex-string-replacement"><code class="code" id="-j2tdfn_125">replaceAll(String regex, String replacement)</code></h3><p id="-j2tdfn_121">Remplace un motif avec une expression r&eacute;guli&egrave;re.</p><p id="-j2tdfn_122"><span class="control" id="-j2tdfn_126">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = &quot;Java 123&quot;.replaceAll(&quot;\\d&quot;, &quot;X&quot;); // &quot;Java XXX&quot;
+</div></section></section><section class="chapter"><h2 id="conversion" data-toc="conversion"><span class="control" id="-j2tdfn_130">Conversion</span></h2><section class="chapter"><h3 id="valueof-int-i-et-autres-types" data-toc="valueof-int-i-et-autres-types"><code class="code" id="-j2tdfn_135">valueOf(int i)</code> (et autres types)</h3><p id="-j2tdfn_132">Convertit un entier, un double, etc., en cha&icirc;ne.</p><p id="-j2tdfn_133"><span class="control" id="-j2tdfn_136">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = String.valueOf(123); // &quot;123&quot;
+</div></section><section class="chapter"><h3 id="tochararray" data-toc="tochararray"><code class="code" id="-j2tdfn_142">toCharArray()</code></h3><p id="-j2tdfn_138">Convertit en tableau de caract&egrave;res.</p><p id="-j2tdfn_139"><span class="control" id="-j2tdfn_143">Exemple :</span></p><div class="code-block" data-lang="java">
+char[] chars = &quot;Java&quot;.toCharArray();
+</div></section></section><section class="chapter"><h2 id="m-thodes-statiques" data-toc="m-thodes-statiques"><span class="control" id="-j2tdfn_146">M&eacute;thodes statiques</span></h2><section class="chapter"><h3 id="string-join-charsequence-delimiter-charsequence-elements" data-toc="string-join-charsequence-delimiter-charsequence-elements"><code class="code" id="-j2tdfn_151">String.join(CharSequence delimiter, CharSequence... elements)</code></h3><p id="-j2tdfn_148">Joint plusieurs &eacute;l&eacute;ments avec un s&eacute;parateur.</p><p id="-j2tdfn_149"><span class="control" id="-j2tdfn_152">Exemple :</span></p><div class="code-block" data-lang="java">
+String s = String.join(&quot;, &quot;, &quot;Apple&quot;, &quot;Banana&quot;, &quot;Cherry&quot;);
+// &quot;Apple, Banana, Cherry&quot;
+</div></section></section><section class="chapter"><h2 id="exercices" data-toc="exercices">Exercices</h2><section class="chapter"><h3 id="exercice-1-compter-les-voyelles" data-toc="exercice-1-compter-les-voyelles">Exercice 1 : Compter les voyelles</h3><p id="-j2tdfn_159">&Eacute;crivez une m&eacute;thode qui prend en param&egrave;tre une cha&icirc;ne de caract&egrave;res et retourne le nombre de voyelles (a, e, i, o, u, y) pr&eacute;sentes dans la cha&icirc;ne.</p><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="solution" data-toc="solution">Solution</h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+public class StringExercise1 {
+    public static int countVowels(String str) {
+        str = str.toLowerCase(); // Convertir en minuscules
+        int count = 0;
+        String vowels = &quot;aeiouy&quot;;
+
+        for (int i = 0; i &lt; str.length(); i++) {
+            if (vowels.indexOf(str.charAt(i)) != -1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(countVowels(&quot;Hello World&quot;)); // 3
+    }
+}
+
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-2-v-rifier-si-une-cha-ne-est-un-palindrome" data-toc="exercice-2-v-rifier-si-une-cha-ne-est-un-palindrome">Exercice 2 : V&eacute;rifier si une cha&icirc;ne est un palindrome</h3><p id="-j2tdfn_163"><span class="control" id="-j2tdfn_164">&Eacute;nonc&eacute; :</span> &Eacute;crivez une m&eacute;thode qui v&eacute;rifie si une cha&icirc;ne de caract&egrave;res est un palindrome (se lit de la m&ecirc;me mani&egrave;re dans les deux sens, comme &quot;radar&quot; ou &quot;kayak&quot;).</p></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="solution_1" data-toc="solution_1">solution</h3></div><div class="collapse__content"><div class="code-block" data-lang="java">
+public class StringExercise {
+    public static boolean isPalindrome(String str) {
+    
+        // Ignorer les espaces et la casse
+        str = str.toLowerCase().replaceAll(&quot;\\s&quot;, &quot;&quot;); 
+        int n = str.length();
+
+        for (int i = 0; i &lt; n / 2; i++) {
+            if (str.charAt(i) != str.charAt(n - 1 - i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isPalindrome(&quot;Radar&quot;)); // true
+        System.out.println(isPalindrome(&quot;Hello&quot;)); // false
+    }
+}
+</div></div></div></section><section class="chapter"><h3 id="exercice-3-inverser-une-cha-ne" data-toc="exercice-3-inverser-une-cha-ne"><span class="control" id="-j2tdfn_170">Exercice 3 : Inverser une cha&icirc;ne</span></h3><p id="-j2tdfn_168"><span class="control" id="-j2tdfn_171">&Eacute;nonc&eacute; :</span> &Eacute;crivez une m&eacute;thode qui prend une cha&icirc;ne et retourne une nouvelle cha&icirc;ne avec les caract&egrave;res invers&eacute;s.</p><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="solution_2" data-toc="solution_2"><span class="control" id="-j2tdfn_175">Solution :</span></h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+public class StringExercise {
+    public static String reverseString(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        return sb.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(reverseString(&quot;Java&quot;)); // &quot;avaJ&quot;
+    }
+}
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-4-compter-les-occurrences-d-un-caract-re" data-toc="exercice-4-compter-les-occurrences-d-un-caract-re"><span class="control" id="-j2tdfn_179">Exercice 4 : Compter les occurrences d&rsquo;un caract&egrave;re</span></h3><p id="-j2tdfn_177"><span class="control" id="-j2tdfn_180">&Eacute;nonc&eacute; :</span> &Eacute;crivez une m&eacute;thode qui compte le nombre de fois o&ugrave; un caract&egrave;re donn&eacute; appara&icirc;t dans une cha&icirc;ne.</p><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="solution_3" data-toc="solution_3"><span class="control" id="-j2tdfn_184">Solution :</span></h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+public class StringExercise {
+    public static int countCharOccurrences(String str, char c) {
+        int count = 0;
+        str = str.toLowerCase(); // Ignorer la casse
+        c = Character.toLowerCase(c);
+
+        for (int i = 0; i &lt; str.length(); i++) {
+            if (str.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(
+            countCharOccurrences(&quot;Programming&quot;, 'g')
+        );
+    }
+}
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-5-remplacer-un-mot-dans-une-phrase" data-toc="exercice-5-remplacer-un-mot-dans-une-phrase"><span class="control" id="-j2tdfn_188">Exercice 5 : Remplacer un mot dans une phrase</span></h3><p id="-j2tdfn_186"><span class="control" id="-j2tdfn_189">&Eacute;nonc&eacute; :</span> &Eacute;crivez une m&eacute;thode qui remplace un mot sp&eacute;cifique dans une phrase par un autre mot.</p><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="solution_4" data-toc="solution_4"><span class="control" id="-j2tdfn_192">Solution :</span></h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+public class StringExercise {
+    public static String replaceWord(
+        String sentence, 
+        String oldWord, 
+        String newWord
+    ) 
+    {
+        return sentence.replaceAll(oldWord, newWord);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(
+            replaceWord(&quot;I love Java&quot;, &quot;Java&quot;, &quot;Python&quot;)
+        ); 
+    }
+}
+</div></div></div></section></section></section><div class="last-modified">Last modified: 23 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="001-05-la-classe-scanner.html" class="navigation-links__prev">La classe Scanner</a><a href="001-07-la-classe-stringbuilder.html" class="navigation-links__next">La classe StringBuilder</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-23T17:01:14.226012"><title>Les exceptions | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"qu-est-ce-qu-une-exception-en-java","level":0,"title":"Qu\u0027est-ce qu\u0027une exception en Java ?","anchor":"#qu-est-ce-qu-une-exception-en-java"},{"id":"la-gestion-des-exceptions","level":0,"title":"La gestion des exceptions","anchor":"#la-gestion-des-exceptions"},{"id":"lancer-et-propager-une-exception","level":0,"title":"Lancer et propager une exception","anchor":"#lancer-et-propager-une-exception"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les exceptions | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/001-08-les-exceptions.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les exceptions | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/001-08-les-exceptions.html#webpage",
+    "url": "writerside-documentation/001-08-les-exceptions.html",
+    "name": "Les exceptions | Java Intro",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Java Intro Help"
+}</script><!-- End Schema.org --></head><body data-id="001-08-Les-exceptions" data-main-title="Les exceptions" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="java-introduction.md|Java Introduction"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="001-08-Les-exceptions" id="001-08-Les-exceptions.md">Les exceptions</h1><p id="x79dls_3">La gestion des exceptions est un m&eacute;canisme qui permet de g&eacute;rer les erreurs de mani&egrave;re contr&ocirc;l&eacute;e afin d'&eacute;viter des arr&ecirc;ts brutaux du programme. Java propose une structure bas&eacute;e sur les mots-cl&eacute;s <code class="code" id="x79dls_7">try</code>, <code class="code" id="x79dls_8">catch</code>, <code class="code" id="x79dls_9">finally</code>, et <code class="code" id="x79dls_10">throw</code> pour capturer et traiter les exceptions.</p><section class="chapter"><h2 id="qu-est-ce-qu-une-exception-en-java" data-toc="qu-est-ce-qu-une-exception-en-java">Qu'est-ce qu'une exception en Java ?</h2><p id="x79dls_11">Une exception est un &eacute;v&eacute;nement anormal qui interrompt le flot normal d'ex&eacute;cution d'un programme. Elle peut &ecirc;tre caus&eacute;e par :</p><ul class="list _bullet" id="x79dls_12"><li class="list__item" id="x79dls_17"><p id="x79dls_21">Une entr&eacute;e utilisateur invalide (ex. : division par z&eacute;ro).</p></li><li class="list__item" id="x79dls_18"><p id="x79dls_22">Une tentative d'acc&egrave;s &agrave; un tableau hors limites.</p></li><li class="list__item" id="x79dls_19"><p id="x79dls_23">Un fichier introuvable lors de la lecture.</p></li><li class="list__item" id="x79dls_20"><p id="x79dls_24">Une connexion r&eacute;seau interrompue, etc.</p></li></ul><p id="x79dls_13">En Java, toutes les exceptions sont des objets d&eacute;rivant de la classe Throwable.</p><div class="code-block" data-lang="none">
+java.lang.Throwable
+ ├── java.lang.Error
+ └── java.lang.Exception
+     ├── java.lang.RuntimeException
+     └── Autres exceptions vérifiées
+
+</div><section class="chapter"><h3 id="error" data-toc="error">Error</h3><p id="x79dls_25">D&eacute;signe des erreurs graves que l'application ne devrait pas intercepter (ex : <code class="code" id="x79dls_26">OutOfMemoryError</code>, <code class="code" id="x79dls_27">StackOverflowError</code>). Ce sont des erreurs de JVM et non des exceptions &quot;normales&quot;.</p></section><section class="chapter"><h3 id="exception" data-toc="exception">Exception</h3><p id="x79dls_28">Contient les erreurs qu'un programme peut et doit g&eacute;rer.</p><section class="chapter"><h4 id="exceptions-v-rifi-es-checked-exceptions" data-toc="exceptions-v-rifi-es-checked-exceptions">Exceptions V&eacute;rifi&eacute;es (Checked Exceptions)</h4><p id="x79dls_31">Le compilateur force le programmeur &agrave; les traiter (impossible de compiler si on ne traite pas ces exceptions).</p><p id="x79dls_32"><span class="control" id="x79dls_34">Exemples :</span></p><ul class="list _bullet" id="x79dls_33"><li class="list__item" id="x79dls_35"><p id="x79dls_38"><code class="code" id="x79dls_39">IOException</code> (erreur d'entr&eacute;e/sortie),</p></li><li class="list__item" id="x79dls_36"><p id="x79dls_40"><code class="code" id="x79dls_41">SQLException</code> (erreur de base de donn&eacute;es),</p></li><li class="list__item" id="x79dls_37"><p id="x79dls_42"><code class="code" id="x79dls_43">FileNotFoundException</code> (fichier non trouv&eacute;).</p></li></ul></section><section class="chapter"><h4 id="exceptions-non-v-rifi-es-unchecked-exceptions" data-toc="exceptions-non-v-rifi-es-unchecked-exceptions">Exceptions Non V&eacute;rifi&eacute;es (Unchecked Exceptions)</h4><ul class="list _bullet" id="x79dls_44"><li class="list__item" id="x79dls_45"><p id="x79dls_51">H&eacute;ritent de RuntimeException.</p></li><li class="list__item" id="x79dls_46"><p id="x79dls_52">Le compilateur ne force pas leur traitement.</p></li><li class="list__item" id="x79dls_47"><p id="x79dls_53"><span class="control" id="x79dls_54">Exemples :</span></p></li><li class="list__item" id="x79dls_48"><p id="x79dls_55"><code class="code" id="x79dls_56">NullPointerException</code> (acc&egrave;s &agrave; un objet null),</p></li><li class="list__item" id="x79dls_49"><p id="x79dls_57"><code class="code" id="x79dls_58">ArrayIndexOutOfBoundsException</code> (acc&egrave;s hors limites d'un tableau),</p></li><li class="list__item" id="x79dls_50"><p id="x79dls_59"><code class="code" id="x79dls_60">ArithmeticException</code> (ex. : division par z&eacute;ro).</p></li></ul></section></section></section><section class="chapter"><h2 id="la-gestion-des-exceptions" data-toc="la-gestion-des-exceptions">La gestion des exceptions</h2><p id="x79dls_61">Si le code est encadr&eacute; dans un bloc <code class="code" id="x79dls_64">try</code>, il est possible de capturer les exceptions g&eacute;n&eacute;r&eacute;es par ce dernier dans un bloc <code class="code" id="x79dls_65">catch</code>.</p><div class="code-block" data-lang="java">
+try {
+    // Code susceptible de générer une exception
+} catch (TypeException e) {
+    // Traitement de l'exception
+} finally {
+    // Bloc exécuté systématiquement (optionnel)
+}
+</div><section class="chapter"><h3 id="exemple-simple-division-par-z-ro" data-toc="exemple-simple-division-par-z-ro">Exemple simple : division par z&eacute;ro</h3><ul class="list _bullet" id="x79dls_66"><li class="list__item" id="x79dls_68"><p id="x79dls_71">Le bloc <code class="code" id="x79dls_72">try</code> tente d'ex&eacute;cuter le code.</p></li><li class="list__item" id="x79dls_69"><p id="x79dls_73">Si une exception ArithmeticException est lev&eacute;e, le bloc <code class="code" id="x79dls_74">catch</code> l'intercepte et affiche un message.</p></li><li class="list__item" id="x79dls_70"><p id="x79dls_75">Le bloc <code class="code" id="x79dls_76">finally</code> s'ex&eacute;cute toujours, qu'il y ait une exception ou non.</p></li></ul><div class="code-block" data-lang="java">
+public class ExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int a = 10, b = 0;
+            int result = a / b; // Provoque ArithmeticException
+            System.out.println(&quot;Résultat : &quot; + result);
+        } catch (ArithmeticException e) {
+            System.out.println(&quot;Erreur : Division par zéro !&quot;);
+        } finally {
+            System.out.println(&quot;Fin du programme.&quot;);
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="lancer-et-propager-une-exception" data-toc="lancer-et-propager-une-exception">Lancer et propager une exception</h2><section class="chapter"><h3 id="lancer-une-exception" data-toc="lancer-une-exception">Lancer une exception</h3><ul class="list _bullet" id="x79dls_79"><li class="list__item" id="x79dls_81"><p id="x79dls_83">l'instruction <code class="code" id="x79dls_84">throw</code> permet de g&eacute;n&eacute;rer une exception manuellement.</p></li><li class="list__item" id="x79dls_82"><p id="x79dls_85">Ici, si l'&acirc;ge est &lt; 18, une IllegalArgumentException est lev&eacute;e.</p></li></ul><div class="code-block" data-lang="java">
+public class ThrowExample {
+    static void checkAge(int age) {
+        if (age &lt; 18) {
+            throw new IllegalArgumentException(&quot;Âge insuffisant !&quot;);
+        }
+        System.out.println(&quot;Accès autorisé.&quot;);
+    }
+
+    public static void main(String[] args) {
+        checkAge(15); // Provoque IllegalArgumentException
+    }
+}
+</div></section><section class="chapter"><h3 id="propager-une-exception" data-toc="propager-une-exception">Propager une exception</h3><ul class="list _bullet" id="x79dls_86"><li class="list__item" id="x79dls_88"><p id="x79dls_90"><code class="code" id="x79dls_91">throws</code> signale que readFile() peut lever une exception IOException.</p></li><li class="list__item" id="x79dls_89"><p id="x79dls_92">Le bloc <code class="code" id="x79dls_93">try</code> dans <code class="code" id="x79dls_94">main()</code> g&egrave;re cette exception.</p></li></ul><div class="code-block" data-lang="java">
+public class ThrowsExample {
+    static void readFile() throws IOException {
+        throw new IOException(&quot;Fichier introuvable !&quot;);
+    }
+
+    public static void main(String[] args) {
+        try {
+            readFile();
+        } catch (IOException e) {
+            System.out.println(&quot;Erreur : &quot; + e.getMessage());
+        }
+    }
+}
+</div></section></section><div class="last-modified">Last modified: 23 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="001-07-la-classe-stringbuilder.html" class="navigation-links__prev">La classe StringBuilder</a><a href="02-00-la-poo.html" class="navigation-links__next">La POO</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
