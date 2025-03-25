@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-23T17:12:34.688015"><title>Les fichiers | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"les-m-thodes-classiques","level":0,"title":"Les méthodes classiques","anchor":"#les-m-thodes-classiques"},{"id":"les-nouvelles-m-thodes","level":0,"title":"Les \"nouvelles\" méthodes","anchor":"#les-nouvelles-m-thodes"},{"id":"les-fichiers-binaires","level":0,"title":"Les fichiers binaires","anchor":"#les-fichiers-binaires"},{"id":"copie-d-un-fichier-binaire-ou-texte","level":0,"title":"Copie d\u0027un fichier binaire ou texte","anchor":"#copie-d-un-fichier-binaire-ou-texte"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les fichiers | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-00-les-fichiers.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les fichiers | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-25T08:20:11.277607"><title>Les fichiers | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"les-m-thodes-classiques","level":0,"title":"Les méthodes classiques","anchor":"#les-m-thodes-classiques"},{"id":"les-nouvelles-m-thodes","level":0,"title":"Les \"nouvelles\" méthodes","anchor":"#les-nouvelles-m-thodes"},{"id":"les-fichiers-binaires","level":0,"title":"Les fichiers binaires","anchor":"#les-fichiers-binaires"},{"id":"copie-d-un-fichier-binaire-ou-texte","level":0,"title":"Copie d\u0027un fichier binaire ou texte","anchor":"#copie-d-un-fichier-binaire-ou-texte"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les fichiers | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-00-les-fichiers.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les fichiers | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
     "@context": "http://schema.org",
     "@type": "WebPage",
     "@id": "writerside-documentation/006-00-les-fichiers.html#webpage",
@@ -13,7 +13,7 @@
     "@id": "writerside-documentation/#website",
     "url": "writerside-documentation/",
     "name": "Java Intro Help"
-}</script><!-- End Schema.org --></head><body data-id="006-00-Les-fichiers" data-main-title="Les fichiers" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="006-00-Les-fichiers" id="006-00-Les-fichiers.md">Les fichiers</h1><p id="z3r0s42_3">Pour lire et &eacute;crire dans des fichiers Java propose plusieurs solutions.</p><section class="chapter"><h2 id="les-m-thodes-classiques" data-toc="les-m-thodes-classiques">Les m&eacute;thodes classiques</h2><section class="chapter"><h3 id="criture" data-toc="criture">&Eacute;criture</h3><p id="z3r0s42_10">La classe <code class="code" id="z3r0s42_15">FileWriter</code> permet d'&eacute;crire du texte dans un fichier.</p><div class="code-block" data-lang="java">
+}</script><!-- End Schema.org --></head><body data-id="006-00-Les-fichiers" data-main-title="Les fichiers" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="006-00-Les-fichiers" id="006-00-Les-fichiers.md">Les fichiers</h1><p id="kp006q_3">Pour lire et &eacute;crire dans des fichiers Java propose plusieurs solutions.</p><section class="chapter"><h2 id="les-m-thodes-classiques" data-toc="les-m-thodes-classiques">Les m&eacute;thodes classiques</h2><section class="chapter"><h3 id="criture" data-toc="criture">&Eacute;criture</h3><p id="kp006q_10">La classe <code class="code" id="kp006q_15">FileWriter</code> permet d'&eacute;crire du texte dans un fichier.</p><div class="code-block" data-lang="java">
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -36,7 +36,7 @@ public class FileWriteExample {
         }
     }
 }
-</div><ul class="list _bullet" id="z3r0s42_12"><li class="list__item" id="z3r0s42_16"><p id="z3r0s42_18">Par d&eacute;faut, le contenu pr&eacute;c&eacute;dent du fichier est &eacute;cras&eacute;.</p></li><li class="list__item" id="z3r0s42_17"><p id="z3r0s42_19">Ouvrir la ressource dans le <code class="code" id="z3r0s42_20">try</code> garantit la fermeture automatique du fichier (pas besoin de <code class="code" id="z3r0s42_21">finally</code>).</p></li></ul><section class="chapter"><h4 id="criture-optimis-e-avec-un-tampon" data-toc="criture-optimis-e-avec-un-tampon">&Eacute;criture optimis&eacute;e avec un tampon</h4><p id="z3r0s42_22">La mise en tampon de l'&eacute;criture limite les acc&egrave;s disque et donc am&eacute;liore la performance.</p><div class="code-block" data-lang="java">
+</div><ul class="list _bullet" id="kp006q_12"><li class="list__item" id="kp006q_16"><p id="kp006q_18">Par d&eacute;faut, le contenu pr&eacute;c&eacute;dent du fichier est &eacute;cras&eacute;.</p></li><li class="list__item" id="kp006q_17"><p id="kp006q_19">Ouvrir la ressource dans le <code class="code" id="kp006q_20">try</code> garantit la fermeture automatique du fichier (pas besoin de <code class="code" id="kp006q_21">finally</code>).</p></li></ul><section class="chapter"><h4 id="criture-optimis-e-avec-un-tampon" data-toc="criture-optimis-e-avec-un-tampon">&Eacute;criture optimis&eacute;e avec un tampon</h4><p id="kp006q_22">La mise en tampon de l'&eacute;criture limite les acc&egrave;s disque et donc am&eacute;liore la performance.</p><div class="code-block" data-lang="java">
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -66,7 +66,7 @@ public class BufferedWriteExample {
         }
     }
 }
-</div></section><section class="chapter"><h4 id="ajout-un-fichier-append" data-toc="ajout-un-fichier-append">Ajout &agrave; un fichier (append)</h4><p id="z3r0s42_24">Il suffit de passer <code class="code" id="z3r0s42_26">true</code> en deuxi&egrave;me argument du constructeur de <code class="code" id="z3r0s42_27">FileWriter</code>.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h4 id="ajout-un-fichier-append" data-toc="ajout-un-fichier-append">Ajout &agrave; un fichier (append)</h4><p id="kp006q_24">Il suffit de passer <code class="code" id="kp006q_26">true</code> en deuxi&egrave;me argument du constructeur de <code class="code" id="kp006q_27">FileWriter</code>.</p><div class="code-block" data-lang="java">
 // true active le mode append
 new FileWriter(&quot;output.txt&quot;, true); 
 </div></section></section><section class="chapter"><h3 id="lecture-de-fichiers" data-toc="lecture-de-fichiers">Lecture de fichiers</h3><section class="chapter"><h4 id="lecture-caract-re-par-caract-re" data-toc="lecture-caract-re-par-caract-re">Lecture caract&egrave;re par caract&egrave;re</h4><div class="code-block" data-lang="java">
@@ -86,7 +86,7 @@ public class FileReadExample {
         }
     }
 }
-</div></section><section class="chapter"><h4 id="lecture-avec-un-tampon" data-toc="lecture-avec-un-tampon">Lecture avec un tampon</h4><p id="z3r0s42_31">La classe <code class="code" id="z3r0s42_33">BufferedReader</code> permet de lire ligne par ligne, ce qui est plus efficace.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h4 id="lecture-avec-un-tampon" data-toc="lecture-avec-un-tampon">Lecture avec un tampon</h4><p id="kp006q_31">La classe <code class="code" id="kp006q_33">BufferedReader</code> permet de lire ligne par ligne, ce qui est plus efficace.</p><div class="code-block" data-lang="java">
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -109,7 +109,7 @@ public class BufferedReadExample {
         }
     }
 }
-</div></section></section></section><section class="chapter"><h2 id="les-nouvelles-m-thodes" data-toc="les-nouvelles-m-thodes">Les &quot;nouvelles&quot; m&eacute;thodes</h2><p id="z3r0s42_34">Depuis Java 7, il est possible de lire et d'&eacute;crire dans un fichier avec une syntaxe simplifi&eacute;e en utilisant le package <code class="code" id="z3r0s42_37">nio</code> (new IO).</p><section class="chapter"><h3 id="criture_1" data-toc="criture_1">&Eacute;criture</h3><div class="code-block" data-lang="java">
+</div></section></section></section><section class="chapter"><h2 id="les-nouvelles-m-thodes" data-toc="les-nouvelles-m-thodes">Les &quot;nouvelles&quot; m&eacute;thodes</h2><p id="kp006q_34">Depuis Java 7, il est possible de lire et d'&eacute;crire dans un fichier avec une syntaxe simplifi&eacute;e en utilisant le package <code class="code" id="kp006q_37">nio</code> (new IO).</p><section class="chapter"><h3 id="criture_1" data-toc="criture_1">&Eacute;criture</h3><div class="code-block" data-lang="java">
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -132,7 +132,7 @@ public class FilesWriteExample {
         }
     }
 }
-</div></section><section class="chapter"><h3 id="lecture" data-toc="lecture">Lecture</h3><p id="z3r0s42_39">Pour la lecture, <code class="code" id="z3r0s42_41">nio</code> permet le chargement de l'ensemble du fichier dans une liste de cha&icirc;nes.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h3 id="lecture" data-toc="lecture">Lecture</h3><p id="kp006q_39">Pour la lecture, <code class="code" id="kp006q_41">nio</code> permet le chargement de l'ensemble du fichier dans une liste de cha&icirc;nes.</p><div class="code-block" data-lang="java">
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -153,7 +153,7 @@ public class FilesReadExample {
         }
     }
 }
-</div></section></section><section class="chapter"><h2 id="les-fichiers-binaires" data-toc="les-fichiers-binaires">Les fichiers binaires</h2><p id="z3r0s42_42">Pour lire ou &eacute;crire du contenu binaire, il faut utiliser les classe <code class="code" id="z3r0s42_45">FileInputStream</code> et <code class="code" id="z3r0s42_46">FileOutputStream</code>.</p><section class="chapter"><h3 id="criture-de-contenu-binaire" data-toc="criture-de-contenu-binaire">&Eacute;criture de contenu binaire</h3><div class="code-block" data-lang="java">
+</div></section></section><section class="chapter"><h2 id="les-fichiers-binaires" data-toc="les-fichiers-binaires">Les fichiers binaires</h2><p id="kp006q_42">Pour lire ou &eacute;crire du contenu binaire, il faut utiliser les classe <code class="code" id="kp006q_45">FileInputStream</code> et <code class="code" id="kp006q_46">FileOutputStream</code>.</p><section class="chapter"><h3 id="criture-de-contenu-binaire" data-toc="criture-de-contenu-binaire">&Eacute;criture de contenu binaire</h3><div class="code-block" data-lang="java">
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -170,7 +170,7 @@ public class BinaryFileWrite {
         }
     }
 }
-</div><p id="z3r0s42_48">Il est &eacute;galement possible d'ajouter un tampon pour am&eacute;liorer la performance en utilisant la classe `BufferedOutputStream. L'&eacute;criture s'effectuera par bloc plut&ocirc;t qu'octet par octet.</p><div class="code-block" data-lang="java">
+</div><p id="kp006q_48">Il est &eacute;galement possible d'ajouter un tampon pour am&eacute;liorer la performance en utilisant la classe `BufferedOutputStream. L'&eacute;criture s'effectuera par bloc plut&ocirc;t qu'octet par octet.</p><div class="code-block" data-lang="java">
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -211,7 +211,7 @@ public class BinaryReadExample {
     }
 }
 
-</div><p id="z3r0s42_51">Comme pour l'&eacute;criture, il est possible d'utiliser un tampon.</p><div class="code-block" data-lang="java">
+</div><p id="kp006q_51">Comme pour l'&eacute;criture, il est possible d'utiliser un tampon.</p><div class="code-block" data-lang="java">
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -260,4 +260,4 @@ public class FilesCopyExample {
         }
     }
 }
-</div></section><div class="last-modified">Last modified: 23 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="004-02-maven.html" class="navigation-links__prev">Maven</a><a href="007-00-les-bases-de-donnees.html" class="navigation-links__next">Les bases de donn&eacute;es</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
+</div></section><div class="last-modified">Last modified: 25 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="004-02-maven.html" class="navigation-links__prev">Maven</a><a href="006-01-les-fichiers-json.html" class="navigation-links__next">Les fichiers json</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-23T17:12:34.714773"><title>Les structures de contr&ocirc;le | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"conditions","level":0,"title":"Conditions","anchor":"#conditions"},{"id":"switch","level":0,"title":"Switch","anchor":"#switch"},{"id":"boucles","level":0,"title":"Boucles","anchor":"#boucles"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les structures de contr&ocirc;le | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/001-03-les-structures-de-controle.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les structures de contr&ocirc;le | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-25T08:20:11.289616"><title>Les structures de contr&ocirc;le | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"conditions","level":0,"title":"Conditions","anchor":"#conditions"},{"id":"switch","level":0,"title":"Switch","anchor":"#switch"},{"id":"boucles","level":0,"title":"Boucles","anchor":"#boucles"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les structures de contr&ocirc;le | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/001-03-les-structures-de-controle.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les structures de contr&ocirc;le | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
     "@context": "http://schema.org",
     "@type": "WebPage",
     "@id": "writerside-documentation/001-03-les-structures-de-controle.html#webpage",
@@ -13,13 +13,13 @@
     "@id": "writerside-documentation/#website",
     "url": "writerside-documentation/",
     "name": "Java Intro Help"
-}</script><!-- End Schema.org --></head><body data-id="001-03-Les-structures-de-controle" data-main-title="Les structures de contrôle" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="java-introduction.md|Java Introduction"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="001-03-Les-structures-de-controle" id="001-03-Les-structures-de-controle.md">Les structures de contrôle</h1><section class="chapter"><h2 id="conditions" data-toc="conditions">Conditions</h2><p id="uu0e7s_6">La syntaxe des conditions est similaire &agrave; celle du langage C ou de Javascript.</p><div class="code-block" data-lang="java">
+}</script><!-- End Schema.org --></head><body data-id="001-03-Les-structures-de-controle" data-main-title="Les structures de contrôle" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="java-introduction.md|Java Introduction"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="001-03-Les-structures-de-controle" id="001-03-Les-structures-de-controle.md">Les structures de contrôle</h1><section class="chapter"><h2 id="conditions" data-toc="conditions">Conditions</h2><p id="jxz0k8_6">La syntaxe des conditions est similaire &agrave; celle du langage C ou de Javascript.</p><div class="code-block" data-lang="java">
 
 if(&lt;expression booléenne&gt;){
     &lt;instructions&gt;
 }
 
-</div><p id="uu0e7s_8"><span class="control" id="uu0e7s_14">Exemple</span></p><div class="code-block" data-lang="java">
+</div><p id="jxz0k8_8"><span class="control" id="jxz0k8_14">Exemple</span></p><div class="code-block" data-lang="java">
 public static void main(String[] args) 
 {
    int age = 17;
@@ -30,7 +30,7 @@ public static void main(String[] args)
        System.out.println(&quot;Vous êtes majeur&quot;);
    }
 }
-</div><section class="chapter"><h3 id="les-op-rateurs-de-comparaison" data-toc="les-op-rateurs-de-comparaison">Les op&eacute;rateurs de comparaison</h3><div class="table-wrapper"><table class="wide" id="uu0e7s_15"><thead><tr class="ijRowHead" id="uu0e7s_16"><th id="uu0e7s_23"><p>Op&eacute;rateur</p></th><th id="uu0e7s_24"><p>Signification</p></th><th id="uu0e7s_25"><p>Exemple (a = 10, b = 5)</p></th><th id="uu0e7s_26"><p>R&eacute;sultat</p></th></tr></thead><tbody><tr id="uu0e7s_17"><td id="uu0e7s_27"><p><code class="code" id="uu0e7s_31">==</code></p></td><td id="uu0e7s_28"><p>&Eacute;gal &agrave;</p></td><td id="uu0e7s_29"><p><code class="code" id="uu0e7s_32">a == b</code></p></td><td id="uu0e7s_30"><p>false</p></td></tr><tr id="uu0e7s_18"><td id="uu0e7s_33"><p><code class="code" id="uu0e7s_37">!=</code></p></td><td id="uu0e7s_34"><p>Diff&eacute;rent de</p></td><td id="uu0e7s_35"><p><code class="code" id="uu0e7s_38">a != b</code></p></td><td id="uu0e7s_36"><p>true</p></td></tr><tr id="uu0e7s_19"><td id="uu0e7s_39"><p><code class="code" id="uu0e7s_43">&gt;</code></p></td><td id="uu0e7s_40"><p>Sup&eacute;rieur &agrave;</p></td><td id="uu0e7s_41"><p><code class="code" id="uu0e7s_44">a &gt; b</code></p></td><td id="uu0e7s_42"><p>true</p></td></tr><tr id="uu0e7s_20"><td id="uu0e7s_45"><p><code class="code" id="uu0e7s_49">&lt;</code></p></td><td id="uu0e7s_46"><p>Inf&eacute;rieur &agrave;</p></td><td id="uu0e7s_47"><p><code class="code" id="uu0e7s_50">a &lt; b</code></p></td><td id="uu0e7s_48"><p>false</p></td></tr><tr id="uu0e7s_21"><td id="uu0e7s_51"><p><code class="code" id="uu0e7s_55">&gt;=</code></p></td><td id="uu0e7s_52"><p>Sup&eacute;rieur ou &eacute;gal &agrave;</p></td><td id="uu0e7s_53"><p><code class="code" id="uu0e7s_56">a &gt;= b</code></p></td><td id="uu0e7s_54"><p>true</p></td></tr><tr id="uu0e7s_22"><td id="uu0e7s_57"><p><code class="code" id="uu0e7s_61">&lt;=</code></p></td><td id="uu0e7s_58"><p>Inf&eacute;rieur ou &eacute;gal &agrave;</p></td><td id="uu0e7s_59"><p><code class="code" id="uu0e7s_62">a &lt;= b</code></p></td><td id="uu0e7s_60"><p>false</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="la-comparaison-des-objets" data-toc="la-comparaison-des-objets">La comparaison des objets</h3><p id="uu0e7s_63">Avec les types r&eacute;f&eacute;rence (dont font partie les objets) la comparaison s'effectue sur les adresses m&eacute;moires.</p><div class="code-block" data-lang="java">
+</div><section class="chapter"><h3 id="les-op-rateurs-de-comparaison" data-toc="les-op-rateurs-de-comparaison">Les op&eacute;rateurs de comparaison</h3><div class="table-wrapper"><table class="wide" id="jxz0k8_15"><thead><tr class="ijRowHead" id="jxz0k8_16"><th id="jxz0k8_23"><p>Op&eacute;rateur</p></th><th id="jxz0k8_24"><p>Signification</p></th><th id="jxz0k8_25"><p>Exemple (a = 10, b = 5)</p></th><th id="jxz0k8_26"><p>R&eacute;sultat</p></th></tr></thead><tbody><tr id="jxz0k8_17"><td id="jxz0k8_27"><p><code class="code" id="jxz0k8_31">==</code></p></td><td id="jxz0k8_28"><p>&Eacute;gal &agrave;</p></td><td id="jxz0k8_29"><p><code class="code" id="jxz0k8_32">a == b</code></p></td><td id="jxz0k8_30"><p>false</p></td></tr><tr id="jxz0k8_18"><td id="jxz0k8_33"><p><code class="code" id="jxz0k8_37">!=</code></p></td><td id="jxz0k8_34"><p>Diff&eacute;rent de</p></td><td id="jxz0k8_35"><p><code class="code" id="jxz0k8_38">a != b</code></p></td><td id="jxz0k8_36"><p>true</p></td></tr><tr id="jxz0k8_19"><td id="jxz0k8_39"><p><code class="code" id="jxz0k8_43">&gt;</code></p></td><td id="jxz0k8_40"><p>Sup&eacute;rieur &agrave;</p></td><td id="jxz0k8_41"><p><code class="code" id="jxz0k8_44">a &gt; b</code></p></td><td id="jxz0k8_42"><p>true</p></td></tr><tr id="jxz0k8_20"><td id="jxz0k8_45"><p><code class="code" id="jxz0k8_49">&lt;</code></p></td><td id="jxz0k8_46"><p>Inf&eacute;rieur &agrave;</p></td><td id="jxz0k8_47"><p><code class="code" id="jxz0k8_50">a &lt; b</code></p></td><td id="jxz0k8_48"><p>false</p></td></tr><tr id="jxz0k8_21"><td id="jxz0k8_51"><p><code class="code" id="jxz0k8_55">&gt;=</code></p></td><td id="jxz0k8_52"><p>Sup&eacute;rieur ou &eacute;gal &agrave;</p></td><td id="jxz0k8_53"><p><code class="code" id="jxz0k8_56">a &gt;= b</code></p></td><td id="jxz0k8_54"><p>true</p></td></tr><tr id="jxz0k8_22"><td id="jxz0k8_57"><p><code class="code" id="jxz0k8_61">&lt;=</code></p></td><td id="jxz0k8_58"><p>Inf&eacute;rieur ou &eacute;gal &agrave;</p></td><td id="jxz0k8_59"><p><code class="code" id="jxz0k8_62">a &lt;= b</code></p></td><td id="jxz0k8_60"><p>false</p></td></tr></tbody></table></div></section><section class="chapter"><h3 id="la-comparaison-des-objets" data-toc="la-comparaison-des-objets">La comparaison des objets</h3><p id="jxz0k8_63">Avec les types r&eacute;f&eacute;rence (dont font partie les objets) la comparaison s'effectue sur les adresses m&eacute;moires.</p><div class="code-block" data-lang="java">
 public class StringCompare {
     public static void main(String[] args) {
         String s1 = new String(&quot;Hello&quot;);
@@ -40,7 +40,7 @@ public class StringCompare {
         System.out.println(s1 == s2);
     }
 }
-</div><p id="uu0e7s_65">En revanche la comparaison suivante est true.</p><div class="code-block" data-lang="java">
+</div><p id="jxz0k8_65">En revanche la comparaison suivante est true.</p><div class="code-block" data-lang="java">
 public class StringCompare {
     public static void main(String[] args) {
         String s1 = &quot;Hello&quot;;
@@ -50,7 +50,7 @@ public class StringCompare {
         System.out.println(s1 == s2);
     }
 }
-</div><aside class="prompt" data-type="tip" data-title="" id="uu0e7s_67"><p id="uu0e7s_69">Java optimise la gestion des objets String en utilisant un pool de cha&icirc;nes (String Pool), qui est une zone m&eacute;moire sp&eacute;ciale o&ugrave; les cha&icirc;nes litt&eacute;rales sont stock&eacute;es.</p></aside><ul class="list _bullet" id="uu0e7s_68"><li class="list__item" id="uu0e7s_70"><p id="uu0e7s_73"><code class="code" id="uu0e7s_75">String s1 = &quot;Hello&quot;;</code></p><p id="uu0e7s_74">Java ajoute &quot;Hello&quot; dans le String Pool. s1 r&eacute;f&eacute;rence &quot;Hello&quot; dans le pool.</p></li><li class="list__item" id="uu0e7s_71"><p id="uu0e7s_76"><code class="code" id="uu0e7s_78">String s2 = &quot;Hello&quot;;</code></p><p id="uu0e7s_77">&quot;Hello&quot; existe d&eacute;j&agrave; dans le pool. Java r&eacute;utilise la m&ecirc;me r&eacute;f&eacute;rence m&eacute;moire pour s2.</p></li><li class="list__item" id="uu0e7s_72"><p id="uu0e7s_79"><code class="code" id="uu0e7s_81">System.out.println(s1 == s2);</code></p><p id="uu0e7s_80">s1 et s2 pointent vers le m&ecirc;me objet en m&eacute;moire. R&eacute;sultat : true.</p></li></ul></section><section class="chapter"><h3 id="m-thode-de-comparaison" data-toc="m-thode-de-comparaison">M&eacute;thode de comparaison</h3><p id="uu0e7s_82">Pour comparer les valeurs de deux objets, il faut utiliser les m&eacute;thodes <code class="code" id="uu0e7s_86">equals</code> ou <code class="code" id="uu0e7s_87">compareTo</code>.</p><div class="code-block" data-lang="java">
+</div><aside class="prompt" data-type="tip" data-title="" id="jxz0k8_67"><p id="jxz0k8_69">Java optimise la gestion des objets String en utilisant un pool de cha&icirc;nes (String Pool), qui est une zone m&eacute;moire sp&eacute;ciale o&ugrave; les cha&icirc;nes litt&eacute;rales sont stock&eacute;es.</p></aside><ul class="list _bullet" id="jxz0k8_68"><li class="list__item" id="jxz0k8_70"><p id="jxz0k8_73"><code class="code" id="jxz0k8_75">String s1 = &quot;Hello&quot;;</code></p><p id="jxz0k8_74">Java ajoute &quot;Hello&quot; dans le String Pool. s1 r&eacute;f&eacute;rence &quot;Hello&quot; dans le pool.</p></li><li class="list__item" id="jxz0k8_71"><p id="jxz0k8_76"><code class="code" id="jxz0k8_78">String s2 = &quot;Hello&quot;;</code></p><p id="jxz0k8_77">&quot;Hello&quot; existe d&eacute;j&agrave; dans le pool. Java r&eacute;utilise la m&ecirc;me r&eacute;f&eacute;rence m&eacute;moire pour s2.</p></li><li class="list__item" id="jxz0k8_72"><p id="jxz0k8_79"><code class="code" id="jxz0k8_81">System.out.println(s1 == s2);</code></p><p id="jxz0k8_80">s1 et s2 pointent vers le m&ecirc;me objet en m&eacute;moire. R&eacute;sultat : true.</p></li></ul></section><section class="chapter"><h3 id="m-thode-de-comparaison" data-toc="m-thode-de-comparaison">M&eacute;thode de comparaison</h3><p id="jxz0k8_82">Pour comparer les valeurs de deux objets, il faut utiliser les m&eacute;thodes <code class="code" id="jxz0k8_86">equals</code> ou <code class="code" id="jxz0k8_87">compareTo</code>.</p><div class="code-block" data-lang="java">
 public class StringCompare {
     public static void main(String[] args) {
         String s1 = new String(&quot;Hello&quot;);
@@ -60,7 +60,7 @@ public class StringCompare {
         System.out.println(s1.equals(s2));
     }
 }
-</div><p id="uu0e7s_84">La m&eacute;thode <code class="code" id="uu0e7s_88">compareTo</code> retourne -1, 0 ou 1 selon que l'objet compar&eacute; et plus grand, &eacute;gal ou plus petit.</p><div class="code-block" data-lang="java">
+</div><p id="jxz0k8_84">La m&eacute;thode <code class="code" id="jxz0k8_88">compareTo</code> retourne -1, 0 ou 1 selon que l'objet compar&eacute; et plus grand, &eacute;gal ou plus petit.</p><div class="code-block" data-lang="java">
 public class StringCompare {
     public static void main(String[] args) {
         String s1 = new String(&quot;Hello&quot;);
@@ -70,7 +70,7 @@ public class StringCompare {
         System.out.println(s1.compareTo(s2));
     }
 }
-</div></section><section class="chapter"><h3 id="structure-ternaire" data-toc="structure-ternaire">Structure ternaire</h3><p id="uu0e7s_89">Java supporte l'op&eacute;rateur ternaire pour simplifier les conditions.</p><div class="code-block" data-lang="none">
+</div></section><section class="chapter"><h3 id="structure-ternaire" data-toc="structure-ternaire">Structure ternaire</h3><p id="jxz0k8_89">Java supporte l'op&eacute;rateur ternaire pour simplifier les conditions.</p><div class="code-block" data-lang="none">
 condition ? valeur_si_vrai : valeur_si_faux;
 </div><div class="code-block" data-lang="java">
 int number = 10;
@@ -78,7 +78,7 @@ int number = 10;
 String result = (number % 2 == 0) ? &quot;Pair&quot; : &quot;Impair&quot;;
 
 System.out.println(&quot;Le nombre est &quot; + result);
-</div></section></section><section class="chapter"><h2 id="switch" data-toc="switch">Switch</h2><p id="uu0e7s_92">Il s'agit d'une structure de contr&ocirc;le permettant d'ex&eacute;cuter diff&eacute;rentes instructions en fonction de la valeur d'une expression. Depuis Java 12 le switch a &eacute;t&eacute; am&eacute;lior&eacute; pour &ecirc;tre plus concis.</p><section class="chapter"><h3 id="switch-traditionnel" data-toc="switch-traditionnel">Switch traditionnel</h3><div class="code-block" data-lang="java">
+</div></section></section><section class="chapter"><h2 id="switch" data-toc="switch">Switch</h2><p id="jxz0k8_92">Il s'agit d'une structure de contr&ocirc;le permettant d'ex&eacute;cuter diff&eacute;rentes instructions en fonction de la valeur d'une expression. Depuis Java 12 le switch a &eacute;t&eacute; am&eacute;lior&eacute; pour &ecirc;tre plus concis.</p><section class="chapter"><h3 id="switch-traditionnel" data-toc="switch-traditionnel">Switch traditionnel</h3><div class="code-block" data-lang="java">
 public class SwitchExample {
     public static void main(String[] args) {
         int day = 3;
@@ -132,7 +132,7 @@ public class SwitchExpressionExample {
         System.out.println(&quot;Le jour est : &quot; + dayName);
     }
 }
-</div><ul class="list _bullet" id="uu0e7s_99"><li class="list__item" id="uu0e7s_100"><p id="uu0e7s_102">Plus concis gr&acirc;ce &agrave; l'op&eacute;rateur -&gt;.</p></li><li class="list__item" id="uu0e7s_101"><p id="uu0e7s_103">Pas besoin de break, chaque case retourne directement une valeur.</p></li></ul></section><section class="chapter"><h3 id="regroupement-de-case" data-toc="regroupement-de-case">Regroupement de case</h3><p id="uu0e7s_104">Depuis Java 12, plusieurs cas peuvent &ecirc;tre regroup&eacute;s.</p><div class="code-block" data-lang="java">
+</div><ul class="list _bullet" id="jxz0k8_99"><li class="list__item" id="jxz0k8_100"><p id="jxz0k8_102">Plus concis gr&acirc;ce &agrave; l'op&eacute;rateur -&gt;.</p></li><li class="list__item" id="jxz0k8_101"><p id="jxz0k8_103">Pas besoin de break, chaque case retourne directement une valeur.</p></li></ul></section><section class="chapter"><h3 id="regroupement-de-case" data-toc="regroupement-de-case">Regroupement de case</h3><p id="jxz0k8_104">Depuis Java 12, plusieurs cas peuvent &ecirc;tre regroup&eacute;s.</p><div class="code-block" data-lang="java">
 public class SwitchGroupingExample {
     public static void main(String[] args) {
         String fruit = &quot;Pomme&quot;;
@@ -146,7 +146,7 @@ public class SwitchGroupingExample {
         System.out.println(fruit + &quot; est un &quot; + type);
     }
 }
-</div></section><section class="chapter"><h3 id="utilisation-avec-yield-java-14" data-toc="utilisation-avec-yield-java-14">Utilisation avec yield (Java 14+)</h3><p id="uu0e7s_106">Si un case contient plusieurs instructions, on doit utiliser yield pour retourner une valeur.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h3 id="utilisation-avec-yield-java-14" data-toc="utilisation-avec-yield-java-14">Utilisation avec yield (Java 14+)</h3><p id="jxz0k8_106">Si un case contient plusieurs instructions, on doit utiliser yield pour retourner une valeur.</p><div class="code-block" data-lang="java">
 public class SwitchYieldExample {
     public static void main(String[] args) {
         int grade = 2;
@@ -164,11 +164,11 @@ public class SwitchYieldExample {
         System.out.println(&quot;Performance : &quot; + performance);
     }
 }
-</div></section></section><section class="chapter"><h2 id="boucles" data-toc="boucles">Boucles</h2><section class="chapter"><h3 id="la-boucle-for" data-toc="la-boucle-for">La boucle for</h3><p id="uu0e7s_112">La boucle for est utilis&eacute;e lorsqu'on sait &agrave; l'avance combien de fois une action doit &ecirc;tre r&eacute;p&eacute;t&eacute;e. Elle suit la syntaxe suivante :</p><div class="code-block" data-lang="java">
+</div></section></section><section class="chapter"><h2 id="boucles" data-toc="boucles">Boucles</h2><section class="chapter"><h3 id="la-boucle-for" data-toc="la-boucle-for">La boucle for</h3><p id="jxz0k8_112">La boucle for est utilis&eacute;e lorsqu'on sait &agrave; l'avance combien de fois une action doit &ecirc;tre r&eacute;p&eacute;t&eacute;e. Elle suit la syntaxe suivante :</p><div class="code-block" data-lang="java">
 for (initialisation; condition; incrémentation) {
     // Bloc d'instructions
 }
-</div><p id="uu0e7s_114"><span class="control" id="uu0e7s_116">Exemple</span></p><div class="code-block" data-lang="java">
+</div><p id="jxz0k8_114"><span class="control" id="jxz0k8_116">Exemple</span></p><div class="code-block" data-lang="java">
 public class Test {
     public static void main(String[] args) {
         for (int i = 1; i &lt;= 5; i++) {
@@ -176,7 +176,7 @@ public class Test {
         }
     }
 }
-</div></section><section class="chapter"><h3 id="la-boucle-while" data-toc="la-boucle-while">La boucle while</h3><p id="uu0e7s_117">La boucle while est utilis&eacute;e lorsqu'on ne sait pas exactement combien de fois la boucle doit s'ex&eacute;cuter. La condition est test&eacute;e avant d'ex&eacute;cuter le bloc de code.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h3 id="la-boucle-while" data-toc="la-boucle-while">La boucle while</h3><p id="jxz0k8_117">La boucle while est utilis&eacute;e lorsqu'on ne sait pas exactement combien de fois la boucle doit s'ex&eacute;cuter. La condition est test&eacute;e avant d'ex&eacute;cuter le bloc de code.</p><div class="code-block" data-lang="java">
 public class Test {
     public static void main(String[] args) {
         int i = 1;
@@ -187,7 +187,7 @@ public class Test {
         }
     }
 }
-</div><p id="uu0e7s_119">Un autre exemple sans incr&eacute;mentation</p><div class="code-block" data-lang="java">
+</div><p id="jxz0k8_119">Un autre exemple sans incr&eacute;mentation</p><div class="code-block" data-lang="java">
 
 import java.util.Random;
 
@@ -216,7 +216,7 @@ public class WhileExample {
     }
 }
 
-</div></section><section class="chapter"><h3 id="la-boucle-do-while" data-toc="la-boucle-do-while">La boucle do-while</h3><p id="uu0e7s_121">La boucle do-while est similaire &agrave; while, mais elle ex&eacute;cute au moins une fois le bloc de code avant de v&eacute;rifier la condition.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h3 id="la-boucle-do-while" data-toc="la-boucle-do-while">La boucle do-while</h3><p id="jxz0k8_121">La boucle do-while est similaire &agrave; while, mais elle ex&eacute;cute au moins une fois le bloc de code avant de v&eacute;rifier la condition.</p><div class="code-block" data-lang="java">
 public class Test {
     public static void main(String[] args) {
         int i = 1;
@@ -227,7 +227,7 @@ public class Test {
         } while (i &lt;= 5);
     }
 }
-</div></section><section class="chapter"><h3 id="instructions-de-contr-le-des-boucles" data-toc="instructions-de-contr-le-des-boucles">Instructions de contr&ocirc;le des boucles</h3><section class="chapter"><h4 id="break" data-toc="break">Break</h4><p id="uu0e7s_125">Permet de sortir compl&egrave;tement d&rsquo;une boucle lorsqu&rsquo;une certaine condition est remplie.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h3 id="instructions-de-contr-le-des-boucles" data-toc="instructions-de-contr-le-des-boucles">Instructions de contr&ocirc;le des boucles</h3><section class="chapter"><h4 id="break" data-toc="break">Break</h4><p id="jxz0k8_125">Permet de sortir compl&egrave;tement d&rsquo;une boucle lorsqu&rsquo;une certaine condition est remplie.</p><div class="code-block" data-lang="java">
 public class Test {
     public static void main(String[] args) {
         for (int i = 1; i &lt;= 5; i++) {
@@ -238,7 +238,7 @@ public class Test {
         }
     }
 }
-</div></section><section class="chapter"><h4 id="continue" data-toc="continue">Continue</h4><p id="uu0e7s_127">Permet d&rsquo;ignorer une it&eacute;ration et de passer directement &agrave; la suivante.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h4 id="continue" data-toc="continue">Continue</h4><p id="jxz0k8_127">Permet d&rsquo;ignorer une it&eacute;ration et de passer directement &agrave; la suivante.</p><div class="code-block" data-lang="java">
 public class Test {
     public static void main(String[] args) {
         for (int i = 1; i &lt;= 5; i++) {
@@ -249,4 +249,4 @@ public class Test {
         }
     }
 }
-</div></section></section></section><div class="last-modified">Last modified: 23 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="001-02-les-variables.html" class="navigation-links__prev">Les variables</a><a href="001-04-les-tableaux.html" class="navigation-links__next">Les tableaux</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
+</div></section></section></section><div class="last-modified">Last modified: 25 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="001-02-les-variables.html" class="navigation-links__prev">Les variables</a><a href="001-04-les-tableaux.html" class="navigation-links__next">Les tableaux</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>

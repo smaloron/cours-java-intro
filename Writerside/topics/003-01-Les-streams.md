@@ -119,3 +119,123 @@ public class StreamDistinctExample {
     }
 }
 ```
+
+### Transformer avec map
+
+```Java
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class MapExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+
+        // Multiplier chaque élément par 2
+        List<Integer> doubled = numbers.stream()
+            .map(n -> n * 2)
+            .collect(Collectors.toList());
+
+        System.out.println(doubled); // [2, 4, 6, 8, 10]
+    }
+}
+```
+
+### Reduce pour totaliser
+
+```Java
+import java.util.List;
+
+public class ReduceExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+
+        // Calculer la somme avec reduce
+        int sum = numbers.stream()
+            .reduce(0, (a, b) -> a + b);
+
+        System.out.println(sum); // 15
+    }
+}
+```
+
+### Combinaison de filer, map et collect
+
+```java
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class CombinedExample {
+    public static void main(String[] args) {
+        List<String> names = List.of("Alice", "Bob", "Charlie", "David");
+
+        // Obtenir la longueur des noms de plus de 3 lettres
+        List<Integer> lengths = names.stream()
+            .filter(name -> name.length() > 3)
+            .map(String::length)
+            .collect(Collectors.toList());
+
+        System.out.println(lengths); // [5, 7, 5]
+    }
+}
+```
+
+### Tester avec allMatch
+
+```java
+import java.util.List;
+
+public class AllMatchExample1 {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(3, 7, 1, 9);
+
+        // Vérifie si tous les éléments sont positifs
+        boolean allPositive = numbers.stream()
+            .allMatch(n -> n > 0);
+
+        System.out.println(allPositive); // true
+    }
+}
+```
+
+### Chercher avec findAny
+
+**Recherche fructueuse**
+```Java
+import java.util.List;
+import java.util.Optional;
+
+public class FindAnyExample1 {
+    public static void main(String[] args) {
+        List<String> names = List.of("Alice", "Bob", "Anna", "Charlie");
+
+        // Trouver un nom qui commence par "A"
+        Optional<String> result = names.stream()
+            .filter(name -> name.startsWith("A"))
+            .findAny();
+
+        // Affichage si présent
+        result.ifPresent(System.out::println); // Alice ou Anna (au hasard)
+    }
+}
+
+```
+
+**Recherche infructueuse**
+
+```Java
+import java.util.List;
+import java.util.Optional;
+
+public class FindAnyExample2 {
+    public static void main(String[] args) {
+        List<String> names = List.of("Bob", "Charlie");
+
+        // Aucun nom ne commence par "A"
+        Optional<String> result = names.stream()
+            .filter(name -> name.startsWith("A"))
+            .findAny();
+
+        System.out.println(result.isPresent()); // false
+    }
+}
+```
