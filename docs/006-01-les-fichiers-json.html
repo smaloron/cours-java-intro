@@ -1,0 +1,255 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-25T08:20:11.282974"><title>Les fichiers json | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"installation","level":0,"title":"Installation","anchor":"#installation"},{"id":"exemple-simple-d-utilisation","level":0,"title":"Exemple simple d\u0027utilisation","anchor":"#exemple-simple-d-utilisation"},{"id":"utilisation-sans-fichier","level":0,"title":"Utilisation sans fichier","anchor":"#utilisation-sans-fichier"},{"id":"utilisation-avec-une-collection","level":0,"title":"Utilisation avec une collection","anchor":"#utilisation-avec-une-collection"},{"id":"configuration","level":0,"title":"Configuration","anchor":"#configuration"},{"id":"exercices","level":0,"title":"Exercices","anchor":"#exercices"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les fichiers json | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-01-les-fichiers-json.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les fichiers json | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/006-01-les-fichiers-json.html#webpage",
+    "url": "writerside-documentation/006-01-les-fichiers-json.html",
+    "name": "Les fichiers json | Java Intro",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Java Intro Help"
+}</script><!-- End Schema.org --></head><body data-id="006-01-Les-fichiers-json" data-main-title="Les fichiers json" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="006-01-Les-fichiers-json" id="006-01-Les-fichiers-json.md">Les fichiers json</h1><p id="z48kplu_3">Pour g&eacute;rer les fichiers json, il existe quantit&eacute; de Biblioth&egrave;que. L'une des plus simple des plus populaires et Jackson.</p><section class="chapter"><h2 id="installation" data-toc="installation">Installation</h2><p id="z48kplu_10">Comme il s'agit d'une biblioth&egrave;que externe, il faut utiliser un outil tel que Maven pour l'installer.</p><div class="code-block" data-lang="markup">
+&lt;!-- dans pom.xml --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+  &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+  &lt;version&gt;2.18.3&lt;/version&gt;
+&lt;/dependency&gt;
+</div></section><section class="chapter"><h2 id="exemple-simple-d-utilisation" data-toc="exemple-simple-d-utilisation">Exemple simple d'utilisation</h2><section class="chapter"><h3 id="criture-d-une-classe-simple" data-toc="criture-d-une-classe-simple">&Eacute;criture d'une classe simple</h3><p id="z48kplu_14">L'objectif de l'&eacute;criture de contenu json et de s&eacute;rialiser un objet dans ce format particulier. Pour cela, il faut instancier un <code class="code" id="z48kplu_19">ObjectMapper</code> qui sera charg&eacute; de cette op&eacute;ration.</p><p id="z48kplu_15"><span class="control" id="z48kplu_20">Une classe simple &agrave; s&eacute;rialiser</span></p><div class="code-block" data-lang="java">
+// Classe représentant une personne
+public class Person {
+    public String name;
+    public int age;
+
+    // Constructeurs nécessaires pour Jackson
+    public Person() {}
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+</div><p id="z48kplu_17"><span class="control" id="z48kplu_21">La s&eacute;ralisation</span></p><div class="code-block" data-lang="java">
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+
+public class WriteJsonExample {
+    public static void main(String[] args) {
+        try {
+            Person person = new Person(&quot;Alice&quot;, 30);
+            
+            ObjectMapper mapper = new ObjectMapper();
+
+            // Écriture dans un fichier JSON
+            mapper.writeValue(new File(&quot;person.json&quot;), person);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div></section><section class="chapter"><h3 id="lecture-d-un-contenu-json-simple" data-toc="lecture-d-un-contenu-json-simple">Lecture d'un contenu json simple</h3><p id="z48kplu_22">La lecture ob&eacute;it au m&ecirc;me principe.</p><div class="code-block" data-lang="java">
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
+
+public class ReadJsonExample {
+    public static void main(String[] args) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+
+            // Lecture à partir d’un fichier JSON
+            Person person = mapper.readValue(new File(&quot;person.json&quot;),
+                                             Person.class
+            );
+            System.out.println(&quot;Nom : &quot; + person.name);
+            System.out.println(&quot;Âge : &quot; + person.age);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+</div><aside class="prompt" data-type="tip" data-title="" id="z48kplu_24"><p id="z48kplu_25">Jackson g&egrave;re automatiquement les objets imbriqu&eacute;s et m&ecirc;me les collections d'objets imbriqu&eacute;s</p></aside></section></section><section class="chapter"><h2 id="utilisation-sans-fichier" data-toc="utilisation-sans-fichier">Utilisation sans fichier</h2><section class="chapter"><h3 id="s-rialisation-et-d-s-rialisation-dans-une-variable" data-toc="s-rialisation-et-d-s-rialisation-dans-une-variable">S&eacute;rialisation et d&eacute;-s&eacute;rialisation dans une variable</h3><p id="z48kplu_27">Il est possible de s&eacute;rialiser dans une variable sans enregistrer dans un fichier. Cette fonction est utile pour enregistrer le contenu dans une base de donn&eacute;es par exemple.</p><div class="code-block" data-lang="java">
+Person person = new Person(&quot;Alice&quot;, 28);
+ObjectMapper mapper = new ObjectMapper();
+String json = mapper.writeValueAsString(person);
+System.out.println(json);
+</div><p id="z48kplu_29">De m&ecirc;me, il est possible de d&eacute;-s&eacute;rialiser &agrave; partir d'une variable.</p><div class="code-block" data-lang="java">
+String json = &quot;{\&quot;name\&quot;:\&quot;Alice\&quot;,\&quot;age\&quot;:28}&quot;;
+Person person = mapper.readValue(json, Person.class);
+</div><p id="z48kplu_31">Et enfin, il est &eacute;galement possible de se passer totalement de classe et de lire le contenu json directement.</p><div class="code-block" data-lang="java">
+JsonNode node = mapper.readTree(new File(&quot;person.json&quot;));
+String name = node.get(&quot;name&quot;).asText();
+int age = node.get(&quot;age&quot;).asInt();
+</div></section></section><section class="chapter"><h2 id="utilisation-avec-une-collection" data-toc="utilisation-avec-une-collection">Utilisation avec une collection</h2><p id="z48kplu_33">Plut&ocirc;t qu'un objet, il est possible de travailler avec une collection telle qu'un Map ou une list.</p><section class="chapter"><h3 id="avec-un-map" data-toc="avec-un-map">Avec un Map</h3><p id="z48kplu_36">* <span class="control" id="z48kplu_40">La structure json</span></p><div class="code-block" data-lang="json">
+{
+  &quot;name&quot;: &quot;Alice&quot;,
+  &quot;age&quot;: 30,
+  &quot;address&quot;: {
+    &quot;city&quot;: &quot;Paris&quot;,
+    &quot;zipcode&quot;: &quot;75001&quot;
+  }
+}
+
+</div><section class="chapter"><h4 id="criture-de-json-partir-d-un-map" data-toc="criture-de-json-partir-d-un-map">&Eacute;criture de json &agrave; partir d'un Map</h4><div class="code-block" data-lang="java">
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+public class WriteJsonWithMap {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        Map&lt;String, Object&gt; data = new HashMap&lt;&gt;();
+        data.put(&quot;name&quot;, &quot;Alice&quot;);
+        data.put(&quot;age&quot;, 30);
+
+        Map&lt;String, String&gt; address = new HashMap&lt;&gt;();
+        address.put(&quot;city&quot;, &quot;Paris&quot;);
+        address.put(&quot;zipcode&quot;, &quot;75001&quot;);
+
+        data.put(&quot;address&quot;, address);
+
+        mapper.writeValue(new File(&quot;map_output.json&quot;), data);
+        System.out.println(&quot;JSON écrit avec succès !&quot;);
+    }
+}
+</div></section><section class="chapter"><h4 id="lecture-de-json-dans-un-map" data-toc="lecture-de-json-dans-un-map">Lecture de json dans un Map</h4><div class="code-block" data-lang="java">
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.util.Map;
+
+public class ReadJsonWithMap {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+
+        Map&lt;String, Object&gt; data = mapper.readValue(
+            new File(&quot;map_output.json&quot;),
+            new TypeReference&lt;Map&lt;String, Object&gt;&gt;() {}
+        );
+
+        System.out.println(&quot;Nom : &quot; + data.get(&quot;name&quot;));
+        System.out.println(&quot;Âge : &quot; + data.get(&quot;age&quot;));
+
+        // On doit caster pour accéder à la sous-map
+        Map&lt;String, String&gt; address = (Map&lt;String, String&gt;) data.get(&quot;address&quot;);
+        System.out.println(&quot;Ville : &quot; + address.get(&quot;city&quot;));
+        System.out.println(&quot;Code postal : &quot; + address.get(&quot;zipcode&quot;));
+    }
+}
+</div></section></section><section class="chapter"><h3 id="avec-une-list" data-toc="avec-une-list">Avec une List</h3><p id="z48kplu_43"><span class="control" id="z48kplu_47">La structure json</span></p><div class="code-block" data-lang="json">
+[
+  {
+    &quot;name&quot;: &quot;Alice&quot;,
+    &quot;age&quot;: 30
+  },
+  {
+    &quot;name&quot;: &quot;Bob&quot;,
+    &quot;age&quot;: 25
+  }
+]
+</div><section class="chapter"><h4 id="criture-de-contenu-json-partir-d-une-list" data-toc="criture-de-contenu-json-partir-d-une-list">&Eacute;criture de contenu json &agrave; partir d'une List</h4><div class="code-block" data-lang="java">
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+import java.io.File;
+import java.util.*;
+
+public class WriteListOfMaps {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+        List&lt;Map&lt;String, Object&gt;&gt; people = new ArrayList&lt;&gt;();
+
+        Map&lt;String, Object&gt; person1 = new HashMap&lt;&gt;();
+        person1.put(&quot;name&quot;, &quot;Alice&quot;);
+        person1.put(&quot;age&quot;, 30);
+
+        Map&lt;String, Object&gt; person2 = new HashMap&lt;&gt;();
+        person2.put(&quot;name&quot;, &quot;Bob&quot;);
+        person2.put(&quot;age&quot;, 25);
+
+        people.add(person1);
+        people.add(person2);
+
+        mapper.writeValue(new File(&quot;people_list.json&quot;), people);
+        System.out.println(&quot;JSON écrit avec succès !&quot;);
+    }
+}
+</div></section><section class="chapter"><h4 id="lecture-de-contenu-json-dans-une-list" data-toc="lecture-de-contenu-json-dans-une-list">Lecture de contenu json dans une List</h4><div class="code-block" data-lang="java">
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.util.*;
+
+public class ReadListOfMaps {
+    public static void main(String[] args) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+
+        List&lt;Map&lt;String, Object&gt;&gt; people = mapper.readValue(
+            new File(&quot;people_list.json&quot;),
+            new TypeReference&lt;List&lt;Map&lt;String, Object&gt;&gt;&gt;() {}
+        );
+
+        for (Map&lt;String, Object&gt; person : people) {
+            System.out.println(&quot;Nom : &quot; + person.get(&quot;name&quot;));
+            System.out.println(&quot;Âge : &quot; + person.get(&quot;age&quot;));
+            System.out.println(&quot;-----&quot;);
+        }
+    }
+}
+</div><p id="z48kplu_50">Sur le m&ecirc;me principe, il est &eacute;galement possible d'utiliser une List d'objets (<code class="code" id="z48kplu_51">List&lt;Person&gt;</code>).</p></section></section></section><section class="chapter"><h2 id="configuration" data-toc="configuration">Configuration</h2><section class="chapter"><h3 id="indenter-le-json" data-toc="indenter-le-json">Indenter le JSON</h3><div class="code-block" data-lang="java">
+mapper.enable(SerializationFeature.INDENT_OUTPUT);
+</div></section><section class="chapter"><h3 id="ignorer-les-champs-inconnus-la-lecture" data-toc="ignorer-les-champs-inconnus-la-lecture">Ignorer les champs inconnus &agrave; la lecture</h3><div class="code-block" data-lang="java">
+mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+</div></section><section class="chapter"><h3 id="ne-pas-inclure-les-champs-null" data-toc="ne-pas-inclure-les-champs-null">Ne pas inclure les champs null</h3><div class="code-block" data-lang="java">
+mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+</div><p id="z48kplu_60"><span class="control" id="z48kplu_62">Autres options</span></p><ul class="list _bullet" id="z48kplu_61"><li class="list__item" id="z48kplu_63"><p id="z48kplu_65"><code class="code" id="z48kplu_66">JsonInclude.Include.NON_EMPTY</code>: exclut les listes ou cha&icirc;nes vides</p></li><li class="list__item" id="z48kplu_64"><p id="z48kplu_67"><code class="code" id="z48kplu_68">JsonInclude.Include.NON_DEFAULT</code>: exclut les valeurs par d&eacute;faut</p></li></ul></section><section class="chapter"><h3 id="formatage-des-dates" data-toc="formatage-des-dates">Formatage des dates</h3><div class="code-block" data-lang="java">
+mapper.setDateFormat(new SimpleDateFormat(&quot;yyyy-MM-dd&quot;));
+</div></section><section class="chapter"><h3 id="pretty-printer" data-toc="pretty-printer">Pretty printer</h3><p id="z48kplu_70">La m&eacute;thode <code class="code" id="z48kplu_72">mapper.writerWithDefaultPrettyPrinter()</code> dans Jackson permet de produire un JSON joliment indent&eacute; (pretty-printed), ce qui le rend beaucoup plus lisible pour les humains.</p><div class="code-block" data-lang="java">
+mapper.writerWithDefaultPrettyPrinter()
+      .writeValue(new File(&quot;fichier.json&quot;), person);
+</div></section></section><section class="chapter"><h2 id="exercices" data-toc="exercices">Exercices</h2><section class="chapter"><h3 id="exercice-1-s-rialisation-d-un-objet-simple" data-toc="exercice-1-s-rialisation-d-un-objet-simple">Exercice 1 : S&eacute;rialisation d'un objet simple</h3><p id="z48kplu_75">S&eacute;rialiser cet objet dans un fichier json</p><div class="code-block" data-lang="java">
+public class Book {
+    public String title;
+    public String author;
+    public int year;
+
+    public Book() {}
+    public Book(String title, String author, int year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+    }
+}
+</div><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction-exercice-1" data-toc="correction-exercice-1">Correction exercice 1</h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+ObjectMapper mapper = new ObjectMapper();
+mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+Book book = new Book(&quot;1984&quot;, &quot;George Orwell&quot;, 1949);
+mapper.writeValue(new File(&quot;book.json&quot;), book);
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-2-d-s-rialiser-une-liste" data-toc="exercice-2-d-s-rialiser-une-liste">Exercice 2 : D&eacute;-s&eacute;rialiser une liste</h3><p id="z48kplu_79">Soit le contenu suivant dans un fichier <code class="code" id="z48kplu_82">books.json</code>, d&eacute;-s&eacute;rialiser et afficher le contenu dans la console.</p><div class="code-block" data-lang="json">
+[
+  { &quot;title&quot;: &quot;1984&quot;, &quot;author&quot;: &quot;George Orwell&quot;, &quot;year&quot;: 1949 },
+  { &quot;title&quot;: &quot;Dune&quot;, &quot;author&quot;: &quot;Frank Herbert&quot;, &quot;year&quot;: 1965 }
+]
+</div><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+List&lt;Book&gt; books = mapper.readValue(
+    new File(&quot;books.json&quot;),
+    new TypeReference&lt;List&lt;Book&gt;&gt;() {}
+);
+
+for (Book b : books) {
+    System.out.println(b.title + &quot; - &quot; + b.author);
+}
+</div></div></div></section></section></section><div class="last-modified">Last modified: 25 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="006-00-les-fichiers.html" class="navigation-links__prev">Les fichiers</a><a href="007-00-les-bases-de-donnees.html" class="navigation-links__next">Les bases de donn&eacute;es</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
