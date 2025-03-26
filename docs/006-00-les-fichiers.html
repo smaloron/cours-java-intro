@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-25T08:20:11.277607"><title>Les fichiers | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"les-m-thodes-classiques","level":0,"title":"Les méthodes classiques","anchor":"#les-m-thodes-classiques"},{"id":"les-nouvelles-m-thodes","level":0,"title":"Les \"nouvelles\" méthodes","anchor":"#les-nouvelles-m-thodes"},{"id":"les-fichiers-binaires","level":0,"title":"Les fichiers binaires","anchor":"#les-fichiers-binaires"},{"id":"copie-d-un-fichier-binaire-ou-texte","level":0,"title":"Copie d\u0027un fichier binaire ou texte","anchor":"#copie-d-un-fichier-binaire-ou-texte"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les fichiers | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-00-les-fichiers.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les fichiers | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-26T07:55:52.993051"><title>Les fichiers | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"les-m-thodes-classiques","level":0,"title":"Les méthodes classiques","anchor":"#les-m-thodes-classiques"},{"id":"les-nouvelles-m-thodes","level":0,"title":"Les \"nouvelles\" méthodes","anchor":"#les-nouvelles-m-thodes"},{"id":"les-fichiers-binaires","level":0,"title":"Les fichiers binaires","anchor":"#les-fichiers-binaires"},{"id":"copie-d-un-fichier-binaire-ou-texte","level":0,"title":"Copie d\u0027un fichier binaire ou texte","anchor":"#copie-d-un-fichier-binaire-ou-texte"},{"id":"la-s-rialisation","level":0,"title":"La sérialisation","anchor":"#la-s-rialisation"},{"id":"exercices","level":0,"title":"Exercices","anchor":"#exercices"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les fichiers | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-00-les-fichiers.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les fichiers | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
     "@context": "http://schema.org",
     "@type": "WebPage",
     "@id": "writerside-documentation/006-00-les-fichiers.html#webpage",
@@ -13,7 +13,7 @@
     "@id": "writerside-documentation/#website",
     "url": "writerside-documentation/",
     "name": "Java Intro Help"
-}</script><!-- End Schema.org --></head><body data-id="006-00-Les-fichiers" data-main-title="Les fichiers" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="006-00-Les-fichiers" id="006-00-Les-fichiers.md">Les fichiers</h1><p id="kp006q_3">Pour lire et &eacute;crire dans des fichiers Java propose plusieurs solutions.</p><section class="chapter"><h2 id="les-m-thodes-classiques" data-toc="les-m-thodes-classiques">Les m&eacute;thodes classiques</h2><section class="chapter"><h3 id="criture" data-toc="criture">&Eacute;criture</h3><p id="kp006q_10">La classe <code class="code" id="kp006q_15">FileWriter</code> permet d'&eacute;crire du texte dans un fichier.</p><div class="code-block" data-lang="java">
+}</script><!-- End Schema.org --></head><body data-id="006-00-Les-fichiers" data-main-title="Les fichiers" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="006-00-Les-fichiers" id="006-00-Les-fichiers.md">Les fichiers</h1><p id="kp006q_3">Pour lire et &eacute;crire dans des fichiers Java propose plusieurs solutions.</p><section class="chapter"><h2 id="les-m-thodes-classiques" data-toc="les-m-thodes-classiques">Les m&eacute;thodes classiques</h2><section class="chapter"><h3 id="criture" data-toc="criture">&Eacute;criture</h3><p id="kp006q_12">La classe <code class="code" id="kp006q_17">FileWriter</code> permet d'&eacute;crire du texte dans un fichier.</p><div class="code-block" data-lang="java">
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -36,7 +36,7 @@ public class FileWriteExample {
         }
     }
 }
-</div><ul class="list _bullet" id="kp006q_12"><li class="list__item" id="kp006q_16"><p id="kp006q_18">Par d&eacute;faut, le contenu pr&eacute;c&eacute;dent du fichier est &eacute;cras&eacute;.</p></li><li class="list__item" id="kp006q_17"><p id="kp006q_19">Ouvrir la ressource dans le <code class="code" id="kp006q_20">try</code> garantit la fermeture automatique du fichier (pas besoin de <code class="code" id="kp006q_21">finally</code>).</p></li></ul><section class="chapter"><h4 id="criture-optimis-e-avec-un-tampon" data-toc="criture-optimis-e-avec-un-tampon">&Eacute;criture optimis&eacute;e avec un tampon</h4><p id="kp006q_22">La mise en tampon de l'&eacute;criture limite les acc&egrave;s disque et donc am&eacute;liore la performance.</p><div class="code-block" data-lang="java">
+</div><ul class="list _bullet" id="kp006q_14"><li class="list__item" id="kp006q_18"><p id="kp006q_20">Par d&eacute;faut, le contenu pr&eacute;c&eacute;dent du fichier est &eacute;cras&eacute;.</p></li><li class="list__item" id="kp006q_19"><p id="kp006q_21">Ouvrir la ressource dans le <code class="code" id="kp006q_22">try</code> garantit la fermeture automatique du fichier (pas besoin de <code class="code" id="kp006q_23">finally</code>).</p></li></ul><section class="chapter"><h4 id="criture-optimis-e-avec-un-tampon" data-toc="criture-optimis-e-avec-un-tampon">&Eacute;criture optimis&eacute;e avec un tampon</h4><p id="kp006q_24">La mise en tampon de l'&eacute;criture limite les acc&egrave;s disque et donc am&eacute;liore la performance.</p><div class="code-block" data-lang="java">
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -66,7 +66,7 @@ public class BufferedWriteExample {
         }
     }
 }
-</div></section><section class="chapter"><h4 id="ajout-un-fichier-append" data-toc="ajout-un-fichier-append">Ajout &agrave; un fichier (append)</h4><p id="kp006q_24">Il suffit de passer <code class="code" id="kp006q_26">true</code> en deuxi&egrave;me argument du constructeur de <code class="code" id="kp006q_27">FileWriter</code>.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h4 id="ajout-un-fichier-append" data-toc="ajout-un-fichier-append">Ajout &agrave; un fichier (append)</h4><p id="kp006q_26">Il suffit de passer <code class="code" id="kp006q_28">true</code> en deuxi&egrave;me argument du constructeur de <code class="code" id="kp006q_29">FileWriter</code>.</p><div class="code-block" data-lang="java">
 // true active le mode append
 new FileWriter(&quot;output.txt&quot;, true); 
 </div></section></section><section class="chapter"><h3 id="lecture-de-fichiers" data-toc="lecture-de-fichiers">Lecture de fichiers</h3><section class="chapter"><h4 id="lecture-caract-re-par-caract-re" data-toc="lecture-caract-re-par-caract-re">Lecture caract&egrave;re par caract&egrave;re</h4><div class="code-block" data-lang="java">
@@ -86,7 +86,7 @@ public class FileReadExample {
         }
     }
 }
-</div></section><section class="chapter"><h4 id="lecture-avec-un-tampon" data-toc="lecture-avec-un-tampon">Lecture avec un tampon</h4><p id="kp006q_31">La classe <code class="code" id="kp006q_33">BufferedReader</code> permet de lire ligne par ligne, ce qui est plus efficace.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h4 id="lecture-avec-un-tampon" data-toc="lecture-avec-un-tampon">Lecture avec un tampon</h4><p id="kp006q_33">La classe <code class="code" id="kp006q_35">BufferedReader</code> permet de lire ligne par ligne, ce qui est plus efficace.</p><div class="code-block" data-lang="java">
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -109,7 +109,7 @@ public class BufferedReadExample {
         }
     }
 }
-</div></section></section></section><section class="chapter"><h2 id="les-nouvelles-m-thodes" data-toc="les-nouvelles-m-thodes">Les &quot;nouvelles&quot; m&eacute;thodes</h2><p id="kp006q_34">Depuis Java 7, il est possible de lire et d'&eacute;crire dans un fichier avec une syntaxe simplifi&eacute;e en utilisant le package <code class="code" id="kp006q_37">nio</code> (new IO).</p><section class="chapter"><h3 id="criture_1" data-toc="criture_1">&Eacute;criture</h3><div class="code-block" data-lang="java">
+</div></section></section></section><section class="chapter"><h2 id="les-nouvelles-m-thodes" data-toc="les-nouvelles-m-thodes">Les &quot;nouvelles&quot; m&eacute;thodes</h2><p id="kp006q_36">Depuis Java 7, il est possible de lire et d'&eacute;crire dans un fichier avec une syntaxe simplifi&eacute;e en utilisant le package <code class="code" id="kp006q_39">nio</code> (new IO).</p><section class="chapter"><h3 id="criture_1" data-toc="criture_1">&Eacute;criture</h3><div class="code-block" data-lang="java">
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -132,7 +132,7 @@ public class FilesWriteExample {
         }
     }
 }
-</div></section><section class="chapter"><h3 id="lecture" data-toc="lecture">Lecture</h3><p id="kp006q_39">Pour la lecture, <code class="code" id="kp006q_41">nio</code> permet le chargement de l'ensemble du fichier dans une liste de cha&icirc;nes.</p><div class="code-block" data-lang="java">
+</div></section><section class="chapter"><h3 id="lecture" data-toc="lecture">Lecture</h3><p id="kp006q_41">Pour la lecture, <code class="code" id="kp006q_43">nio</code> permet le chargement de l'ensemble du fichier dans une liste de cha&icirc;nes.</p><div class="code-block" data-lang="java">
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -153,7 +153,7 @@ public class FilesReadExample {
         }
     }
 }
-</div></section></section><section class="chapter"><h2 id="les-fichiers-binaires" data-toc="les-fichiers-binaires">Les fichiers binaires</h2><p id="kp006q_42">Pour lire ou &eacute;crire du contenu binaire, il faut utiliser les classe <code class="code" id="kp006q_45">FileInputStream</code> et <code class="code" id="kp006q_46">FileOutputStream</code>.</p><section class="chapter"><h3 id="criture-de-contenu-binaire" data-toc="criture-de-contenu-binaire">&Eacute;criture de contenu binaire</h3><div class="code-block" data-lang="java">
+</div></section></section><section class="chapter"><h2 id="les-fichiers-binaires" data-toc="les-fichiers-binaires">Les fichiers binaires</h2><p id="kp006q_44">Pour lire ou &eacute;crire du contenu binaire, il faut utiliser les classe <code class="code" id="kp006q_47">FileInputStream</code> et <code class="code" id="kp006q_48">FileOutputStream</code>.</p><section class="chapter"><h3 id="criture-de-contenu-binaire" data-toc="criture-de-contenu-binaire">&Eacute;criture de contenu binaire</h3><div class="code-block" data-lang="java">
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -170,7 +170,7 @@ public class BinaryFileWrite {
         }
     }
 }
-</div><p id="kp006q_48">Il est &eacute;galement possible d'ajouter un tampon pour am&eacute;liorer la performance en utilisant la classe `BufferedOutputStream. L'&eacute;criture s'effectuera par bloc plut&ocirc;t qu'octet par octet.</p><div class="code-block" data-lang="java">
+</div><p id="kp006q_50">Il est &eacute;galement possible d'ajouter un tampon pour am&eacute;liorer la performance en utilisant la classe `BufferedOutputStream. L'&eacute;criture s'effectuera par bloc plut&ocirc;t qu'octet par octet.</p><div class="code-block" data-lang="java">
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -211,7 +211,7 @@ public class BinaryReadExample {
     }
 }
 
-</div><p id="kp006q_51">Comme pour l'&eacute;criture, il est possible d'utiliser un tampon.</p><div class="code-block" data-lang="java">
+</div><p id="kp006q_53">Comme pour l'&eacute;criture, il est possible d'utiliser un tampon.</p><div class="code-block" data-lang="java">
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -260,4 +260,655 @@ public class FilesCopyExample {
         }
     }
 }
-</div></section><div class="last-modified">Last modified: 25 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="004-02-maven.html" class="navigation-links__prev">Maven</a><a href="006-01-les-fichiers-json.html" class="navigation-links__next">Les fichiers json</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
+</div></section><section class="chapter"><h2 id="la-s-rialisation" data-toc="la-s-rialisation">La s&eacute;rialisation</h2><p id="kp006q_56">La s&eacute;rialisation en Java est le processus de conversion d&rsquo;un objet en un flux de bits afin de pouvoir le stocker (dans un fichier, une base de donn&eacute;es, etc.) ou le transmettre (par exemple via un r&eacute;seau). Ce flux peut ensuite &ecirc;tre d&eacute;s&eacute;rialis&eacute; pour recr&eacute;er l&rsquo;objet original.</p><p id="kp006q_57"><span class="control" id="kp006q_63">Conditions pour la s&eacute;rialisation</span></p><ul class="list _bullet" id="kp006q_58"><li class="list__item" id="kp006q_64"><p id="kp006q_67">La classe de l&rsquo;objet doit impl&eacute;menter l&rsquo;interface <code class="code" id="kp006q_68">Serializable</code>.</p></li><li class="list__item" id="kp006q_65"><p id="kp006q_69">Tous les objets contenus dans l&rsquo;objet principal doivent, eux aussi, &ecirc;tre s&eacute;rialisables.</p></li><li class="list__item" id="kp006q_66"><p id="kp006q_70">On peut marquer certains champs comme transitoires (transient) pour les exclure de la s&eacute;rialisation.</p></li></ul><section class="chapter"><h3 id="exemples-simples" data-toc="exemples-simples">Exemples simples</h3><p id="kp006q_71">Soit une classe `Person</p><div class="code-block" data-lang="java">
+class Person implements Serializable {
+    private String name;
+    private int age;
+
+    // Constructeur
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Méthode pour affichage
+    public String toString() {
+        return &quot;Name: &quot; + name + &quot;, Age: &quot; + age;
+    }
+}
+</div><section class="chapter"><h4 id="le-code-de-la-s-rialisation" data-toc="le-code-de-la-s-rialisation">Le code de la s&eacute;rialisation</h4><div class="code-block" data-lang="java">
+import java.io.*;
+
+public class SerializeExample {
+    public static void main(String[] args) {
+        Person p = new Person(&quot;Alice&quot;, 30);
+
+        try {
+            // Sérialisation dans un fichier
+            FileOutputStream fileOut = new FileOutputStream(&quot;person.ser&quot;);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(p);
+            out.close();
+            fileOut.close();
+            System.out.println(&quot;Objet sérialisé dans person.ser&quot;);
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+    }
+}
+</div></section><section class="chapter"><h4 id="le-code-de-la-d-serialisation" data-toc="le-code-de-la-d-serialisation">Le code de la d&eacute;-serialisation</h4><div class="code-block" data-lang="java">
+import java.io.*;
+
+public class DeserializeExample {
+    public static void main(String[] args) {
+        Person p = null;
+
+        try {
+            // Lecture de l’objet sérialisé
+            FileInputStream fileIn = new FileInputStream(&quot;person.ser&quot;);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            p = (Person) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(&quot;Objet désérialisé : &quot; + p);
+    }
+}
+</div></section></section><section class="chapter"><h3 id="exclusions-de-certains-champs" data-toc="exclusions-de-certains-champs">Exclusions de certains champs</h3><p id="kp006q_77">Pour exclure des champs de la s&eacute;rialisation, il faut les marquer avec l'attribut <code class="code" id="kp006q_80">transient</code> dans la classe qui doit &ecirc;tre s&eacute;rialis&eacute;e.</p><div class="code-block" data-lang="java">
+class User implements Serializable {
+    private String username;
+    private transient String password; // champ non sérialisé
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public String toString() {
+        return &quot;Username: &quot; + username + &quot;, Password: &quot; + password;
+    }
+}
+</div><section class="chapter"><h4 id="utilisation-de-la-classe" data-toc="utilisation-de-la-classe">Utilisation de la classe</h4><div class="code-block" data-lang="java">
+public class TransientExample {
+    public static void main(String[] args) {
+        User user = new User(&quot;john_doe&quot;, &quot;secret123&quot;);
+
+        // Sérialisation
+        try (ObjectOutputStream oos =
+                 new ObjectOutputStream(new FileOutputStream(&quot;user.ser&quot;))) {
+            oos.writeObject(user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Désérialisation
+        User deserializedUser = null;
+        try (ObjectInputStream ois =
+                 new ObjectInputStream(new FileInputStream(&quot;user.ser&quot;))) {
+            deserializedUser = (User) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        // Affichage après désérialisation
+        System.out.println(&quot;Objet désérialisé : &quot; + deserializedUser);
+    }
+}
+
+</div></section></section><section class="chapter"><h3 id="s-rialiser-une-liste-d-objets" data-toc="s-rialiser-une-liste-d-objets">S&eacute;rialiser une liste d'objets</h3><p id="kp006q_82">Soit la classe suivante :</p><div class="code-block" data-lang="java">
+class Product implements Serializable {
+    String name;
+    double price;
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String toString() {
+        return name + &quot; - &quot; + price + &quot;€&quot;;
+    }
+}
+</div><p id="kp006q_84">Voici un exemple de s&eacute;rialisation d'une liste d'instances :</p><div class="code-block" data-lang="java">
+import java.util.*;
+import java.io.*;
+
+public class Test3 {
+    public static void main(String[] args) throws Exception {
+        List&lt;Product&gt; products = new ArrayList&lt;&gt;();
+        products.add(new Product(&quot;Camera&quot;, 199.99));
+        products.add(new Product(&quot;Tripod&quot;, 39.90));
+
+        // Sérialisation
+        ObjectOutputStream oos = new ObjectOutputStream(
+            new FileOutputStream(&quot;products.ser&quot;)
+        );
+        oos.writeObject(products);
+        oos.close();
+
+        // Désérialisation
+        ObjectInputStream ois = new ObjectInputStream(
+            new FileInputStream(&quot;products.ser&quot;)
+        );
+        List&lt;Product&gt; loaded =
+            (List&lt;Product&gt;) ois.readObject();
+        ois.close();
+
+        for (Product p : loaded) {
+            System.out.println(p);
+        }
+    }
+}
+
+</div></section><section class="chapter"><h3 id="s-rialiser-en-m-moire" data-toc="s-rialiser-en-m-moire">S&eacute;rialiser en m&eacute;moire</h3><p id="kp006q_86">Dans certains cas, il est souhaitable d'&eacute;viter les acc&egrave;s disque pour des raisons de performance. Java propose une solution pour rediriger le flux sortie vers la m&eacute;moire, vive plut&ocirc;t que vers un fichier. Pour cela, il faut utiliser la classe suivante : <code class="code" id="kp006q_91">ByteArrayOutputStream</code></p><section class="chapter"><h4 id="avantages-de-cette-technique" data-toc="avantages-de-cette-technique">Avantages de cette technique</h4><ul class="list _bullet" id="kp006q_92"><li class="list__item" id="kp006q_93"><p id="kp006q_96">Pas de fichier physique n&eacute;cessaire<br> &rarr; On travaille 100 % en m&eacute;moire, donc plus rapide pour des tests ou des traitements temporaires.</p></li><li class="list__item" id="kp006q_94"><p id="kp006q_98">Facile &agrave; convertir en tableau de bytes (byte[]) <br> &rarr; Ce qui permet facilement :</p><ul class="list _bullet" id="kp006q_99"><li class="list__item" id="kp006q_101"><p id="kp006q_104">d'envoyer les donn&eacute;es sur un r&eacute;seau,</p></li><li class="list__item" id="kp006q_102"><p id="kp006q_105">de les stocker dans une base de donn&eacute;es,</p></li><li class="list__item" id="kp006q_103"><p id="kp006q_106">de les encoder (ex : Base64),</p></li></ul></li><li class="list__item" id="kp006q_95"><p id="kp006q_107">Utile pour la s&eacute;rialisation<br> &rarr; On peut s&eacute;rialiser un objet en m&eacute;moire, sans avoir &agrave; cr&eacute;er un fichier .ser.</p></li></ul></section><section class="chapter"><h4 id="un-exemple" data-toc="un-exemple">Un exemple</h4><div class="code-block" data-lang="java">
+import java.io.*;
+
+class Message implements Serializable {
+    String content;
+
+    public Message(String content) {
+        this.content = content;
+    }
+
+    public String toString() {
+        return &quot;Message: &quot; + content;
+    }
+}
+
+public class MemorySerialization {
+    public static void main(String[] args) throws Exception {
+        Message m = new Message(&quot;Salut Java !&quot;);
+
+        // Sérialisation en mémoire
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
+        oos.writeObject(m);
+        oos.close();
+
+        // Récupération du tableau de bytes
+        byte[] serializedData = baos.toByteArray();
+
+        // Désérialisation depuis la mémoire
+        ByteArrayInputStream bais =
+            new ByteArrayInputStream(serializedData);
+        ObjectInputStream ois = new ObjectInputStream(bais);
+        Message recovered = (Message) ois.readObject();
+        ois.close();
+
+        System.out.println(&quot;Objet récupéré : &quot; + recovered);
+    }
+}
+</div></section><section class="chapter"><h4 id="cas-d-utilisation" data-toc="cas-d-utilisation">cas d'utilisation</h4><ul class="list _bullet" id="kp006q_110"><li class="list__item" id="kp006q_111"><p id="kp006q_114">Applications web : envoie d&rsquo;objets Java s&eacute;rialis&eacute;s via HTTP</p></li><li class="list__item" id="kp006q_112"><p id="kp006q_115">Communication client-serveur</p></li><li class="list__item" id="kp006q_113"><p id="kp006q_116">Tests unitaires (&eacute;vite l&rsquo;I/O disque)</p></li></ul></section><section class="chapter"><h4 id="exemple-d-encodage-en-base64" data-toc="exemple-d-encodage-en-base64">Exemple d'encodage en base64</h4><div class="code-block" data-lang="java">
+import java.io.*;
+import java.util.Base64;
+
+class Person implements Serializable {
+    String name;
+
+    public Person(String name) {
+        this.name = name;
+    }
+}
+
+public class SerializeToBase64 {
+    public static void main(String[] args) throws IOException {
+        Person p = new Person(&quot;Alice&quot;);
+
+        // Sérialisation en mémoire
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
+        oos.writeObject(p);
+        oos.close();
+
+        // Encodage en Base64
+        String base64String = Base64
+            .getEncoder()
+            .encodeToString(baos.toByteArray());
+
+        System.out.println(&quot;Objet sérialisé en Base64 :\n&quot; + base64);
+
+        // --- DÉSÉRIALISATION depuis Base64 ---
+        byte[] data = Base64.getDecoder().decode(base64String);
+        ByteArrayInputStream bais = new ByteArrayInputStream(data);
+        ObjectInputStream ois = new ObjectInputStream(bais);
+        Person recovered = (Person) ois.readObject();
+        ois.close();
+
+        System.out.println(&quot;Objet récupéré : &quot; + recovered);
+    }
+}
+
+</div></section></section></section><section class="chapter"><h2 id="exercices" data-toc="exercices">Exercices</h2><section class="chapter"><h3 id="exercice-1-gestion-d-un-fichier-ini" data-toc="exercice-1-gestion-d-un-fichier-ini">Exercice 1 : gestion d'un fichier ini</h3><p id="kp006q_122">Soit un fichier ini au format suivant :</p><div class="code-block" data-lang="none">
+# Mon fichier ini
+lang=fr
+theme=dark
+</div><p id="kp006q_124">Cr&eacute;er une classe <code class="code" id="kp006q_130">IniParser</code> qui permette :</p><ul class="list _bullet" id="kp006q_125"><li class="list__item" id="kp006q_131"><p id="kp006q_135">de lire le fichier ini et de charger les donn&eacute;es dans une collection Map en ignorant les lignes vides et les commentaires,</p></li><li class="list__item" id="kp006q_132"><p id="kp006q_136">d'obtenir la valeur d'une clef</p></li><li class="list__item" id="kp006q_133"><p id="kp006q_137">de modifier la valeur d'une clef ou d'ajouter une nouvelle clef</p></li><li class="list__item" id="kp006q_134"><p id="kp006q_138">de sauvegarder les donn&eacute;es dans le fichier ini</p></li></ul><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="167px" preserveAspectRatio="none" style="width:267px;height:167px;background:#FFFFFF;" version="1.1" viewBox="0 0 267 167" width="267px" zoomAndPan="magnify"><defs/><g><!--class IniParser--><g id="elem_IniParser"><rect codeLine="2" fill="#F1F1F1" height="146.9297" id="IniParser" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="246" x="7" y="7"/><ellipse cx="95.75" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M98.7231,28.6431 Q98.1421,28.9419 97.5029,29.0913 Q96.8638,29.2407 96.1582,29.2407 Q93.6514,29.2407 92.3315,27.5889 Q91.0117,25.937 91.0117,22.8159 Q91.0117,19.6865 92.3315,18.0347 Q93.6514,16.3828 96.1582,16.3828 Q96.8638,16.3828 97.5112,16.5322 Q98.1587,16.6816 98.7231,16.9805 L98.7231,19.7031 Q98.0923,19.1221 97.4988,18.8523 Q96.9053,18.5825 96.2744,18.5825 Q94.9297,18.5825 94.2449,19.6492 Q93.5601,20.7158 93.5601,22.8159 Q93.5601,24.9077 94.2449,25.9744 Q94.9297,27.041 96.2744,27.041 Q96.9053,27.041 97.4988,26.7712 Q98.0923,26.5015 98.7231,25.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="116.25" y="28.291">IniParser</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="252" y1="39" y2="39"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="49.7441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="27" y="56.5352">Map&lt;String, String&gt; data</text><line style="stroke:#181818;stroke-width:1.0;" x1="8" x2="252" y1="63.4883" y2="63.4883"/><ellipse cx="18" cy="77.2324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="27" y="81.0234">void load(String filename)</text><ellipse cx="18" cy="93.7207" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="145" x="27" y="97.5117">String get(String key)</text><ellipse cx="18" cy="110.209" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="220" x="27" y="114">void set(String key, String value)</text><ellipse cx="18" cy="126.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="27" y="130.4883">void save(String filename)</text><ellipse cx="18" cy="143.1855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="27" y="146.9766">void printAll()</text></g><!--SRC=[Iyv9B2vMyCpB34WiAaujKgZcKW02NGNVn0ARu9AYpBnq7GK8RQUGabYI297M1LFQ2cNvcIaAEVc9AHeGDGffcJcfUOcvgPfG1L3XzDGIc8hir4fDPDt5A58monJA4dDAKr4L9fQbuh86hA00A5NYc9EZeSbL2m00]--></g></svg></div><aside class="prompt" data-type="tip" data-title="" id="kp006q_127"><p id="kp006q_139">Aide, pour boucler sur les paires clef/valeur d'un Map utiliser la syntaxe suivante : <code class="code" id="kp006q_140">for (Map.Entry&lt;String, String&gt; entry : data.entrySet())</code> o&ugrave; <code class="code" id="kp006q_141">data</code> est le nom de la variable contenant le Map.</p></aside><aside class="prompt" data-type="tip" data-title="" id="kp006q_128"><p id="kp006q_142">Astuce : S'il est important de conserver l'ordre des donn&eacute;es du fichier ini, on pr&eacute;f&eacute;rera utiliser une impl&eacute;mentation <code class="code" id="kp006q_143">LinkedHashMap</code> plut&ocirc;t que <code class="code" id="kp006q_144">HashMap</code>. Cet arbitrage se fera toutefois au prix d'une performance un peu d&eacute;grad&eacute;e.</p></aside><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction-exercice-1" data-toc="correction-exercice-1">Correction exercice 1</h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+import java.io.*;
+import java.util.*;
+
+public class SimpleIni {
+    private Map&lt;String, String&gt; data = new LinkedHashMap&lt;&gt;();
+
+    // Lire le fichier ini (clé=valeur)
+    public void load(String filename) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        String line;
+
+        while ((line = reader.readLine()) != null) {
+            line = line.trim();
+
+            // Ignorer les commentaires et lignes vides
+            if (line.isEmpty() || line.startsWith(&quot;#&quot;) || line.startsWith(&quot;;&quot;)) {
+                continue;
+            }
+
+            if (line.contains(&quot;=&quot;)) {
+                String[] parts = line.split(&quot;=&quot;, 2);
+                String key = parts[0].trim();
+                String value = parts[1].trim();
+                data.put(key, value);
+            }
+        }
+
+        reader.close();
+    }
+
+    // Obtenir une valeur
+    public String get(String key) {
+        return data.get(key);
+    }
+
+    // Modifier ou ajouter une valeur
+    public void set(String key, String value) {
+        data.put(key, value);
+    }
+
+    // Sauvegarder les données dans un fichier
+    public void save(String filename) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+
+        for (Map.Entry&lt;String, String&gt; entry : data.entrySet()) {
+            writer.write(entry.getKey() + &quot;=&quot; + entry.getValue());
+            writer.newLine();
+        }
+
+        writer.close();
+    }
+
+    // Afficher tout (debug)
+    public void printAll() {
+        for (Map.Entry&lt;String, String&gt; entry : data.entrySet()) {
+            System.out.println(entry.getKey() + &quot; = &quot; + entry.getValue());
+        }
+    }
+}
+
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-2" data-toc="exercice-2">Exercice 2</h3><p id="kp006q_146">Reprendre l'exercice 1, mais ajouter la notion de section.</p><div class="code-block" data-lang="none">
+[general]
+lang=fr
+theme=dark
+
+[user]
+name=Alice
+email=alice@example.com
+</div><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="167px" preserveAspectRatio="none" style="width:369px;height:167px;background:#FFFFFF;" version="1.1" viewBox="0 0 369 167" width="369px" zoomAndPan="magnify"><defs/><g><!--class IniParser--><g id="elem_IniParser"><rect codeLine="2" fill="#F1F1F1" height="146.9297" id="IniParser" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="348" x="7" y="7"/><ellipse cx="146.75" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M149.7231,28.6431 Q149.1421,28.9419 148.5029,29.0913 Q147.8638,29.2407 147.1582,29.2407 Q144.6514,29.2407 143.3315,27.5889 Q142.0117,25.937 142.0117,22.8159 Q142.0117,19.6865 143.3315,18.0347 Q144.6514,16.3828 147.1582,16.3828 Q147.8638,16.3828 148.5112,16.5322 Q149.1587,16.6816 149.7231,16.9805 L149.7231,19.7031 Q149.0923,19.1221 148.4988,18.8523 Q147.9053,18.5825 147.2744,18.5825 Q145.9297,18.5825 145.2449,19.6492 Q144.5601,20.7158 144.5601,22.8159 Q144.5601,24.9077 145.2449,25.9744 Q145.9297,27.041 147.2744,27.041 Q147.9053,27.041 148.4988,26.7712 Q149.0923,26.5015 149.7231,25.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="167.25" y="28.291">IniParser</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="354" y1="39" y2="39"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="49.7441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="275" x="27" y="56.5352">Map&lt;String, Map&lt;String, String&gt;&gt; data</text><line style="stroke:#181818;stroke-width:1.0;" x1="8" x2="354" y1="63.4883" y2="63.4883"/><ellipse cx="18" cy="77.2324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="27" y="81.0234">void load(String filename)</text><ellipse cx="18" cy="93.7207" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="247" x="27" y="97.5117">String get(String section, String key)</text><ellipse cx="18" cy="110.209" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="322" x="27" y="114">void set(String section, String key, String value)</text><ellipse cx="18" cy="126.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="27" y="130.4883">void save(String filename)</text><ellipse cx="18" cy="143.1855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="27" y="146.9766">void printAll()</text></g><!--SRC=[Iyv9B2vMyCpB34WiAaujKgZcKW02NGNVn0ARu9AYpBnq7HGsXBQpKqX9B4c4gDK5KzeAPVcPAGev-Oaf6X152ccPEQbvYRcfcb05KE7qr1AOYkBKv9BC_3oOiGhPgPMQoAOLurKAPvSbvfIcecfCB4l5vGomWWAWL8bZJew69bSj0000]--></g></svg></div><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction-exercice-2" data-toc="correction-exercice-2">Correction exercice 2</h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+import java.io.*;
+import java.util.*;
+
+public class IniParser {
+    private Map&lt;String, Map&lt;String, String&gt;&gt; data = new LinkedHashMap&lt;&gt;();
+
+    // Lire le fichier ini
+    public void load(String filename) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        String line;
+        String currentSection = null;
+
+        while ((line = reader.readLine()) != null) {
+            line = line.trim();
+
+            // Ignorer les commentaires et lignes vides
+            if (line.isEmpty() || line.startsWith(&quot;;&quot;) || line.startsWith(&quot;#&quot;)) {
+                continue;
+            }
+
+            if (line.startsWith(&quot;[&quot;) &amp;&amp; line.endsWith(&quot;]&quot;)) {
+                currentSection = line.substring(1, line.length() - 1).trim();
+                data.putIfAbsent(currentSection, new LinkedHashMap&lt;&gt;());
+            } else if (line.contains(&quot;=&quot;) &amp;&amp; currentSection != null) {
+                String[] parts = line.split(&quot;=&quot;, 2);
+                String key = parts[0].trim();
+                String value = parts[1].trim();
+                data.get(currentSection).put(key, value);
+            }
+        }
+
+        reader.close();
+    }
+
+    // Obtenir une valeur
+    public String get(String section, String key) {
+        return data.getOrDefault(section, Collections.emptyMap()).get(key);
+    }
+
+    // Modifier ou ajouter une valeur
+    public void set(String section, String key, String value) {
+        data.putIfAbsent(section, new LinkedHashMap&lt;&gt;());
+        data.get(section).put(key, value);
+    }
+
+    // Sauvegarder dans un fichier
+    public void save(String filename) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+
+        for (String section : data.keySet()) {
+            writer.write(&quot;[&quot; + section + &quot;]&quot;);
+            writer.newLine();
+
+            for (Map.Entry&lt;String, String&gt; entry : data.get(section).entrySet()) {
+                writer.write(entry.getKey() + &quot;=&quot; + entry.getValue());
+                writer.newLine();
+            }
+
+            writer.newLine();
+        }
+
+        writer.close();
+    }
+
+    // Debug : afficher tout le contenu
+    public void printAll() {
+        for (String section : data.keySet()) {
+            System.out.println(&quot;[&quot; + section + &quot;]&quot;);
+            for (Map.Entry&lt;String, String&gt; entry : data.get(section).entrySet()) {
+                System.out.println(entry.getKey() + &quot;=&quot; + entry.getValue());
+            }
+            System.out.println();
+        }
+    }
+}
+
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-3-am-liorations-du-code-de-iniparser" data-toc="exercice-3-am-liorations-du-code-de-iniparser">Exercice 3 : Am&eacute;liorations du code de IniParser</h3><p id="kp006q_151">En reprenant le code de l'exercice 2, ajouter trois fonctionnalit&eacute;s :</p><ul class="list _bullet" id="kp006q_152"><li class="list__item" id="kp006q_155"><p id="kp006q_158">La suppression d'une clef</p></li><li class="list__item" id="kp006q_156"><p id="kp006q_159">La suppression d'une section</p></li><li class="list__item" id="kp006q_157"><p id="kp006q_160">La recherche d'une clef (retourne la paire clef/valeur)</p></li></ul><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="217px" preserveAspectRatio="none" style="width:369px;height:217px;background:#FFFFFF;" version="1.1" viewBox="0 0 369 217" width="369px" zoomAndPan="magnify"><defs/><g><!--class IniParser--><g id="elem_IniParser"><rect codeLine="2" fill="#F1F1F1" height="196.3945" id="IniParser" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="348" x="7" y="7"/><ellipse cx="146.75" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M149.7231,28.6431 Q149.1421,28.9419 148.5029,29.0913 Q147.8638,29.2407 147.1582,29.2407 Q144.6514,29.2407 143.3315,27.5889 Q142.0117,25.937 142.0117,22.8159 Q142.0117,19.6865 143.3315,18.0347 Q144.6514,16.3828 147.1582,16.3828 Q147.8638,16.3828 148.5112,16.5322 Q149.1587,16.6816 149.7231,16.9805 L149.7231,19.7031 Q149.0923,19.1221 148.4988,18.8523 Q147.9053,18.5825 147.2744,18.5825 Q145.9297,18.5825 145.2449,19.6492 Q144.5601,20.7158 144.5601,22.8159 Q144.5601,24.9077 145.2449,25.9744 Q145.9297,27.041 147.2744,27.041 Q147.9053,27.041 148.4988,26.7712 Q149.0923,26.5015 149.7231,25.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="167.25" y="28.291">IniParser</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="354" y1="39" y2="39"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="49.7441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="275" x="27" y="56.5352">Map&lt;String, Map&lt;String, String&gt;&gt; data</text><line style="stroke:#181818;stroke-width:1.0;" x1="8" x2="354" y1="63.4883" y2="63.4883"/><ellipse cx="18" cy="77.2324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="27" y="81.0234">void load(String filename)</text><ellipse cx="18" cy="93.7207" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="247" x="27" y="97.5117">String get(String section, String key)</text><ellipse cx="18" cy="110.209" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="322" x="27" y="114">void set(String section, String key, String value)</text><ellipse cx="18" cy="126.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="315" x="27" y="130.4883">boolean removeKey(String section, String key)</text><ellipse cx="18" cy="143.1855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="265" x="27" y="146.9766">boolean removeSection(String section)</text><ellipse cx="18" cy="159.6738" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="274" x="27" y="163.4648">Map&lt;String, String&gt; findKey(String key)</text><ellipse cx="18" cy="176.1621" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="27" y="179.9531">void save(String filename)</text><ellipse cx="18" cy="192.6504" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="27" y="196.4414">void printAll()</text></g><!--SRC=[ZP3T2eCm38NlVOfSAfjlC8HTZZ4O-0IPpQGijjBMWeoz-yHQqVsnt2GaNyuXgHYjXOEIPpIM3DmJ62A74xQxqXcfwksg3haeGA33mEPZse3NKW1h56c0u2gP53QKJS3Khib5mbBbf5PH5cxKPqir-nETQu_SpIuNhPbGWQ56UpfI_uVPUgSCuCjUP3zyOxXKYONJsndewTjJHg0THcxFd6R9uma0]--></g></svg></div><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction-exercice-3" data-toc="correction-exercice-3">Correction exercice 3</h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+import java.io.*;
+import java.util.*;
+
+public class IniParser {
+    private Map&lt;String, Map&lt;String, String&gt;&gt; data = new LinkedHashMap&lt;&gt;();
+
+    // Charger un fichier .ini
+    public void load(String filename) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        String line;
+        String currentSection = null;
+
+        while ((line = reader.readLine()) != null) {
+            line = line.trim();
+
+            if (line.isEmpty() || line.startsWith(&quot;;&quot;) || line.startsWith(&quot;#&quot;)) {
+                continue;
+            }
+
+            if (line.startsWith(&quot;[&quot;) &amp;&amp; line.endsWith(&quot;]&quot;)) {
+                currentSection = line.substring(1, line.length() - 1).trim();
+                data.putIfAbsent(currentSection, new LinkedHashMap&lt;&gt;());
+            } else if (line.contains(&quot;=&quot;) &amp;&amp; currentSection != null) {
+                String[] parts = line.split(&quot;=&quot;, 2);
+                String key = parts[0].trim();
+                String value = parts[1].trim();
+                data.get(currentSection).put(key, value);
+            }
+        }
+
+        reader.close();
+    }
+
+    // Obtenir une valeur
+    public String get(String section, String key) {
+        return data.getOrDefault(section, Collections.emptyMap()).get(key);
+    }
+
+    // Ajouter ou modifier une valeur
+    public void set(String section, String key, String value) {
+        data.putIfAbsent(section, new LinkedHashMap&lt;&gt;());
+        data.get(section).put(key, value);
+    }
+
+    // Supprimer une clé
+    public boolean removeKey(String section, String key) {
+        Map&lt;String, String&gt; sectionMap = data.get(section);
+        if (sectionMap != null) {
+            return sectionMap.remove(key) != null;
+        }
+        return false;
+    }
+
+    // Supprimer une section entière
+    public boolean removeSection(String section) {
+        return data.remove(section) != null;
+    }
+
+    // Recherche globale d'une clé
+    public Map&lt;String, String&gt; findKey(String key) {
+        Map&lt;String, String&gt; results = new LinkedHashMap&lt;&gt;();
+
+        for (Map.Entry&lt;String, Map&lt;String, String&gt;&gt; sectionEntry : data.entrySet()) {
+            String section = sectionEntry.getKey();
+            Map&lt;String, String&gt; keyValues = sectionEntry.getValue();
+
+            if (keyValues.containsKey(key)) {
+                results.put(section, keyValues.get(key));
+            }
+        }
+
+        return results;
+    }
+
+    // Sauvegarder dans un fichier
+    public void save(String filename) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
+
+        for (String section : data.keySet()) {
+            writer.write(&quot;[&quot; + section + &quot;]&quot;);
+            writer.newLine();
+
+            for (Map.Entry&lt;String, String&gt; entry : data.get(section).entrySet()) {
+                writer.write(entry.getKey() + &quot;=&quot; + entry.getValue());
+                writer.newLine();
+            }
+
+            writer.newLine();
+        }
+
+        writer.close();
+    }
+
+    // Afficher le contenu (debug)
+    public void printAll() {
+        for (String section : data.keySet()) {
+            System.out.println(&quot;[&quot; + section + &quot;]&quot;);
+            for (Map.Entry&lt;String, String&gt; entry : data.get(section).entrySet()) {
+                System.out.println(entry.getKey() + &quot;=&quot; + entry.getValue());
+            }
+            System.out.println();
+        }
+    }
+}
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-4" data-toc="exercice-4">Exercice 4</h3><ul class="list _bullet" id="kp006q_162"><li class="list__item" id="kp006q_166"><p id="kp006q_169">Compiler et transformer ce projet en biblioth&egrave;que (jar)</p></li><li class="list__item" id="kp006q_167"><p id="kp006q_170">Int&eacute;grer cette biblioth&egrave;que dans un nouveau projet</p></li><li class="list__item" id="kp006q_168"><p id="kp006q_171">Proposer une interface utilisateur avec la classe Scanner pour :</p><ul class="list _bullet" id="kp006q_172"><li class="list__item" id="kp006q_173"><p id="kp006q_179">Afficher le contenu</p></li><li class="list__item" id="kp006q_174"><p id="kp006q_180">Ajouter ou modifier une paire clef/valeur</p></li><li class="list__item" id="kp006q_175"><p id="kp006q_181">Supprimer une clef</p></li><li class="list__item" id="kp006q_176"><p id="kp006q_182">Supprimer une section</p></li><li class="list__item" id="kp006q_177"><p id="kp006q_183">Rechercher une clef</p></li><li class="list__item" id="kp006q_178"><p id="kp006q_184">Sauvegarder et quitter</p></li></ul></li></ul><p id="kp006q_163"><span class="control" id="kp006q_185">Une suggestion de structure</span></p><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="250px" preserveAspectRatio="none" style="width:191px;height:250px;background:#FFFFFF;" version="1.1" viewBox="0 0 191 250" width="191px" zoomAndPan="magnify"><defs/><g><!--class App--><g id="elem_App"><rect codeLine="2" fill="#F1F1F1" height="229.3711" id="App" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="170" x="7" y="7"/><ellipse cx="73.75" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M76.7231,28.6431 Q76.1421,28.9419 75.5029,29.0913 Q74.8638,29.2407 74.1582,29.2407 Q71.6514,29.2407 70.3315,27.5889 Q69.0117,25.937 69.0117,22.8159 Q69.0117,19.6865 70.3315,18.0347 Q71.6514,16.3828 74.1582,16.3828 Q74.8638,16.3828 75.5112,16.5322 Q76.1587,16.6816 76.7231,16.9805 L76.7231,19.7031 Q76.0923,19.1221 75.4988,18.8523 Q74.9053,18.5825 74.2744,18.5825 Q72.9297,18.5825 72.2449,19.6492 Q71.5601,20.7158 71.5601,22.8159 Q71.5601,24.9077 72.2449,25.9744 Q72.9297,27.041 74.2744,27.041 Q74.9053,27.041 75.4988,26.7712 Q76.0923,26.5015 76.7231,25.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="28" x="94.25" y="28.291">App</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="176" y1="39" y2="39"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="49.7441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="81" x="27" y="56.5352">IniParser ini</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="66.2324"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="27" y="73.0234">Scanner scanner</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="82.7207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="27" y="89.5117">String fileName</text><line style="stroke:#181818;stroke-width:1.0;" x1="8" x2="176" y1="96.4648" y2="96.4648"/><ellipse cx="18" cy="110.209" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="27" y="114">void start()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="123.6973"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="27" y="130.4883">void menuLoop()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="140.1855"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="27" y="146.9766">void showMenu()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="156.6738"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="27" y="163.4648">void addOrUpdate()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="173.1621"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="27" y="179.9531">void removeKey()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="189.6504"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="144" x="27" y="196.4414">void removeSection()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="206.1387"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="27" y="212.9297">void searchKey()</text><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="15" y="222.627"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127" x="27" y="229.418">void saveAndExit()</text></g><!--SRC=[RSvB2i9030RWlQV8Kf4UeWiNuXEA1mWpqGRQp91CgoBUtThMHTLiVlYIaBWApI2F4Hupw2g3jV0HrKY1XKSh78fqOaD-D2dB1SvSqHvh6ZJhOmbjO0-MKDDyCSxtL9Cqsn3YLAqCrrtNcIfwVz1Jz9Xesb2gGqiRkl_ZWbpY85y72DMLFnk6BUNYLpT-l_by0G00]--></g></svg></div><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction-exercice-4" data-toc="correction-exercice-4">Correction exercice 4</h4></div><div class="collapse__content"><section class="chapter"><h5 id="1-cr-ation-de-la-biblioth-que" data-toc="1-cr-ation-de-la-biblioth-que">1. Cr&eacute;ation de la biblioth&egrave;que</h5><p id="kp006q_190"><span class="control" id="kp006q_196">Arborescence</span></p><div class="code-block" data-lang="none">
+IniParserLibrary/
+├── src/
+│   └── IniParser.java
+└── build/
+</div><p id="kp006q_192"><span class="control" id="kp006q_197">Compilation</span></p><div class="code-block" data-lang="bash">
+javac -d build src/IniParser.java
+</div><p id="kp006q_194"><span class="control" id="kp006q_198">Cr&eacute;ation du fichier jar</span></p><div class="code-block" data-lang="bash">
+jar cf iniparser.jar -C build .
+</div></section><section class="chapter"><h5 id="2-utilisation-de-la-biblioth-que-dans-un-autre-projet" data-toc="2-utilisation-de-la-biblioth-que-dans-un-autre-projet">2. Utilisation de la biblioth&egrave;que dans un autre projet</h5><p id="kp006q_199"><span class="control" id="kp006q_205">Arborescence du projet</span></p><div class="code-block" data-lang="none">
+ConfigEditor/
+├── lib/
+│   └── iniparser.jar
+├── src/
+│   └── Main.java
+│   └── App.java
+</div><p id="kp006q_201"><span class="control" id="kp006q_206">Le code de la classe App</span></p><div class="code-block" data-lang="java">
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Scanner;
+
+public class App {
+    private final IniParser ini;
+    private final Scanner scanner;
+    private String fileName;
+    
+    App(){
+        this.ini = new IniParser();
+        this.scanner = new Scanner(System.in);
+    }
+
+    public void start() {
+        System.out.print(&quot;Nom du fichier INI : &quot;);
+        fileName = scanner.nextLine();
+
+        File file = new File(fileName);
+        try {
+            if (file.exists()) {
+                ini.load(fileName);
+                System.out.println(&quot;Fichier chargé.&quot;);
+            } else {
+                System.out.println(&quot;Fichier inexistant. Nouveau fichier créé.&quot;);
+            }
+
+            menuLoop();
+
+        } catch (IOException e) {
+            System.err.println(&quot;Erreur lors du chargement : &quot; + e.getMessage());
+        }
+    }
+
+    private void menuLoop() {
+        boolean running = true;
+
+        while (running) {
+            showMenu();
+            System.out.print(&quot;Votre choix : &quot;);
+            String choice = scanner.nextLine().trim();
+
+            switch (choice) {
+                case &quot;1&quot; -&gt; ini.printAll();
+                case &quot;2&quot; -&gt; addOrUpdate();
+                case &quot;3&quot; -&gt; removeKey();
+                case &quot;4&quot; -&gt; removeSection();
+                case &quot;5&quot; -&gt; searchKey();
+                case &quot;6&quot; -&gt; {
+                    saveAndExit();
+                    running = false;
+                }
+                default -&gt; System.out.println(&quot;Choix invalide.&quot;);
+            }
+        }
+    }
+
+    private void showMenu() {
+        System.out.println(&quot;&quot;&quot;
+            \n===== MENU =====
+            1. Voir tout
+            2. Ajouter/Modifier une valeur
+            3. Supprimer une clé
+            4. Supprimer une section
+            5. Rechercher une clé
+            6. Sauvegarder et quitter
+        &quot;&quot;&quot;);
+    }
+
+    private void addOrUpdate() {
+        System.out.print(&quot;Section : &quot;);
+        String section = scanner.nextLine();
+        System.out.print(&quot;Clé : &quot;);
+        String key = scanner.nextLine();
+        System.out.print(&quot;Valeur : &quot;);
+        String value = scanner.nextLine();
+
+        ini.set(section, key, value);
+        System.out.println(&quot;Valeur enregistrée.&quot;);
+    }
+
+    private void removeKey() {
+        System.out.print(&quot;Section : &quot;);
+        String section = scanner.nextLine();
+        System.out.print(&quot;Clé à supprimer : &quot;);
+        String key = scanner.nextLine();
+
+        boolean removed = ini.removeKey(section, key);
+        System.out.println(removed ? &quot;Clé supprimée.&quot; : &quot;Clé non trouvée.&quot;);
+    }
+
+    private void removeSection() {
+        System.out.print(&quot;Section à supprimer : &quot;);
+        String section = scanner.nextLine();
+
+        boolean removed = ini.removeSection(section);
+        System.out.println(removed ? &quot;Section supprimée.&quot; : &quot;Section introuvable.&quot;);
+    }
+
+    private void searchKey() {
+        System.out.print(&quot;Clé à rechercher : &quot;);
+        String key = scanner.nextLine();
+
+        Map&lt;String, String&gt; found = ini.findKey(key);
+        if (found.isEmpty()) {
+            System.out.println(&quot;Clé introuvable.&quot;);
+        } else {
+            found.forEach((section, value) -&gt;
+                System.out.println(&quot;[&quot; + section + &quot;] &quot; + key + &quot;=&quot; + value));
+        }
+    }
+
+    private void saveAndExit() {
+        try {
+            ini.save(fileName);
+            System.out.println(&quot;💾 Fichier sauvegardé. Au revoir !&quot;);
+        } catch (IOException e) {
+            System.err.println(&quot;Erreur à la sauvegarde : &quot; + e.getMessage());
+        }
+    }
+}
+</div><p id="kp006q_203"><span class="control" id="kp006q_207">Le code de la classe Main</span></p><div class="code-block" data-lang="java">
+public class Main {
+    public static void main(String[] args) {
+        new App().start();
+    }
+}
+</div></section><section class="chapter"><h5 id="3-compilation-et-ex-cution" data-toc="3-compilation-et-ex-cution">3. Compilation et ex&eacute;cution</h5><p id="kp006q_208"><span class="control" id="kp006q_217">Compilation</span> Pour linux et MacOS</p><div class="code-block" data-lang="bash">
+javac -cp lib/iniparser.jar -d build src/*.java
+</div><p id="kp006q_210">Pour Windows</p><div class="code-block" data-lang="bash">
+javac -cp lib\iniparser.jar -d build src/*.java
+</div><p id="kp006q_212"><span class="control" id="kp006q_218">Ex&eacute;cution</span></p><p id="kp006q_213">Pour linux et MacOS</p><div class="code-block" data-lang="bash">
+java -cp &quot;build:lib/iniparser.jar&quot; Main
+</div><p id="kp006q_215">Pour Windows</p><div class="code-block" data-lang="bash">
+java -cp &quot;build;lib/iniparser.jar&quot; Main
+</div></section><section class="chapter"><h5 id="4-cr-ation-d-un-jar-ex-cutable" data-toc="4-cr-ation-d-un-jar-ex-cutable">4. Cr&eacute;ation d'un jar ex&eacute;cutable</h5><p id="kp006q_219"><span class="control" id="kp006q_235">Structure du projet</span></p><div class="code-block" data-lang="none">
+MyIniApp/
+├── lib/
+│   └── iniparser.jar       ← la bibliothèque compilée
+├── src/
+│   ├── App.java
+│   └── Main.java
+├── build/
+├── manifest.txt
+</div><p id="kp006q_221"><span class="control" id="kp006q_236">Compilation</span></p><p id="kp006q_222">Comme pour l'&eacute;tape 3 :</p><p id="kp006q_223">Pour linux et MacOS</p><div class="code-block" data-lang="bash">
+javac -cp lib/iniparser.jar -d build src/*.java
+</div><p id="kp006q_225">Pour Windows</p><div class="code-block" data-lang="bash">
+javac -cp lib\iniparser.jar -d build src/*.java
+</div><p id="kp006q_227"><span class="control" id="kp006q_237">Le fichier Manifest</span></p><div class="code-block" data-lang="none">
+Main-Class: Main
+Class-Path: lib/iniparser.jar
+
+</div><aside class="prompt" data-type="tip" data-title="" id="kp006q_229"><p id="kp006q_238">Attention, il faut une ligne vide &agrave; la fin du fichier.</p></aside><p id="kp006q_230"><span class="control" id="kp006q_239">Cr&eacute;ation du jar ex&eacute;cutable</span></p><div class="code-block" data-lang="bash">
+jar cfm out/iniManager.jar manifest.txt -C build .
+</div><p id="kp006q_232"><span class="control" id="kp006q_240">L'ex&eacute;cution</span></p><div class="code-block" data-lang="bash">
+cd out
+java -jar iniManager.jar
+</div><aside class="prompt" data-type="tip" data-title="" id="kp006q_234"><p id="kp006q_241">Attention, il faut copier le dossier <code class="code" id="kp006q_242">lib</code> dans le dossier <code class="code" id="kp006q_243">out</code>.</p></aside></section></div></div></section></section></section><div class="last-modified">Last modified: 26 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="004-02-maven.html" class="navigation-links__prev">Maven</a><a href="006-01-les-fichiers-json.html" class="navigation-links__next">Les fichiers json</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
