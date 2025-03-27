@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
-<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-26T07:55:53.025894"><title>Les fichiers json | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"installation","level":0,"title":"Installation","anchor":"#installation"},{"id":"exemple-simple-d-utilisation","level":0,"title":"Exemple simple d\u0027utilisation","anchor":"#exemple-simple-d-utilisation"},{"id":"utilisation-sans-fichier","level":0,"title":"Utilisation sans fichier","anchor":"#utilisation-sans-fichier"},{"id":"utilisation-avec-une-collection","level":0,"title":"Utilisation avec une collection","anchor":"#utilisation-avec-une-collection"},{"id":"configuration","level":0,"title":"Configuration","anchor":"#configuration"},{"id":"exercices","level":0,"title":"Exercices","anchor":"#exercices"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les fichiers json | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-01-les-fichiers-json.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les fichiers json | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-27T07:08:53.50761"><title>Les fichiers json | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"installation","level":0,"title":"Installation","anchor":"#installation"},{"id":"exemple-simple-d-utilisation","level":0,"title":"Exemple simple d\u0027utilisation","anchor":"#exemple-simple-d-utilisation"},{"id":"utilisation-sans-fichier","level":0,"title":"Utilisation sans fichier","anchor":"#utilisation-sans-fichier"},{"id":"utilisation-avec-une-collection","level":0,"title":"Utilisation avec une collection","anchor":"#utilisation-avec-une-collection"},{"id":"configuration","level":0,"title":"Configuration","anchor":"#configuration"},{"id":"exercices","level":0,"title":"Exercices","anchor":"#exercices"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Les fichiers json | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/006-01-les-fichiers-json.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Les fichiers json | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
     "@context": "http://schema.org",
     "@type": "WebPage",
     "@id": "writerside-documentation/006-01-les-fichiers-json.html#webpage",
@@ -219,7 +219,7 @@ mapper.setDateFormat(new SimpleDateFormat(&quot;yyyy-MM-dd&quot;));
 </div></section><section class="chapter"><h3 id="pretty-printer" data-toc="pretty-printer">Pretty printer</h3><p id="z48kplu_70">La m&eacute;thode <code class="code" id="z48kplu_72">mapper.writerWithDefaultPrettyPrinter()</code> dans Jackson permet de produire un JSON joliment indent&eacute; (pretty-printed), ce qui le rend beaucoup plus lisible pour les humains.</p><div class="code-block" data-lang="java">
 mapper.writerWithDefaultPrettyPrinter()
       .writeValue(new File(&quot;fichier.json&quot;), person);
-</div></section></section><section class="chapter"><h2 id="exercices" data-toc="exercices">Exercices</h2><section class="chapter"><h3 id="exercice-1-s-rialisation-d-un-objet-simple" data-toc="exercice-1-s-rialisation-d-un-objet-simple">Exercice 1 : S&eacute;rialisation d'un objet simple</h3><p id="z48kplu_75">S&eacute;rialiser cet objet dans un fichier json</p><div class="code-block" data-lang="java">
+</div></section></section><section class="chapter"><h2 id="exercices" data-toc="exercices">Exercices</h2><section class="chapter"><h3 id="exercice-1-s-rialisation-d-un-objet-simple" data-toc="exercice-1-s-rialisation-d-un-objet-simple">Exercice 1 : S&eacute;rialisation d'un objet simple</h3><p id="z48kplu_77">S&eacute;rialiser cet objet dans un fichier json</p><div class="code-block" data-lang="java">
 public class Book {
     public String title;
     public String author;
@@ -238,7 +238,7 @@ mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
 Book book = new Book(&quot;1984&quot;, &quot;George Orwell&quot;, 1949);
 mapper.writeValue(new File(&quot;book.json&quot;), book);
-</div></div></div></section></section><section class="chapter"><h3 id="exercice-2-d-s-rialiser-une-liste" data-toc="exercice-2-d-s-rialiser-une-liste">Exercice 2 : D&eacute;-s&eacute;rialiser une liste</h3><p id="z48kplu_79">Soit le contenu suivant dans un fichier <code class="code" id="z48kplu_82">books.json</code>, d&eacute;-s&eacute;rialiser et afficher le contenu dans la console.</p><div class="code-block" data-lang="json">
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-2-d-s-rialiser-une-liste" data-toc="exercice-2-d-s-rialiser-une-liste">Exercice 2 : D&eacute;-s&eacute;rialiser une liste</h3><p id="z48kplu_81">Soit le contenu suivant dans un fichier <code class="code" id="z48kplu_84">books.json</code>, d&eacute;-s&eacute;rialiser et afficher le contenu dans la console.</p><div class="code-block" data-lang="json">
 [
   { &quot;title&quot;: &quot;1984&quot;, &quot;author&quot;: &quot;George Orwell&quot;, &quot;year&quot;: 1949 },
   { &quot;title&quot;: &quot;Dune&quot;, &quot;author&quot;: &quot;Frank Herbert&quot;, &quot;year&quot;: 1965 }
@@ -252,4 +252,288 @@ List&lt;Book&gt; books = mapper.readValue(
 for (Book b : books) {
     System.out.println(b.title + &quot; - &quot; + b.author);
 }
-</div></div></div></section></section></section><div class="last-modified">Last modified: 26 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="006-00-les-fichiers.html" class="navigation-links__prev">Les fichiers</a><a href="007-00-les-bases-de-donnees.html" class="navigation-links__next">Les bases de donn&eacute;es</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-3-application-qiz" data-toc="exercice-3-application-qiz">Exercice 3 : Application Qiz</h3><p id="z48kplu_86">A partir de la source json suivante, r&eacute;aliser une application de quiz qui pose des questions et &eacute;value les r&eacute;ponses.</p><div class="code-block" data-lang="json">
+[
+  {
+    &quot;question&quot;: &quot;Quel langage est utilisé pour Android natif ?&quot;,
+    &quot;options&quot;: [&quot;Java&quot;, &quot;Kotlin&quot;, &quot;C++&quot;, &quot;Python&quot;],
+    &quot;answer&quot;: 1
+  },
+  {
+    &quot;question&quot;: &quot;Combien font 5 + 7 ?&quot;,
+    &quot;options&quot;: [&quot;10&quot;, &quot;11&quot;, &quot;12&quot;, &quot;13&quot;],
+    &quot;answer&quot;: 2
+  }
+]
+</div><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction-exercice-3" data-toc="correction-exercice-3">Correction exercice 3</h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
+import java.util.List;
+import java.util.Scanner;
+
+// Classe représentant une question du quiz
+class Question {
+    public String question;
+    public List&lt;String&gt; options;
+    public int answer;
+}
+
+public class QuizApp {
+    public static void main(String[] args) {
+        try {
+            // Lecture du fichier JSON avec Jackson
+            ObjectMapper mapper = new ObjectMapper();
+            List&lt;Question&gt; questions = mapper.readValue(
+                new File(&quot;questions.json&quot;),
+                new TypeReference&lt;List&lt;Question&gt;&gt;() {}
+            );
+
+            Scanner scanner = new Scanner(System.in);
+            int score = 0;
+
+            // Parcours des questions
+            for (int i = 0; i &lt; questions.size(); i++) {
+                Question q = questions.get(i);
+                System.out.println(&quot;\nQuestion &quot; + (i + 1) + &quot;: &quot; + q.question);
+
+                // Affichage des options
+                for (int j = 0; j &lt; q.options.size(); j++) {
+                    System.out.println(&quot;  &quot; + j + &quot;: &quot; + q.options.get(j));
+                }
+
+                // Saisie de la réponse
+                System.out.print(&quot;Votre réponse (numéro) : &quot;);
+                int response = scanner.nextInt();
+
+                // Vérification de la réponse
+                if (response == q.answer) {
+                    System.out.println(&quot;✅ Bonne réponse !&quot;);
+                    score++;
+                } else {
+                    System.out.println(&quot;Mauvaise réponse !&quot;);
+                    System.out.println(&quot;Réponse correcte : &quot; +
+                        q.options.get(q.answer));
+                }
+            }
+
+            // Score final
+            System.out.println(&quot;\n=== Résultat final ===&quot;);
+            System.out.println(&quot;Score : &quot; + score + &quot; / &quot; + questions.size());
+
+            scanner.close();
+        } catch (Exception e) {
+            System.out.println(&quot;Erreur : &quot; + e.getMessage());
+        }
+    }
+}
+
+</div></div></div></section></section><section class="chapter"><h3 id="exercice-4-r-organisation-du-code" data-toc="exercice-4-r-organisation-du-code">Exercice 4 : R&eacute;organisation du code</h3><p id="z48kplu_90">D&eacute;couper le code en plusieurs classes organis&eacute;es dans des packages selon le diagramme suivant :</p><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="573px" preserveAspectRatio="none" style="width:789px;height:573px;background:#FFFFFF;" version="1.1" viewBox="0 0 789 573" width="789px" zoomAndPan="magnify"><defs/><g><!--cluster model--><g id="cluster_model"><path d="M153.5,368.91 L199.5,368.91 A3.75,3.75 0 0 1 202,371.41 L209,391.3983 L390.5,391.3983 A2.5,2.5 0 0 1 393,393.8983 L393,564.34 A2.5,2.5 0 0 1 390.5,566.84 L153.5,566.84 A2.5,2.5 0 0 1 151,564.34 L151,371.41 A2.5,2.5 0 0 1 153.5,368.91 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="151" x2="209" y1="391.3983" y2="391.3983"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="45" x="155" y="384.4452">model</text></g><!--cluster reader--><g id="cluster_reader"><path d="M498.5,196.45 L544.5,196.45 A3.75,3.75 0 0 1 547,198.95 L554,218.9383 L779.5,218.9383 A2.5,2.5 0 0 1 782,221.4383 L782,342.41 A2.5,2.5 0 0 1 779.5,344.91 L498.5,344.91 A2.5,2.5 0 0 1 496,342.41 L496,198.95 A2.5,2.5 0 0 1 498.5,196.45 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="496" x2="554" y1="218.9383" y2="218.9383"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="45" x="500" y="211.9852">reader</text></g><!--cluster service--><g id="cluster_service"><path d="M8.5,6 L59.5,6 A3.75,3.75 0 0 1 62,8.5 L69,28.4883 L469.5,28.4883 A2.5,2.5 0 0 1 472,30.9883 L472,325.92 A2.5,2.5 0 0 1 469.5,328.42 L8.5,328.42 A2.5,2.5 0 0 1 6,325.92 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="69" y1="28.4883" y2="28.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="50" x="10" y="21.5352">service</text></g><!--class Question--><g id="elem_Question"><rect codeLine="4" fill="#F1F1F1" height="146.9297" id="Question" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="210" x="167" y="403.91"/><ellipse cx="236.75" cy="419.91" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M239.7231,425.5531 Q239.1421,425.8519 238.5029,426.0013 Q237.8638,426.1507 237.1582,426.1507 Q234.6514,426.1507 233.3315,424.4989 Q232.0117,422.847 232.0117,419.7259 Q232.0117,416.5965 233.3315,414.9447 Q234.6514,413.2928 237.1582,413.2928 Q237.8638,413.2928 238.5112,413.4422 Q239.1587,413.5916 239.7231,413.8905 L239.7231,416.6131 Q239.0923,416.0321 238.4988,415.7623 Q237.9053,415.4925 237.2744,415.4925 Q235.9297,415.4925 235.2449,416.5592 Q234.5601,417.6258 234.5601,419.7259 Q234.5601,421.8177 235.2449,422.8844 Q235.9297,423.951 237.2744,423.951 Q237.9053,423.951 238.4988,423.6812 Q239.0923,423.4115 239.7231,422.8304 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="257.25" y="425.201">Question</text><line style="stroke:#181818;stroke-width:0.5;" x1="168" x2="376" y1="435.91" y2="435.91"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175" y="446.6541"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105" x="187" y="453.4452">String question</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175" y="463.1424"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="187" y="469.9334">List&lt;String&gt; options</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="175" y="479.6307"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="187" y="486.4217">int answer</text><line style="stroke:#181818;stroke-width:0.5;" x1="168" x2="376" y1="493.3748" y2="493.3748"/><ellipse cx="178" cy="507.119" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="147" x="187" y="510.91">getQuestion() : String</text><ellipse cx="178" cy="523.6073" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="184" x="187" y="527.3983">getOptions() : List&lt;String&gt;</text><ellipse cx="178" cy="540.0955" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="187" y="543.8866">getAnswer() : int</text></g><!--class QuestionReader--><g id="elem_QuestionReader"><rect codeLine="16" fill="#F1F1F1" height="97.4648" id="QuestionReader" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="254" x="512" y="231.45"/><ellipse cx="579.75" cy="247.45" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M582.7231,253.0931 Q582.1421,253.3919 581.5029,253.5413 Q580.8638,253.6907 580.1582,253.6907 Q577.6514,253.6907 576.3315,252.0389 Q575.0117,250.387 575.0117,247.2659 Q575.0117,244.1365 576.3315,242.4847 Q577.6514,240.8328 580.1582,240.8328 Q580.8638,240.8328 581.5112,240.9822 Q582.1587,241.1316 582.7231,241.4305 L582.7231,244.1531 Q582.0923,243.5721 581.4988,243.3023 Q580.9053,243.0325 580.2744,243.0325 Q578.9297,243.0325 578.2449,244.0992 Q577.5601,245.1658 577.5601,247.2659 Q577.5601,249.3577 578.2449,250.4244 Q578.9297,251.491 580.2744,251.491 Q580.9053,251.491 581.4988,251.2212 Q582.0923,250.9515 582.7231,250.3704 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="600.25" y="252.741">QuestionReader</text><line style="stroke:#181818;stroke-width:0.5;" x1="513" x2="765" y1="263.45" y2="263.45"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="520" y="274.1941"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="532" y="280.9852">String filePath</text><line style="stroke:#181818;stroke-width:0.5;" x1="513" x2="765" y1="287.9383" y2="287.9383"/><ellipse cx="523" cy="301.6824" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="224" x="532" y="305.4734">QuestionReader(filePath : String)</text><ellipse cx="523" cy="318.1707" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="228" x="532" y="321.9617">loadQuestions() : List&lt;Question&gt;</text></g><!--class Quiz--><g id="elem_Quiz"><rect codeLine="25" fill="#F1F1F1" height="130.4414" id="Quiz" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="434" x="22" y="41"/><ellipse cx="218.75" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M221.7231,62.6431 Q221.1421,62.9419 220.5029,63.0913 Q219.8638,63.2407 219.1582,63.2407 Q216.6514,63.2407 215.3315,61.5889 Q214.0117,59.937 214.0117,56.8159 Q214.0117,53.6865 215.3315,52.0347 Q216.6514,50.3828 219.1582,50.3828 Q219.8638,50.3828 220.5112,50.5322 Q221.1587,50.6816 221.7231,50.9805 L221.7231,53.7031 Q221.0923,53.1221 220.4988,52.8523 Q219.9053,52.5825 219.2744,52.5825 Q217.9297,52.5825 217.2449,53.6492 Q216.5601,54.7158 216.5601,56.8159 Q216.5601,58.9077 217.2449,59.9744 Q217.9297,61.041 219.2744,61.041 Q219.9053,61.041 220.4988,60.7712 Q221.0923,60.5015 221.7231,59.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="32" x="239.25" y="62.291">Quiz</text><line style="stroke:#181818;stroke-width:0.5;" x1="23" x2="455" y1="73" y2="73"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="30" y="83.7441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="42" y="90.5352">List&lt;Question&gt; questions</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="30" y="100.2324"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="42" y="107.0234">Scanner scanner</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="30" y="116.7207"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="164" x="42" y="123.5117">QuizEvaluator evaluator</text><line style="stroke:#181818;stroke-width:0.5;" x1="23" x2="455" y1="130.4648" y2="130.4648"/><ellipse cx="33" cy="144.209" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="408" x="42" y="148">Quiz(questions : List&lt;Question&gt;, evaluator : QuizEvaluator)</text><ellipse cx="33" cy="160.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="42" y="164.4883">start() : void</text></g><!--class QuizEvaluator--><g id="elem_QuizEvaluator"><rect codeLine="34" fill="#F1F1F1" height="64.4883" id="QuizEvaluator" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="368" x="88" y="247.93"/><ellipse cx="219.75" cy="263.93" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M222.7231,269.5731 Q222.1421,269.8719 221.5029,270.0213 Q220.8638,270.1707 220.1582,270.1707 Q217.6514,270.1707 216.3315,268.5189 Q215.0117,266.867 215.0117,263.7459 Q215.0117,260.6165 216.3315,258.9647 Q217.6514,257.3128 220.1582,257.3128 Q220.8638,257.3128 221.5112,257.4622 Q222.1587,257.6116 222.7231,257.9105 L222.7231,260.6331 Q222.0923,260.0521 221.4988,259.7823 Q220.9053,259.5125 220.2744,259.5125 Q218.9297,259.5125 218.2449,260.5792 Q217.5601,261.6458 217.5601,263.7459 Q217.5601,265.8377 218.2449,266.9044 Q218.9297,267.971 220.2744,267.971 Q220.9053,267.971 221.4988,267.7012 Q222.0923,267.4315 222.7231,266.8504 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="240.25" y="269.221">QuizEvaluator</text><line style="stroke:#181818;stroke-width:0.5;" x1="89" x2="455" y1="279.93" y2="279.93"/><line style="stroke:#181818;stroke-width:0.5;" x1="89" x2="455" y1="287.93" y2="287.93"/><ellipse cx="99" cy="301.6741" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="342" x="108" y="305.4652">isCorrect(q : Question, userAnswer : int) : boolean</text></g><!--class Main--><g id="elem_Main"><rect codeLine="39" fill="#F1F1F1" height="64.4883" id="Main" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="204" x="491" y="73.98"/><ellipse cx="572.25" cy="89.98" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M575.2231,95.6231 Q574.6421,95.9219 574.0029,96.0713 Q573.3638,96.2207 572.6582,96.2207 Q570.1514,96.2207 568.8315,94.5689 Q567.5117,92.917 567.5117,89.7959 Q567.5117,86.6665 568.8315,85.0147 Q570.1514,83.3628 572.6582,83.3628 Q573.3638,83.3628 574.0112,83.5122 Q574.6587,83.6616 575.2231,83.9605 L575.2231,86.6831 Q574.5923,86.1021 573.9988,85.8323 Q573.4053,85.5625 572.7744,85.5625 Q571.4297,85.5625 570.7449,86.6292 Q570.0601,87.6958 570.0601,89.7959 Q570.0601,91.8877 570.7449,92.9544 Q571.4297,94.021 572.7744,94.021 Q573.4053,94.021 573.9988,93.7512 Q574.5923,93.4815 575.2231,92.9004 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="33" x="592.75" y="95.271">Main</text><line style="stroke:#181818;stroke-width:0.5;" x1="492" x2="694" y1="105.98" y2="105.98"/><line style="stroke:#181818;stroke-width:0.5;" x1="492" x2="694" y1="113.98" y2="113.98"/><ellipse cx="502" cy="127.7241" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="511" y="131.5152">main(args : String[]) : void</text></g><!--link Main to QuestionReader--><g id="link_Main_QuestionReader"><path codeLine="44" d="M601.44,138.76 C608.36,164.65 616.729,195.9239 624.639,225.4839 " fill="none" id="Main-to-QuestionReader" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="626.19,231.28,627.7276,221.5519,624.8975,226.4499,619.9995,223.6199,626.19,231.28" style="stroke:#181818;stroke-width:1.0;"/></g><!--link Main to Quiz--><g id="link_Main_Quiz"><path codeLine="45" d="M490.59,106.22 C479.21,106.22 473.83,106.22 462.45,106.22 " fill="none" id="Main-to-Quiz" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="456.45,106.22,465.45,110.22,461.45,106.22,465.45,102.22,456.45,106.22" style="stroke:#181818;stroke-width:1.0;"/></g><!--reverse link QuizEvaluator to Main--><g id="link_QuizEvaluator_Main"><path codeLine="46" d="M336.4687,244.6463 C394.1387,213.7463 476.05,169.87 533.75,138.96 " fill="none" id="QuizEvaluator-backto-Main" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="331.18,247.48,341.0022,246.7552,335.5872,245.1186,337.2239,239.7037,331.18,247.48" style="stroke:#181818;stroke-width:1.0;"/></g><!--link QuestionReader to Question--><g id="link_QuestionReader_Question"><path codeLine="48" d="M548.75,329.18 C496.86,356.78 436.7177,388.7731 382.4977,417.6031 " fill="none" id="QuestionReader-to-Question" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="377.2,420.42,387.0244,419.7264,381.6147,418.0726,383.2686,412.6629,377.2,420.42" style="stroke:#181818;stroke-width:1.0;"/></g><!--link Quiz to Question--><g id="link_Quiz_Question"><path codeLine="49" d="M84,171.62 C79.16,176.81 74.79,182.41 71,188.45 C32.16,250.37 35.32,289.12 71,352.91 C91.99,390.44 124.2652,415.1656 161.2952,434.5656 " fill="none" id="Quiz-to-Question" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="166.61,437.35,160.4941,429.6302,162.181,435.0297,156.7815,436.7166,166.61,437.35" style="stroke:#181818;stroke-width:1.0;"/></g><!--link Quiz to QuizEvaluator--><g id="link_Quiz_QuizEvaluator"><path codeLine="50" d="M251.38,171.74 C256.36,197.66 260.7271,220.4679 264.8071,241.6879 " fill="none" id="Quiz-to-QuizEvaluator" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="265.94,247.58,268.1687,237.9866,264.9959,242.6699,260.3126,239.4971,265.94,247.58" style="stroke:#181818;stroke-width:1.0;"/></g><!--link QuizEvaluator to Question--><g id="link_QuizEvaluator_Question"><path codeLine="51" d="M272,312.54 C272,337.11 272,366.29 272,397.75 " fill="none" id="QuizEvaluator-to-Question" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="272,403.75,276,394.75,272,398.75,268,394.75,272,403.75" style="stroke:#181818;stroke-width:1.0;"/></g><!--SRC=[TL9DJyCm3BtdL_X6fwr_0A592Eq60hOZuc1QKoAof4lI8dNYlvFcesatqHwQFDlFpyzjiVh6Xk2eQX9mPfL0O-2r8sEvaWueuM0rbmsS8kQGHsxiNO2teDeHDGxcqW9AyqEQCN3F6XgoYQfOmMsaoi7dKEjZSzASSU_vV8AZPx_kPMtKh0bhqbUYzmcUf7zoGIzelvAiPMQHmfF0LSmJ2kkKEnEPeErIZY7TyufcUlZWLIoB9YD7omuLIkd4cl1ro5Yrwr5qQ9K6IgSidG_5n72bQ9ChN6p1bOOo5hNrm_IAr-C0MMvkV6PhuEP1QKsLBKwUBFJOGESc3Ni9MncvFfGIX38u4WYVa4lFStI70dLZ9eFVtgV-0AxW1lOaC9ZYoygwt5wiAGOypeTu4_6wopvT_0RbZ8ZvbVo7p5cMPYmg_W00]--></g></svg></div><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction-exercice-4" data-toc="correction-exercice-4">Correction exercice 4</h4></div><div class="collapse__content"><p id="z48kplu_93"><span class="control" id="z48kplu_107">La structure des fichiers</span></p><div class="code-block" data-lang="none">
+src/
+├── Main.java
+├── model/
+│   └── Question.java
+├── reader/
+│   └── QuestionReader.java
+├── service/
+│   ├── Quiz.java
+│   └── QuizEvaluator.java
+└── questions.json
+
+</div><p id="z48kplu_95"><span class="control" id="z48kplu_108">La classe Question</span></p><div class="code-block" data-lang="java">
+package model;
+
+import java.util.List;
+
+// Représente une question du quiz
+public class Question {
+    private String question;
+    private List&lt;String&gt; options;
+    private int answer;
+
+    // Getters nécessaires pour Jackson
+    public String getQuestion() {
+        return question;
+    }
+
+    public List&lt;String&gt; getOptions() {
+        return options;
+    }
+
+    public int getAnswer() {
+        return answer;
+    }
+}
+</div><p id="z48kplu_97"><span class="control" id="z48kplu_109">La classe QuestionReader</span></p><div class="code-block" data-lang="java">
+package reader;
+
+import model.Question;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+
+import java.io.File;
+import java.util.List;
+
+// Lit les questions depuis un fichier JSON
+public class QuestionReader {
+    private final String filePath;
+
+    public QuestionReader(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public List&lt;Question&gt; loadQuestions() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(
+            new File(filePath),
+            new TypeReference&lt;List&lt;Question&gt;&gt;() {}
+        );
+    }
+}
+</div><p id="z48kplu_99"><span class="control" id="z48kplu_110">La classe Quiz</span></p><div class="code-block" data-lang="java">
+package service;
+
+import model.Question;
+
+import java.util.List;
+import java.util.Scanner;
+
+// Gère le déroulement du quiz
+public class Quiz {
+    private final List&lt;Question&gt; questions;
+    private final Scanner scanner;
+    private final QuizEvaluator evaluator;
+
+    public Quiz(List&lt;Question&gt; questions, QuizEvaluator evaluator) {
+        this.questions = questions;
+        this.scanner = new Scanner(System.in);
+        this.evaluator = evaluator;
+    }
+
+    public void start() {
+        int score = 0;
+
+        for (int i = 0; i &lt; questions.size(); i++) {
+            Question q = questions.get(i);
+            System.out.println(&quot;\nQuestion &quot; + (i + 1) + &quot;: &quot; + q.getQuestion());
+
+            for (int j = 0; j &lt; q.getOptions().size(); j++) {
+                System.out.println(&quot;  &quot; + j + &quot;: &quot; + q.getOptions().get(j));
+            }
+
+            System.out.print(&quot;Votre réponse (numéro) : &quot;);
+            int response = scanner.nextInt();
+
+            if (evaluator.isCorrect(q, response)) {
+                System.out.println(&quot;Bonne réponse !&quot;);
+                score++;
+            } else {
+                System.out.println(&quot;auvaise réponse !&quot;);
+                System.out.println(&quot;Réponse correcte : &quot; +
+                    q.getOptions().get(q.getAnswer()));
+            }
+        }
+
+        System.out.println(&quot;\nScore final : &quot; + score + &quot; / &quot; + questions.size());
+    }
+}
+</div><p id="z48kplu_101"><span class="control" id="z48kplu_111">La classe QuizEvaluator</span></p><div class="code-block" data-lang="java">
+package service;
+
+import model.Question;
+
+// Évalue une réponse donnée
+public class QuizEvaluator {
+    public boolean isCorrect(Question question, int userAnswer) {
+        return question.getAnswer() == userAnswer;
+    }
+}
+</div><p id="z48kplu_103"><span class="control" id="z48kplu_112">La classe Main</span></p><div class="code-block" data-lang="java">
+import model.Question;
+import reader.QuestionReader;
+import service.Quiz;
+import service.QuizEvaluator;
+
+import java.util.List;
+
+// Point d'entrée de l'application
+public class Main {
+    public static void main(String[] args) {
+        try {
+            QuestionReader reader = new QuestionReader(&quot;questions.json&quot;);
+            List&lt;Question&gt; questions = reader.loadQuestions();
+
+            QuizEvaluator evaluator = new QuizEvaluator();
+            Quiz quiz = new Quiz(questions, evaluator);
+            quiz.start();
+
+        } catch (Exception e) {
+            System.out.println(&quot;Erreur : &quot; + e.getMessage());
+        }
+    }
+}
+</div><p id="z48kplu_105"><span class="control" id="z48kplu_113">Le fichier pom.xml</span></p><div class="code-block" data-lang="markup">
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+  &lt;groupId&gt;fr.formation&lt;/groupId&gt;
+  &lt;artifactId&gt;quizapp&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;packaging&gt;jar&lt;/packaging&gt;
+
+  &lt;name&gt;QuizApp&lt;/name&gt;
+
+  &lt;properties&gt;
+    &lt;maven.compiler.source&gt;23&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;23&lt;/maven.compiler.target&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+    &lt;!-- Jackson core et databind (dernière version) --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+      &lt;version&gt;2.17.0&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;!-- Compiler plugin --&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+        &lt;version&gt;3.11.0&lt;/version&gt;
+      &lt;/plugin&gt;
+
+      &lt;!-- Plugin Shade pour produire un fat JAR --&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
+        &lt;version&gt;3.5.1&lt;/version&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;phase&gt;package&lt;/phase&gt;
+            &lt;goals&gt;&lt;goal&gt;shade&lt;/goal&gt;&lt;/goals&gt;
+            &lt;configuration&gt;
+              &lt;transformers&gt;
+                &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&gt;
+                  &lt;mainClass&gt;Main&lt;/mainClass&gt; 
+                &lt;/transformer&gt;
+              &lt;/transformers&gt;
+            &lt;/configuration&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+
+&lt;/project&gt;
+
+</div></div></div></section></section></section><div class="last-modified">Last modified: 27 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="006-00-les-fichiers.html" class="navigation-links__prev">Les fichiers</a><a href="007-00-les-bases-de-donnees.html" class="navigation-links__next">Les bases de donn&eacute;es</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
