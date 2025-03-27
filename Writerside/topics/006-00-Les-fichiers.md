@@ -705,7 +705,7 @@ class IniParser {
 import java.io.*;
 import java.util.*;
 
-public class SimpleIni {
+public class IniParser {
     private Map<String, String> data = new LinkedHashMap<>();
 
     // Lire le fichier ini (clé=valeur)

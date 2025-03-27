@@ -96,7 +96,6 @@ javac -d bin @sources.txt
 
 ```
 cd bin
-
 java fr.formation.app.Main
 ```
 
@@ -134,7 +133,6 @@ Main-Class: fr.formation.app.Main
 Ensuite il faut créer le fichier jar comme ceci
 
 ```
-cd bin
 jar cfm build/app.jar src/META-INF/MANIFEST.MF -C bin .
 ```
 
