@@ -61,26 +61,26 @@ src/
                 │   ├── Router.java
                 │   └── ServiceLocator.java
                 │
-                ├── controller/
-                │   ├── UserController.java
-                │   └── ProductController.java
-                │
-                ├── view/
-                │   ├── UserView.java
-                │   └── ProductView.java
-                │
-                └── model/
-                    ├── entity/
-                    │   ├── User.java
-                    │   └── Product.java
+                ├── ├── controller/
+                    │   ├── UserController.java
+                    │   └── ProductController.java
                     │
-                    ├── service/
-                    │   ├── UserService.java
-                    │   └── ProductService.java
+                    ├── view/
+                    │   ├── UserView.java
+                    │   └── ProductView.java
                     │
-                    └── dao/
-                        ├── UserDao.java
-                        └── ProductDao.java
+                    └── model/
+                        ├── entity/
+                        │   ├── User.java
+                        │   └── Product.java
+                        │
+                        ├── service/
+                        │   ├── UserService.java
+                        │   └── ProductService.java
+                        │
+                        └── dao/
+                            ├── UserDao.java
+                            └── ProductDao.java
 ```
 
 ### La classe Main
