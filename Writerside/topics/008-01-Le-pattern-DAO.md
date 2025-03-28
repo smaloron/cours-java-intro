@@ -497,7 +497,7 @@ import java.util.*;
 public class GenericReflectiveDAO<T> {
 
     private final Connection connection;
-    private final Class<T> clazz;
+    private final Class<T> entityClass;
     private final String tableName;
 
     /**
