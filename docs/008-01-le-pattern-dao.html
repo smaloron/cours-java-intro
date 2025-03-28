@@ -1,0 +1,612 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-28T07:10:21.984734"><title>Le pattern DAO | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"dao-sp-cifique","level":0,"title":"DAO Spécifique","anchor":"#dao-sp-cifique"},{"id":"dao-g-n-rique-premi-re-approche","level":0,"title":"DAO générique, première approche","anchor":"#dao-g-n-rique-premi-re-approche"},{"id":"dao-tr-s-g-n-rique-utilisant-l-introspection","level":0,"title":"DAO très générique utilisant l\u0027introspection","anchor":"#dao-tr-s-g-n-rique-utilisant-l-introspection"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Le pattern DAO | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/008-01-le-pattern-dao.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Le pattern DAO | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/008-01-le-pattern-dao.html#webpage",
+    "url": "writerside-documentation/008-01-le-pattern-dao.html",
+    "name": "Le pattern DAO | Java Intro",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Java Intro Help"
+}</script><!-- End Schema.org --></head><body data-id="008-01-Le-pattern-DAO" data-main-title="Le pattern DAO" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="008-00-Les-bases-de-donnees.md|Les bases de données"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="008-01-Le-pattern-DAO" id="008-01-Le-pattern-DAO.md">Le pattern DAO</h1><p id="qimj7s_3">DAO (pour Data Access Object) est un design pattern tr&egrave;s courant en Java (et dans d'autres langages) qui sert &agrave; isoler la logique d&rsquo;acc&egrave;s aux donn&eacute;es de la logique m&eacute;tier (le c&oelig;ur de l&rsquo;application)</p><p id="qimj7s_4"><span class="control" id="qimj7s_11">R&ocirc;le du DAO</span></p><ul class="list _bullet" id="qimj7s_5"><li class="list__item" id="qimj7s_12"><p id="qimj7s_16">Acc&eacute;der aux donn&eacute;es dans la base de donn&eacute;es (lire, ins&eacute;rer, mettre &agrave; jour, supprimer).</p></li><li class="list__item" id="qimj7s_13"><p id="qimj7s_17">Masquer les d&eacute;tails techniques d'acc&egrave;s aux donn&eacute;es (SQL, JDBC, etc.).</p></li><li class="list__item" id="qimj7s_14"><p id="qimj7s_18">Fournir une interface propre pour manipuler des objets m&eacute;tier (User, Produit, etc.).</p></li><li class="list__item" id="qimj7s_15"><p id="qimj7s_19">Centraliser les requ&ecirc;tes li&eacute;es &agrave; une entit&eacute; (par exemple UserDAO s&rsquo;occupe uniquement des utilisateurs).</p></li></ul><p id="qimj7s_6"><span class="control" id="qimj7s_20">Avantages du DAO</span></p><div class="table-wrapper"><table class="wide" id="qimj7s_7"><thead><tr class="ijRowHead" id="qimj7s_21"><th id="qimj7s_28"><p>Avantage</p></th><th id="qimj7s_29"><p>Explication</p></th></tr></thead><tbody><tr id="qimj7s_22"><td id="qimj7s_30"><p><span class="control" id="qimj7s_32">S&eacute;paration des responsabilit&eacute;s</span></p></td><td id="qimj7s_31"><p>Le code m&eacute;tier (ex : calculer un prix, v&eacute;rifier un r&ocirc;le) ne s&rsquo;occupe <span class="control" id="qimj7s_33">pas du SQL</span>.</p></td></tr><tr id="qimj7s_23"><td id="qimj7s_34"><p><span class="control" id="qimj7s_36">Lisibilit&eacute; du code</span></p></td><td id="qimj7s_35"><p>Le code est plus clair et organis&eacute;. Chaque DAO g&egrave;re <span class="control" id="qimj7s_37">une seule entit&eacute;</span>.</p></td></tr><tr id="qimj7s_24"><td id="qimj7s_38"><p><span class="control" id="qimj7s_40">R&eacute;utilisabilit&eacute;</span></p></td><td id="qimj7s_39"><p>Le DAO peut &ecirc;tre utilis&eacute; dans plusieurs services, sans dupliquer les requ&ecirc;tes SQL.</p></td></tr><tr id="qimj7s_25"><td id="qimj7s_41"><p><span class="control" id="qimj7s_43">Facilit&eacute; de maintenance</span></p></td><td id="qimj7s_42"><p>Si la structure de la base ou les requ&ecirc;tes changent, on modifie uniquement le DAO.</p></td></tr><tr id="qimj7s_26"><td id="qimj7s_44"><p><span class="control" id="qimj7s_46">Testabilit&eacute;</span></p></td><td id="qimj7s_45"><p>On peut <span class="control" id="qimj7s_47">mock</span> le DAO pour tester la logique m&eacute;tier sans base de donn&eacute;es r&eacute;elle.</p></td></tr><tr id="qimj7s_27"><td id="qimj7s_48"><p><span class="control" id="qimj7s_50">&Eacute;volutivit&eacute;</span></p></td><td id="qimj7s_49"><p>Il est plus facile de passer de JDBC &agrave; JPA, ou &agrave; une base NoSQL, en ne modifiant que le DAO.</p></td></tr></tbody></table></div><section class="chapter"><h2 id="dao-sp-cifique" data-toc="dao-sp-cifique">DAO Sp&eacute;cifique</h2><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="878px" preserveAspectRatio="none" style="width:577px;height:878px;background:#FFFFFF;" version="1.1" viewBox="0 0 577 878" width="577px" zoomAndPan="magnify"><defs/><g><!--cluster fr--><g id="cluster_fr"><path d="M8.5,6 L21.5,6 A3.75,3.75 0 0 1 24,8.5 L31,28.4883 L567.5,28.4883 A2.5,2.5 0 0 1 570,30.9883 L570,869.22 A2.5,2.5 0 0 1 567.5,871.72 L8.5,871.72 A2.5,2.5 0 0 1 6,869.22 L6,8.5 A2.5,2.5 0 0 1 8.5,6 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="31" y1="28.4883" y2="28.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="12" x="10" y="21.5352">fr</text></g><!--cluster mvc--><g id="cluster_mvc"><path d="M32.5,49 L62.5,49 A3.75,3.75 0 0 1 65,51.5 L72,71.4883 L543.5,71.4883 A2.5,2.5 0 0 1 546,73.9883 L546,845.22 A2.5,2.5 0 0 1 543.5,847.72 L32.5,847.72 A2.5,2.5 0 0 1 30,845.22 L30,51.5 A2.5,2.5 0 0 1 32.5,49 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="30" x2="72" y1="71.4883" y2="71.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="29" x="34" y="64.5352">mvc</text></g><!--cluster app--><g id="cluster_app"><path d="M56.5,92 L83.5,92 A3.75,3.75 0 0 1 86,94.5 L93,114.4883 L519.5,114.4883 A2.5,2.5 0 0 1 522,116.9883 L522,821.22 A2.5,2.5 0 0 1 519.5,823.72 L56.5,823.72 A2.5,2.5 0 0 1 54,821.22 L54,94.5 A2.5,2.5 0 0 1 56.5,92 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="54" x2="93" y1="114.4883" y2="114.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="58" y="107.5352">app</text></g><!--cluster model--><g id="cluster_model"><path d="M80.5,135 L126.5,135 A3.75,3.75 0 0 1 129,137.5 L136,157.4883 L495.5,157.4883 A2.5,2.5 0 0 1 498,159.9883 L498,797.22 A2.5,2.5 0 0 1 495.5,799.72 L80.5,799.72 A2.5,2.5 0 0 1 78,797.22 L78,137.5 A2.5,2.5 0 0 1 80.5,135 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="78" x2="136" y1="157.4883" y2="157.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="45" x="82" y="150.5352">model</text></g><!--cluster dao--><g id="cluster_dao"><path d="M143.5,178 L170.5,178 A3.75,3.75 0 0 1 173,180.5 L180,200.4883 L432.5,200.4883 A2.5,2.5 0 0 1 435,202.9883 L435,406.41 A2.5,2.5 0 0 1 432.5,408.91 L143.5,408.91 A2.5,2.5 0 0 1 141,406.41 L141,180.5 A2.5,2.5 0 0 1 143.5,178 " fill="none" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="141" x2="180" y1="200.4883" y2="200.4883"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="26" x="145" y="193.5352">dao</text></g><!--class User--><g id="elem_User"><rect codeLine="3" fill="#F1F1F1" height="311.8125" id="User" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="388" x="94" y="471.91"/><ellipse cx="268.25" cy="487.91" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M271.2231,493.5531 Q270.6421,493.8519 270.0029,494.0013 Q269.3638,494.1507 268.6582,494.1507 Q266.1514,494.1507 264.8315,492.4989 Q263.5117,490.847 263.5117,487.7259 Q263.5117,484.5965 264.8315,482.9447 Q266.1514,481.2928 268.6582,481.2928 Q269.3638,481.2928 270.0112,481.4422 Q270.6587,481.5916 271.2231,481.8905 L271.2231,484.6131 Q270.5923,484.0321 269.9988,483.7623 Q269.4053,483.4925 268.7744,483.4925 Q267.4297,483.4925 266.7449,484.5592 Q266.0601,485.6258 266.0601,487.7259 Q266.0601,489.8177 266.7449,490.8844 Q267.4297,491.951 268.7744,491.951 Q269.4053,491.951 269.9988,491.6812 Q270.5923,491.4115 271.2231,490.8304 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="31" x="288.75" y="493.201">User</text><line style="stroke:#181818;stroke-width:0.5;" x1="95" x2="481" y1="503.91" y2="503.91"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="102" y="514.6541"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="51" x="114" y="521.4452">Long id</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="102" y="531.1424"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="114" y="537.9334">String nom</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="102" y="547.6307"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="82" x="114" y="554.4217">String email</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="102" y="564.119"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="114" y="570.91">String role</text><line style="stroke:#181818;stroke-width:0.5;" x1="95" x2="481" y1="577.8631" y2="577.8631"/><ellipse cx="105" cy="591.6073" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="41" x="114" y="595.3983">User()</text><ellipse cx="105" cy="608.0955" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="299" x="114" y="611.8866">User(nom: String, email: String, role: String)</text><ellipse cx="105" cy="624.5838" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="362" x="114" y="628.3748">User(id: Long, nom: String, email: String, role: String)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="114" y="644.8631">&#160;</text><ellipse cx="105" cy="657.5604" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="114" y="661.3514">getId(): Long</text><ellipse cx="105" cy="674.0487" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="114" y="677.8397">setId(id: Long): void</text><ellipse cx="105" cy="690.537" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="114" y="694.328">getNom(): String</text><ellipse cx="105" cy="707.0252" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="114" y="710.8163">setNom(nom: String): void</text><ellipse cx="105" cy="723.5135" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="114" y="727.3045">getEmail(): String</text><ellipse cx="105" cy="740.0018" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="190" x="114" y="743.7928">setEmail(email: String): void</text><ellipse cx="105" cy="756.4901" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="111" x="114" y="760.2811">getRole(): String</text><ellipse cx="105" cy="772.9784" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="114" y="776.7694">setRole(role: String): void</text></g><!--class UserDAO--><g id="elem_UserDAO"><rect codeLine="25" fill="#F1F1F1" height="179.9063" id="UserDAO" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="261" x="157.5" y="213"/><ellipse cx="252.75" cy="229" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M255.7231,234.6431 Q255.1421,234.9419 254.5029,235.0913 Q253.8638,235.2407 253.1582,235.2407 Q250.6514,235.2407 249.3315,233.5889 Q248.0117,231.937 248.0117,228.8159 Q248.0117,225.6865 249.3315,224.0347 Q250.6514,222.3828 253.1582,222.3828 Q253.8638,222.3828 254.5112,222.5322 Q255.1587,222.6816 255.7231,222.9805 L255.7231,225.7031 Q255.0923,225.1221 254.4988,224.8523 Q253.9053,224.5825 253.2744,224.5825 Q251.9297,224.5825 251.2449,225.6492 Q250.5601,226.7158 250.5601,228.8159 Q250.5601,230.9077 251.2449,231.9744 Q251.9297,233.041 253.2744,233.041 Q253.9053,233.041 254.4988,232.7712 Q255.0923,232.5015 255.7231,231.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="62" x="273.25" y="234.291">UserDAO</text><line style="stroke:#181818;stroke-width:0.5;" x1="158.5" x2="417.5" y1="245" y2="245"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="165.5" y="255.7441"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="177.5" y="262.5352">Connection connection</text><line style="stroke:#181818;stroke-width:0.5;" x1="158.5" x2="417.5" y1="269.4883" y2="269.4883"/><ellipse cx="168.5" cy="283.2324" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="235" x="177.5" y="287.0234">UserDAO(connection: Connection)</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4" x="177.5" y="303.5117">&#160;</text><ellipse cx="168.5" cy="316.209" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="177.5" y="320">addUser(user: User): void</text><ellipse cx="168.5" cy="332.6973" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="185" x="177.5" y="336.4883">getUserById(id: Long): User</text><ellipse cx="168.5" cy="349.1855" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="177.5" y="352.9766">getAllUsers(): List&lt;User&gt;</text><ellipse cx="168.5" cy="365.6738" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="195" x="177.5" y="369.4648">updateUser(user: User): void</text><ellipse cx="168.5" cy="382.1621" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="177.5" y="385.9531">deleteUser(id: Long): void</text></g><!--link UserDAO to User--><g id="link_UserDAO_User"><path codeLine="38" d="M288,393.03 C288,417.39 288,438.52 288,465.42 " fill="none" id="UserDAO-to-User" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="288,471.42,292,462.42,288,466.42,284,462.42,288,471.42" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="39" x="289" y="438.4784">utilise</text></g><!--SRC=[ZLF9QiCm4BtxAqHE3etz0Q84qkLGA2sqz0E4D3MYsh3aG2dvzsgn4ocsQNKmdZVpdcQJ8VIBT80sdtqhZxGbnhHICn0Rz5CXVwWWrg8F2_q8XDEWPwqwn5c6lBkUUqnfEGT14YxcSAy5L6Vu9jvIRwy1huX7nYufNSoWC5ap8cSuvhb3_vV8D3fmJwpU9eqCjn6VnBt_gBD6HDwBbe6OH4jgS6NfBD8VGuPh0ibP5B4eykRhMjE8lgBmJE5KdQhAhEr5ouYUxyR3uRLOZtkj5537jKBq_7izQa-gBrwSaOev4CRYE0V_mP6uM6zmt7sNambO6NKG8e0spfLRTnkiVHOp64OS_7cXxmICOKkR47iuDQPfzka1OJGuBhY5Nm00]--></g></svg></div><section class="chapter"><h3 id="le-code" data-toc="le-code">Le code</h3><section class="chapter"><h4 id="la-table" data-toc="la-table">La table</h4><div class="code-block" data-lang="sql">
+CREATE TABLE user (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    role VARCHAR(20) NOT NULL
+);
+
+</div></section><section class="chapter"><h4 id="l-entit" data-toc="l-entit">L'entit&eacute;</h4><div class="code-block" data-lang="java">
+package fr.mvc.app.model;
+
+public class User {
+
+    private Long id;
+    private String name;
+    private String email;
+    private String role;
+
+    // Constructeurs
+    public User() {}
+
+    public User(String name, String email, String role) {
+        this.name = name;
+        this.email = email;
+        this.role = role;
+    }
+
+    public User(Long id, String name, String email, String role) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.role = role;
+    }
+
+    // Getters et setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}
+</div></section><section class="chapter"><h4 id="la-classe-dao" data-toc="la-classe-dao">La classe DAO</h4><div class="code-block" data-lang="java">
+package fr.mvc.app.model.dao;
+
+import fr.mvc.app.model.User;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDAO {
+
+    private Connection connection;
+
+    // Constructeur avec connexion JDBC
+    public UserDAO(Connection connection) {
+        this.connection = connection;
+    }
+
+    // Ajouter un utilisateur
+    public void addUser(User user) throws SQLException {
+        String sql = &quot;INSERT INTO user (name, email, role) VALUES (?, ?, ?)&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getRole());
+            stmt.executeUpdate();
+        }
+    }
+
+    // Récupérer un utilisateur par ID
+    public User getUserById(Long id) throws SQLException {
+        String sql = &quot;SELECT * FROM user WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return new User(
+                    rs.getLong(&quot;id&quot;),
+                    rs.getString(&quot;name&quot;),
+                    rs.getString(&quot;email&quot;),
+                    rs.getString(&quot;role&quot;)
+                );
+            }
+            return null;
+        }
+    }
+}
+
+</div></section></section><section class="chapter"><h3 id="exercice" data-toc="exercice">Exercice</h3><p id="qimj7s_60">Impl&eacute;menter les m&eacute;thodes manquantes du DAO</p><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="correction" data-toc="correction">Correction</h4></div><div class="collapse__content"><div class="code-block" data-lang="java">
+package fr.mvc.app.model.dao;;
+
+import fr.mvc.app.model.User;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UserDAO {
+
+    private Connection connection;
+
+    // Constructeur avec connexion JDBC
+    public UserDAO(Connection connection) {
+        this.connection = connection;
+    }
+
+    // Ajouter un utilisateur
+    public void addUser(User user) throws SQLException {
+        String sql = &quot;INSERT INTO user (name, email, role) VALUES (?, ?, ?)&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getRole());
+            stmt.executeUpdate();
+        }
+    }
+
+    // Récupérer un utilisateur par ID
+    public User getUserById(Long id) throws SQLException {
+        String sql = &quot;SELECT * FROM user WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return new User(
+                    rs.getLong(&quot;id&quot;),
+                    rs.getString(&quot;name&quot;),
+                    rs.getString(&quot;email&quot;),
+                    rs.getString(&quot;role&quot;)
+                );
+            }
+            return null;
+        }
+    }
+
+    // Récupérer tous les utilisateurs
+    public List&lt;User&gt; getAllUsers() throws SQLException {
+        String sql = &quot;SELECT * FROM user&quot;;
+        List&lt;User&gt; users = new ArrayList&lt;&gt;();
+
+        try (Statement stmt = connection.createStatement()) {
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                users.add(new User(
+                    rs.getLong(&quot;id&quot;),
+                    rs.getString(&quot;name&quot;),
+                    rs.getString(&quot;email&quot;),
+                    rs.getString(&quot;role&quot;)
+                ));
+            }
+        }
+        return users;
+    }
+
+    // Mettre à jour un utilisateur
+    public void updateUser(User user) throws SQLException {
+        String sql = &quot;UPDATE user SET name = ?, email = ?, role = ? WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getRole());
+            stmt.setLong(4, user.getId());
+            stmt.executeUpdate();
+        }
+    }
+
+    // Supprimer un utilisateur
+    public void deleteUser(Long id) throws SQLException {
+        String sql = &quot;DELETE FROM user WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        }
+    }
+}
+
+</div></div></div></section></section></section><section class="chapter"><h2 id="dao-g-n-rique-premi-re-approche" data-toc="dao-g-n-rique-premi-re-approche">DAO g&eacute;n&eacute;rique, premi&egrave;re approche</h2><p id="qimj7s_63">Cette premi&egrave;re approche est int&eacute;ressante, mais l'impose de dupliquer beaucoup de code, lorsque le projet contient plusieurs tables. Une approche plus g&eacute;n&eacute;rique pourrait factoriser une partie de ce code.</p><section class="chapter"><h3 id="une-interface-g-n-rique" data-toc="une-interface-g-n-rique">Une interface g&eacute;n&eacute;rique</h3><div class="code-block" data-lang="java">
+package fr.mvc.app.model.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+/**
+ * Interface générique définissant les opérations CRUD de base.
+ */
+public interface GenericDAO&lt;T&gt; {
+
+    void add(T entity) throws SQLException;
+
+    T getById(Long id) throws SQLException;
+
+    List&lt;T&gt; getAll() throws SQLException;
+
+    void update(T entity) throws SQLException;
+
+    void delete(Long id) throws SQLException;
+}
+</div></section><section class="chapter"><h3 id="une-classe-abstraite" data-toc="une-classe-abstraite">Une classe abstraite</h3><p id="qimj7s_68">La classe abstraite factorise les op&eacute;rations qui sont similaires pour toutes les tables.</p><div class="code-block" data-lang="java">
+package fr.mvc.app.model.dao;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Classe abstraite générique implémentant les opérations
+ * génériques de lecture et suppression via JDBC.
+ * L'insertion et la mise à jour sont spécifiques à chaque entité.
+ */
+public abstract class AbstractDAO&lt;T&gt; implements GenericDAO&lt;T&gt; {
+
+    protected Connection connection;
+
+    public AbstractDAO(Connection connection) {
+        this.connection = connection;
+    }
+
+    // Nom de la table associée à l'entité
+    protected abstract String getTableName();
+
+    // Méthode de mappage d'une ligne de résultat vers un objet
+    protected abstract T mapResultSet(ResultSet rs) throws SQLException;
+
+    // Récupérer une entité par son ID
+    @Override
+    public T getById(Long id) throws SQLException {
+        String sql = &quot;SELECT * FROM &quot; + getTableName() + &quot; WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return mapResultSet(rs);
+            }
+            return null;
+        }
+    }
+
+    // Récupérer toutes les entités
+    @Override
+    public List&lt;T&gt; getAll() throws SQLException {
+        String sql = &quot;SELECT * FROM &quot; + getTableName();
+        List&lt;T&gt; list = new ArrayList&lt;&gt;();
+
+        try (Statement stmt = connection.createStatement()) {
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                list.add(mapResultSet(rs));
+            }
+        }
+
+        return list;
+    }
+
+    // Supprimer une entité par son ID
+    @Override
+    public void delete(Long id) throws SQLException {
+        String sql = &quot;DELETE FROM &quot; + getTableName() + &quot; WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        }
+    }
+
+    // Les méthodes add() et update() sont spécifiques à chaque entité
+    // Méthode abstraite pour insérer une entité
+    @Override
+    public abstract void add(T entity) throws SQLException;
+
+    // Méthode abstraite pour mettre à jour une entité
+    @Override
+    public abstract void update(T entity) throws SQLException;
+
+}
+
+</div></section><section class="chapter"><h3 id="une-classe-concr-te-pour-g-rer-les-sp-cificit-s" data-toc="une-classe-concr-te-pour-g-rer-les-sp-cificit-s">Une classe concr&egrave;te pour g&eacute;rer les sp&eacute;cificit&eacute;s</h3><div class="code-block" data-lang="java">
+package fr.mvc.app.model.dao;
+
+import fr.mvc.app.model.User;
+
+import java.sql.*;
+
+/**
+ * Implémentation DAO spécifique à l'entité User.
+ * Elle hérite des opérations génériques et implémente
+ * les opérations propres à User.
+ */
+public class UserDAO extends AbstractDAO&lt;User&gt; {
+
+    public UserDAO(Connection connection) {
+        super(connection);
+    }
+
+    // Nom de la table associée
+    @Override
+    protected String getTableName() {
+        return &quot;user&quot;;
+    }
+
+    // Convertir une ligne de résultat SQL en objet User
+    @Override
+    protected User mapResultSet(ResultSet rs) throws SQLException {
+        return new User(
+            rs.getLong(&quot;id&quot;),
+            rs.getString(&quot;nom&quot;),
+            rs.getString(&quot;email&quot;),
+            rs.getString(&quot;role&quot;)
+        );
+    }
+
+    // Ajouter un utilisateur dans la base
+    @Override
+    public void add(User user) throws SQLException {
+        String sql = &quot;INSERT INTO user (nom, email, role) VALUES (?, ?, ?)&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, user.getNom());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getRole());
+            stmt.executeUpdate();
+        }
+    }
+
+    // Mettre à jour les données d'un utilisateur
+    @Override
+    public void update(User user) throws SQLException {
+        String sql = &quot;UPDATE user SET nom = ?, email = ?, role = ? WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, user.getNom());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getRole());
+            stmt.setLong(4, user.getId());
+            stmt.executeUpdate();
+        }
+    }
+}
+
+</div></section></section><section class="chapter"><h2 id="dao-tr-s-g-n-rique-utilisant-l-introspection" data-toc="dao-tr-s-g-n-rique-utilisant-l-introspection">DAO tr&egrave;s g&eacute;n&eacute;rique utilisant l'introspection</h2><div class="code-block" data-lang="java">
+package fr.mvc.app.model.dao;
+
+import java.lang.reflect.*;
+import java.sql.*;
+import java.util.*;
+
+/**
+ * DAO générique utilisant l'introspection (réflexion) pour
+ * gérer automatiquement les opérations CRUD de n'importe
+ * quelle entité Java dont les champs correspondent aux colonnes
+ * de la base de données.
+ *
+ * Conditions :
+ * - L'entité doit avoir un champ 'id' (clé primaire) de type Long
+ * - Les noms des attributs doivent correspondre aux noms des colonnes
+ * - L'entité doit avoir un constructeur par défaut
+ */
+public class GenericReflectiveDAO&lt;T&gt; {
+
+    private final Connection connection;
+    private final Class&lt;T&gt; entityClass;
+    private final String tableName;
+
+    /**
+     * Constructeur générique
+     *
+     * @param connection Connexion JDBC active
+     * @param entityClass      Classe de l'entité (ex: User.class)
+     * @param tableName  Nom de la table SQL associée à l'entité
+     */
+    public GenericReflectiveDAO(Connection connection, Class&lt;T&gt; entityClass,
+                                String tableName) {
+        this.connection = connection;
+        this.entityClass = entityClass;
+        this.tableName = tableName;
+    }
+
+    /**
+     * Insère une entité dans la base (sauf le champ 'id' auto-généré)
+     */
+    public void add(T entity) throws SQLException {
+        Field[] fields = getNonIdFields();
+
+        String columns = String.join(&quot;, &quot;, getFieldNames(fields));
+        String placeholders = String.join(&quot;, &quot;, Collections.nCopies(fields.length, &quot;?&quot;));
+        String sql = &quot;INSERT INTO &quot; + tableName + &quot; (&quot; + columns + &quot;) VALUES (&quot; + placeholders + &quot;)&quot;;
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            setFieldValues(stmt, entity, fields);
+            stmt.executeUpdate();
+        }
+    }
+
+    /**
+     * Récupère une entité à partir de son identifiant
+     */
+    public T getById(Long id) throws SQLException {
+        String sql = &quot;SELECT * FROM &quot; + tableName + &quot; WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return mapResultSetToEntity(rs);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Récupère toutes les entités présentes dans la table
+     */
+    public List&lt;T&gt; getAll() throws SQLException {
+        List&lt;T&gt; list = new ArrayList&lt;&gt;();
+        String sql = &quot;SELECT * FROM &quot; + tableName;
+
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            while (rs.next()) {
+                list.add(mapResultSetToEntity(rs));
+            }
+        }
+
+        return list;
+    }
+
+    /**
+     * Met à jour une entité existante en base à partir de son id
+     */
+    public void update(T entity) throws SQLException {
+        Field[] fields = getNonIdFields();
+        String setClause = String.join(&quot;, &quot;,
+            Arrays.stream(fields).map(f -&gt; f.getName() + &quot; = ?&quot;).toList());
+
+        String sql = &quot;UPDATE &quot; + tableName + &quot; SET &quot; + setClause + &quot; WHERE id = ?&quot;;
+
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            // Affecte les nouvelles valeurs
+            setFieldValues(stmt, entity, fields);
+
+            // Récupère la valeur du champ 'id'
+            Field idField = entityClass.getDeclaredField(&quot;id&quot;);
+            idField.setAccessible(true);
+            stmt.setObject(fields.length + 1, idField.get(entity));
+
+            stmt.executeUpdate();
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new SQLException(&quot;Erreur de réflexion lors de l'update&quot;, e);
+        }
+    }
+
+    /**
+     * Supprime une entité en base à partir de son identifiant
+     */
+    public void delete(Long id) throws SQLException {
+        String sql = &quot;DELETE FROM &quot; + tableName + &quot; WHERE id = ?&quot;;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        }
+    }
+
+    // ──────────────────────────────────────────────
+    // MÉTHODES UTILITAIRES D’INTROSPECTION
+    // ──────────────────────────────────────────────
+
+    /**
+     * Retourne tous les champs sauf 'id'
+     */
+    private Field[] getNonIdFields() {
+        return Arrays.stream(entityClass.getDeclaredFields())
+            .filter(f -&gt; !f.getName().equalsIgnoreCase(&quot;id&quot;))
+            .toArray(Field[]::new);
+    }
+
+    /**
+     * Récupère les noms de champs sous forme de liste
+     */
+    private List&lt;String&gt; getFieldNames(Field[] fields) {
+        return Arrays.stream(fields).map(Field::getName).toList();
+    }
+
+    /**
+     * Affecte dynamiquement les valeurs de l'objet aux paramètres SQL
+     */
+    private void setFieldValues(PreparedStatement stmt, T entity,
+                                Field[] fields) throws SQLException {
+        try {
+            for (int i = 0; i &lt; fields.length; i++) {
+                fields[i].setAccessible(true); // pour accéder aux champs privés
+                stmt.setObject(i + 1, fields[i].get(entity));
+            }
+        } catch (IllegalAccessException e) {
+            throw new SQLException(&quot;Erreur lors de la lecture des champs&quot;, e);
+        }
+    }
+
+    /**
+     * Construit dynamiquement un objet T à partir d’un ResultSet
+     */
+    private T mapResultSetToEntity(ResultSet rs) throws SQLException {
+        try {
+            T obj = entityClass.getDeclaredConstructor().newInstance();
+
+            for (Field field : entityClass.getDeclaredFields()) {
+                field.setAccessible(true);
+                Object value = rs.getObject(field.getName());
+                field.set(obj, value);
+            }
+
+            return obj;
+        } catch (Exception e) {
+            throw new SQLException(&quot;Erreur lors du mapping ResultSet&quot;, e);
+        }
+    }
+}
+
+</div><section class="chapter"><h3 id="utilisation-du-dao-g-n-rique" data-toc="utilisation-du-dao-g-n-rique">Utilisation du DAO g&eacute;n&eacute;rique</h3><div class="code-block" data-lang="java">
+package fr.mvc.app;
+
+import fr.mvc.app.model.User;
+import fr.mvc.app.model.dao.GenericReflectiveDAO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // Informations de connexion à MariaDB
+        String url = &quot;jdbc:mariadb://localhost:3306/ma_base&quot;;
+        String user = &quot;root&quot;;
+        String password = &quot;mon_mdp&quot;;
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+
+            // Instanciation du DAO générique pour User
+            GenericReflectiveDAO&lt;User&gt; userDao =
+                new GenericReflectiveDAO&lt;&gt;(conn, User.class, &quot;user&quot;);
+
+            // Création d'un nouvel utilisateur
+            User alice = new User(&quot;Alice Dupont&quot;, &quot;alice@mail.com&quot;, &quot;admin&quot;);
+            userDao.add(alice);
+            System.out.println(&quot;Utilisateur ajouté.&quot;);
+
+            // Liste de tous les utilisateurs
+            List&lt;User&gt; users = userDao.getAll();
+            System.out.println(&quot;Tous les utilisateurs :&quot;);
+            users.forEach(System.out::println);
+
+            // Mise à jour du premier utilisateur
+            if (!users.isEmpty()) {
+                User first = users.get(0);
+                first.setRole(&quot;superadmin&quot;);
+                userDao.update(first);
+                System.out.println(&quot;Utilisateur mis à jour.&quot;);
+            }
+
+            // Suppression du premier utilisateur
+            if (!users.isEmpty()) {
+                userDao.delete(users.get(0).getId());
+                System.out.println(&quot;🗑️ Utilisateur supprimé.&quot;);
+            }
+
+        } catch (Exception e) {
+            System.err.println(&quot;Erreur : &quot; + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+}
+</div></section><section class="chapter"><h3 id="conclusion" data-toc="conclusion">Conclusion</h3><p id="qimj7s_75">L'approche est int&eacute;ressante et factorise une grande partie du code redondant. Pour des projets simples de gestion de la persistance, le dao g&eacute;n&eacute;rique peut parfaitement convenir. Toutefois, si les besoins deviennent plus complexes, il sera plus raisonnable de se doter d'un v&eacute;ritable composant ORM.</p></section></section><div class="last-modified">Last modified: 28 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="008-00-les-bases-de-donnees.html" class="navigation-links__prev">Les bases de donn&eacute;es</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>

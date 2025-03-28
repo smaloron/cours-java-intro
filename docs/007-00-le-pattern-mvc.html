@@ -1,0 +1,257 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2025-03-28T07:10:21.985478"><title>Le pattern MVC | Java Intro</title><script type="application/json" id="virtual-toc-data">[{"id":"fonctionnement","level":0,"title":"Fonctionnement","anchor":"#fonctionnement"},{"id":"proposition-de-structure-mvc","level":0,"title":"Proposition de structure MVC","anchor":"#proposition-de-structure-mvc"},{"id":"servicelocator","level":0,"title":"ServiceLocator","anchor":"#servicelocator"},{"id":"exercice","level":0,"title":"Exercice","anchor":"#exercice"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Le pattern MVC | Java Intro"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Java Intro Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/007-00-le-pattern-mvc.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Le pattern MVC | Java Intro"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/007-00-le-pattern-mvc.html#webpage",
+    "url": "writerside-documentation/007-00-le-pattern-mvc.html",
+    "name": "Le pattern MVC | Java Intro",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Java Intro Help"
+}</script><!-- End Schema.org --></head><body data-id="007-00-Le-pattern-MVC" data-main-title="Le pattern MVC" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Java Intro  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="007-00-Le-pattern-MVC" id="007-00-Le-pattern-MVC.md">Le pattern MVC</h1><p id="z7qfodc_3">Le pattern MVC est une architecture logicielle qui permet de s&eacute;parer les responsabilit&eacute;s d&rsquo;une application en trois parties distinctes :</p><div class="table-wrapper"><table class="wide" id="z7qfodc_4"><thead><tr class="ijRowHead" id="z7qfodc_12"><th id="z7qfodc_16"><p>Composant</p></th><th id="z7qfodc_17"><p>R&ocirc;le principal</p></th><th id="z7qfodc_18"><p>Exemple</p></th></tr></thead><tbody><tr id="z7qfodc_13"><td id="z7qfodc_19"><p><span class="control" id="z7qfodc_22">Model</span></p></td><td id="z7qfodc_20"><p>Repr&eacute;sente les <span class="control" id="z7qfodc_23">donn&eacute;es</span> et la logique m&eacute;tier</p></td><td id="z7qfodc_21"><p>Une classe <code class="code" id="z7qfodc_24">User</code>, ou une base de donn&eacute;es d'utilisateurs</p></td></tr><tr id="z7qfodc_14"><td id="z7qfodc_25"><p><span class="control" id="z7qfodc_28">View</span></p></td><td id="z7qfodc_26"><p>G&egrave;re l&rsquo; <span class="control" id="z7qfodc_29">interface utilisateur</span> (affichage, entr&eacute;es)</p></td><td id="z7qfodc_27"><p>Affiche une liste d'utilisateurs dans le terminal</p></td></tr><tr id="z7qfodc_15"><td id="z7qfodc_30"><p><span class="control" id="z7qfodc_33">Controller</span></p></td><td id="z7qfodc_31"><p>Re&ccedil;oit les <span class="control" id="z7qfodc_34">commandes de l&rsquo;utilisateur</span>, appelle le Model et met &agrave; jour la View</p></td><td id="z7qfodc_32"><p>Un menu qui appelle un service pour r&eacute;cup&eacute;rer les utilisateurs</p></td></tr></tbody></table></div><p id="z7qfodc_5">Il est possible et fr&eacute;quent de d&eacute;couper chaque partie en unit&eacute;s distinctes ce qui est fr&eacute;quent pour la couche Model.</p><p id="z7qfodc_6"><span class="control" id="z7qfodc_35">Pourquoi utiliser MVC ?</span></p><ul class="list _bullet" id="z7qfodc_7"><li class="list__item" id="z7qfodc_36"><p id="z7qfodc_39">S&eacute;paration des responsabilit&eacute;s : chaque classe a un r&ocirc;le bien d&eacute;fini</p></li><li class="list__item" id="z7qfodc_37"><p id="z7qfodc_40">Facilit&eacute; de maintenance : les composants sont d&eacute;coupl&eacute;s</p></li><li class="list__item" id="z7qfodc_38"><p id="z7qfodc_41">R&eacute;utilisabilit&eacute; &amp; testabilit&eacute; : on peut tester la logique m&eacute;tier sans interface</p></li></ul><section class="chapter"><h2 id="fonctionnement" data-toc="fonctionnement">Fonctionnement</h2><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="516px" preserveAspectRatio="none" style="width:837px;height:516px;background:#FFFFFF;" version="1.1" viewBox="0 0 837 516" width="837px" zoomAndPan="magnify"><defs/><g><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="43" x2="43" y1="81.4883" y2="435.5938"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="312" x2="312" y1="81.4883" y2="435.5938"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="556" x2="556" y1="81.4883" y2="435.5938"/><line style="stroke:#181818;stroke-width:0.5;stroke-dasharray:5.0,5.0;" x1="767" x2="767" y1="81.4883" y2="435.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="5" y="78.5352">Utilisateur</text><ellipse cx="43" cy="13.5" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M43,21.5 L43,48.5 M30,29.5 L56,29.5 M43,48.5 L30,63.5 M43,48.5 L56,63.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="5" y="448.1289">Utilisateur</text><ellipse cx="43" cy="459.582" fill="#E2E2F0" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M43,467.582 L43,494.582 M30,475.582 L56,475.582 M43,494.582 L30,509.582 M43,494.582 L56,509.582 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="84" x="270" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="277" y="70.5352">Controller</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="84" x="270" y="434.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="277" y="455.1289">Controller</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="168" x="472" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="479" y="70.5352">Model (Service + DAO)</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="168" x="472" y="434.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154" x="479" y="455.1289">Model (Service + DAO)</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="116" x="709" y="50"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="716" y="70.5352">View (Console)</text><rect fill="#E2E2F0" height="30.4883" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="116" x="709" y="434.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="716" y="455.1289">View (Console)</text><rect fill="#EEEEEE" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="830" x="0" y="112.1436"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="830" y1="112.1436" y2="112.1436"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="830" y1="115.1436" y2="115.1436"/><rect fill="#EEEEEE" height="23.3105" style="stroke:#000000;stroke-width:2.0;" width="196" x="317" y="101.4883"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="178" x="323" y="118.0566">D&#233;clenchement de l'action</text><polygon fill="#181818" points="300,152.1094,310,156.1094,300,160.1094,304,156.1094" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="43" x2="306" y1="156.1094" y2="156.1094"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="245" x="50" y="151.3672">saisit une action (ex : liste utilisateurs)</text><rect fill="#EEEEEE" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="830" x="0" y="184.7646"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="830" y1="184.7646" y2="184.7646"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="830" y1="187.7646" y2="187.7646"/><rect fill="#EEEEEE" height="23.3105" style="stroke:#000000;stroke-width:2.0;" width="199" x="315.5" y="174.1094"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="181" x="321.5" y="190.6777">Traitement c&#244;t&#233; contr&#244;leur</text><polygon fill="#181818" points="544,224.7305,554,228.7305,544,232.7305,548,228.7305" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="312" x2="550" y1="228.7305" y2="228.7305"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="220" x="319" y="223.9883">demande les donn&#233;es (getAllUsers)</text><line style="stroke:#181818;stroke-width:1.0;" x1="556" x2="598" y1="273.3516" y2="273.3516"/><line style="stroke:#181818;stroke-width:1.0;" x1="598" x2="598" y1="273.3516" y2="286.3516"/><line style="stroke:#181818;stroke-width:1.0;" x1="557" x2="598" y1="286.3516" y2="286.3516"/><polygon fill="#181818" points="567,282.3516,557,286.3516,567,290.3516,563,286.3516" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="563" y="253.2988">traite la logique m&#233;tier</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="197" x="563" y="268.6094">(appelle DAO, v&#233;rifie les r&#232;gles)</text><polygon fill="#181818" points="323,311.6621,313,315.6621,323,319.6621,319,315.6621" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="317" x2="555" y1="315.6621" y2="315.6621"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="125" x="329" y="310.9199">renvoie les donn&#233;es</text><rect fill="#EEEEEE" height="3" style="stroke:#EEEEEE;stroke-width:1.0;" width="830" x="0" y="344.3174"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="830" y1="344.3174" y2="344.3174"/><line style="stroke:#000000;stroke-width:1.0;" x1="0" x2="830" y1="347.3174" y2="347.3174"/><rect fill="#EEEEEE" height="23.3105" style="stroke:#000000;stroke-width:2.0;" width="144" x="343" y="333.6621"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="126" x="349" y="350.2305">Affichage c&#244;t&#233; vue</text><polygon fill="#181818" points="755,384.2832,765,388.2832,755,392.2832,759,388.2832" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="312" x2="761" y1="388.2832" y2="388.2832"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="198" x="319" y="383.541">transmet les donn&#233;es &#224; afficher</text><polygon fill="#181818" points="54,413.5938,44,417.5938,54,421.5938,50,417.5938" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="48" x2="766" y1="417.5938" y2="417.5938"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="124" x="60" y="412.8516">affiche les r&#233;sultats</text><!--SRC=[LP0zRiCm34PtdOB8KWTjBn301G9dDJgqyTH5a1c7W2ov4ktsE1thFJVGnIhv1uqd2UBJuqTAnTR1cKcJbuoz4wAJZabH9mt3hh26dTKQtGwaXs9RBMsD6h8tT0CfX4Su7L_t4rXkmOhm2x8eyrRZJ5H2v3cSmgWq6dN55YDO8-W7gPYiWJmNTxdW-GKAE82Nv8cXDmWBb-5tV8yS8_J_7_n-Ql3k9F4iL-76OGILHWetdQInHv7CPJJKs4gJ0g27sXeJndZ96kIZrcUFax1SOPwqe2Lesz1dZz26aGdTXybars7SM5h64mnXT7IXMUl2RnFFVV8iypWqWwLjroduyN8XTPKDhhc7s6JDMyqHZ6-Hju733yZf9pfH9VH-XuUrjgGPVQzPiXT_]--></g></svg></div></section><section class="chapter"><h2 id="proposition-de-structure-mvc" data-toc="proposition-de-structure-mvc">Proposition de structure MVC</h2><section class="chapter"><h3 id="structure-du-projet" data-toc="structure-du-projet">Structure du projet</h3><div class="code-block" data-lang="none">
+src/
+└── main/
+    └── java/
+        └── fr/
+            └── mvc/
+                ├── app/
+                │   ├── Main.java
+                │   ├── Router.java
+                │   └── ServiceLocator.java
+                │
+                ├── controller/
+                │   ├── UserController.java
+                │   └── ProductController.java
+                │
+                ├── view/
+                │   ├── UserView.java
+                │   └── ProductView.java
+                │
+                └── model/
+                    ├── entity/
+                    │   ├── User.java
+                    │   └── Product.java
+                    │
+                    ├── service/
+                    │   ├── UserService.java
+                    │   └── ProductService.java
+                    │
+                    └── dao/
+                        ├── UserDao.java
+                        └── ProductDao.java
+</div></section><section class="chapter"><h3 id="la-classe-main" data-toc="la-classe-main">La classe Main</h3><div class="code-block" data-lang="java">
+package fr.mvc.app;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Router router = new Router(scanner);
+        router.start();
+        scanner.close();
+    }
+}
+
+</div></section><section class="chapter"><h3 id="le-routeur" data-toc="le-routeur">Le routeur</h3><div class="code-block" data-lang="java">
+package fr.mvc.app;
+
+import java.util.Scanner;
+import fr.mvc.app.controller.UserController;
+import fr.mvc.app.model.service.UserService;
+import fr.mvc.app.view.UserView;
+
+public class Router {
+    private final Scanner scanner;
+    private final UserController userController;
+
+    public Router(Scanner scanner) {
+        this.scanner = scanner;
+        UserService userService = new UserService();
+        UserView userView = new UserView(scanner);
+        this.userController = new UserController(scanner, userService, userView);
+    }
+
+    public void start() {
+        while (true) {
+            System.out.println(&quot;=== Menu Principal ===&quot;);
+            System.out.println(&quot;1. Liste des utilisateurs&quot;);
+            System.out.println(&quot;0. Quitter&quot;);
+            System.out.print(&quot;Choix : &quot;);
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case &quot;1&quot;:
+                    userController.showAllUsers();
+                    break;
+                case &quot;0&quot;:
+                    System.out.println(&quot;À bientôt !&quot;);
+                    return;
+                default:
+                    System.out.println(&quot;Option invalide.&quot;);
+            }
+        }
+    }
+}
+</div></section><section class="chapter"><h3 id="le-contr-leur" data-toc="le-contr-leur">Le contr&ocirc;leur</h3><div class="code-block" data-lang="java">
+package fr.mvc.app.controller;
+
+import java.util.Scanner;
+import fr.mvc.app.model.service.UserService;
+import fr.mvc.app.view.UserView;
+import fr.mvc.app.model.entity.User;
+
+public class UserController {
+    private final Scanner scanner;
+    private final UserService userService;
+    private final UserView userView;
+
+    public UserController(
+        Scanner scanner,
+        UserService userService,
+        UserView userView
+    ) {
+        this.scanner = scanner;
+        this.userService = userService;
+        this.userView = userView;
+    }
+
+    public void showAllUsers() {
+        User[] users = userService.getAllUsers();
+        userView.displayUsers(users);
+    }
+}
+</div></section><section class="chapter"><h3 id="l-entit" data-toc="l-entit">L'entit&eacute;</h3><div class="code-block" data-lang="java">
+package fr.mvc.app.model.entity;
+
+public class User {
+    private final int id;
+    private final String name;
+
+    public User(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() { return id; }
+
+    public String getName() { return name; }
+}
+
+</div></section><section class="chapter"><h3 id="le-service" data-toc="le-service">Le service</h3><div class="code-block" data-lang="java">
+package fr.mvc.app.model.service;
+
+import fr.mvc.app.model.entity.User;
+
+public class UserService {
+    public User[] getAllUsers() {
+        return new User[] {
+            new User(1, &quot;Alice&quot;),
+            new User(2, &quot;Bob&quot;),
+            new User(3, &quot;Charlie&quot;)
+        };
+    }
+}
+
+</div></section><section class="chapter"><h3 id="la-vue" data-toc="la-vue">La vue</h3><div class="code-block" data-lang="java">
+package fr.mvc.app.view;
+
+import java.util.Scanner;
+import fr.mvc.app.model.entity.User;
+
+public class UserView {
+    private final Scanner scanner;
+
+    public UserView(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void displayUsers(User[] users) {
+        System.out.println(&quot;--- Liste des utilisateurs ---&quot;);
+        for (User user : users) {
+            System.out.println(user.getId() + &quot; - &quot; + user.getName());
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="servicelocator" data-toc="servicelocator">ServiceLocator</h2><p id="z7qfodc_57">Le routeur poss&egrave;de deux responsabilit&eacute;s, aiguiller la requ&ecirc;te et instancier les classes. Il est possible de d&eacute;couper ces deux responsabilit&eacute;s en ajoutant une classe <code class="code" id="z7qfodc_65">ServiceLocator</code> qui sera charg&eacute;e de l'instanciation.</p><p id="z7qfodc_58">Service Locator est un pattern de conception qui sert &agrave; centraliser l'acc&egrave;s aux services dans une application. Il peut simplifier la gestion des d&eacute;pendances, notamment dans des projets Java simples qui n'utilisent pas de syst&egrave;me d'injection de d&eacute;pendances.</p><p id="z7qfodc_59"><span class="control" id="z7qfodc_66">Qu'est-ce qu&rsquo;un Service Locator ?</span></p><p id="z7qfodc_60">C&rsquo;est un objet central qui :</p><ul class="list _bullet" id="z7qfodc_61"><li class="list__item" id="z7qfodc_67"><p id="z7qfodc_70">Cr&eacute;e et conserve les instances de services (et autres objets partag&eacute;s)</p></li><li class="list__item" id="z7qfodc_68"><p id="z7qfodc_71">Les fournit aux classes qui en ont besoin</p></li><li class="list__item" id="z7qfodc_69"><p id="z7qfodc_72">&Eacute;vite de r&eacute;p&eacute;ter les constructions de d&eacute;pendances dans chaque classe</p></li></ul><aside class="prompt" data-type="tip" data-title="" id="z7qfodc_62"><p id="z7qfodc_73">En gros : plut&ocirc;t que de faire new Service() dans chaque classe, on demande au ServiceLocator de nous le fournir.</p></aside><section class="chapter"><h3 id="le-servicelocator" data-toc="le-servicelocator">Le serviceLocator</h3><div class="code-block" data-lang="java">
+package fr.mvc.app;
+
+import java.util.Scanner;
+import fr.mvc.app.controller.UserController;
+import fr.mvc.app.model.service.UserService;
+import fr.mvc.app.view.UserView;
+
+public class ServiceLocator {
+    private final Scanner scanner;
+
+    private UserController userController;
+    private UserService userService;
+    private UserView userView;
+
+    public ServiceLocator(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public UserController getUserController() {
+        if (userController == null) {
+            userController = new UserController(scanner, getUserService(), getUserView());
+        }
+        return userController;
+    }
+
+    public UserService getUserService() {
+        if (userService == null) {
+            userService = new UserService();
+        }
+        return userService;
+    }
+
+    public UserView getUserView() {
+        if (userView == null) {
+            userView = new UserView(scanner);
+        }
+        return userView;
+    }
+}
+</div></section><section class="chapter"><h3 id="modification-du-routeur" data-toc="modification-du-routeur">Modification du routeur</h3><div class="code-block" data-lang="java">
+package fr.mvc.app;
+
+import java.util.Scanner;
+import fr.mvc.app.controller.UserController;
+
+public class Router {
+    private final Scanner scanner;
+    private final ServiceLocator locator;
+
+    public Router(Scanner scanner) {
+        this.scanner = scanner;
+        this.locator = new ServiceLocator(scanner);
+    }
+
+    public void start() {
+        while (true) {
+            System.out.println(&quot;=== Menu Principal ===&quot;);
+            System.out.println(&quot;1. Liste des utilisateurs&quot;);
+            System.out.println(&quot;0. Quitter&quot;);
+            System.out.print(&quot;Choix : &quot;);
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case &quot;1&quot;:
+                    locator.getUserController().showAllUsers();
+                    break;
+                case &quot;0&quot;:
+                    System.out.println(&quot;À bientôt !&quot;);
+                    return;
+                default:
+                    System.out.println(&quot;Option invalide.&quot;);
+            }
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="exercice" data-toc="exercice">Exercice</h2><p id="z7qfodc_76">Ajouter la gestion des produits &agrave; cette petite application</p></section><div class="last-modified">Last modified: 28 mars 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="006-01-les-fichiers-json.html" class="navigation-links__prev">Les fichiers json</a><a href="008-00-les-bases-de-donnees.html" class="navigation-links__next">Les bases de donn&eacute;es</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.22.0-b725/app.js"></script></body></html>
