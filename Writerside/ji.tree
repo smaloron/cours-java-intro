@@ -28,5 +28,8 @@
     </toc-element>
     <toc-element topic="006-00-Les-fichiers.md"/>
     <toc-element topic="006-01-Les-fichiers-json.md"/>
-    <toc-element topic="007-00-Les-bases-de-donnees.md"/>
+    <toc-element topic="007-00-Le-pattern-MVC.md"/>
+    <toc-element topic="008-00-Les-bases-de-donnees.md">
+        <toc-element topic="008-01-Le-pattern-DAO.md"/>
+    </toc-element>
 </instance-profile>
